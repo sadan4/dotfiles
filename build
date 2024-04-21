@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -e
+
+#Change to change box setup
+BOX="default"
+
+pushd ~/nixos/
+
+if git diff --quiet '*.nix' && [[ !( $1 =~ "*force*") ]] then
+    echo "No changes. Exiting"
+    # notify-send "No changes. Exiting"
+    popd
+    exit 0
+fi
+
+#TODO: Format files
+#format **
+
+#show changes
+git diff -U0 '*.nix'
+
+echo "Starting build"
+
+sudo nixos-rebuild switch --flake .#${BOX} &> build.log || (cat build.log | grep --color error && notify-send "ERROR BUILDING NIX" && exit 1)
+
+current=$(nixos-rebuild list-generations  | grep current)
+
+git commit -am "${current}"
+
+popd
+notify-send -e "good build" --icon=software-update-okay
