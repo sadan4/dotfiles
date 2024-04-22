@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs,... }:
 
 {
+
+ nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Home Manager needs a bit of information about you and the paths it should
+  # nixpkg.config.allowUnfree = true;
   # manage.
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
@@ -20,6 +23,20 @@
   home.packages = [
     pkgs.hello
     pkgs.xsel
+    pkgs.google-chrome
+    pkgs.bitwarden
+    pkgs.spotify
+    pkgs.vscodium
+    pkgs.discord
+    pkgs.kitty
+    pkgs.rofi
+    pkgs.go
+    pkgs.php
+    pkgs.nodejs_21
+    pkgs.temurin-jre-bin-8
+    pkgs.cargo
+    pkgs.lua
+    pkgs.unzip
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

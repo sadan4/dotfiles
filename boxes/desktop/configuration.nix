@@ -74,23 +74,14 @@ services.xserver = {
     "networkmanager"
     "input" "tty"
     ];
-    packages = with pkgs; [
-     google-chrome
-     bitwarden
-     spotify
-     vscodium
-     discord
-    kitty
-    rofi
-    ];
   };
+nixpkgs.config.allowUnfree = true;
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
     "meyer" = import ./home.nix;
     };
   };
-nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
