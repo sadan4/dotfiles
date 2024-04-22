@@ -43,7 +43,7 @@ services.xserver = {
   # servives.desktopManager.plasma6.enable = true;
  # services.desktopManager.plasma6.enable = true;
 
-  
+
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -102,6 +102,8 @@ programs.nix-ld.enable = true;
 programs.nix-ld.libraries = with pkgs; [
 pkgs.curlWithGnuTls
 ];
+
+
 programs.gnupg.agent = {
 enable = true;
 pinentryPackage = pkgs.pinentry-rofi;
@@ -150,4 +152,3 @@ enableSSHSupport = true;
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
-

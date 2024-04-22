@@ -27,7 +27,7 @@
     pkgs.bitwarden
     pkgs.spotify
     pkgs.vscodium
-    pkgs.discord
+    pkgs.vesktop
     pkgs.kitty
     pkgs.rofi
     pkgs.go
