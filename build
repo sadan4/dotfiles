@@ -7,12 +7,12 @@ BOX="default"
 
 pushd ~/nixos/
 
-if git diff --quiet '*.nix' && [[ !( $1 =~ "*force*") ]] then
-    echo "No changes. Exiting"
-    # notify-send "No changes. Exiting"
-    popd
-    exit 0
-fi
+# if git diff --quiet '*.nix' && [[ !( $1 =~ "*force*") ]] then
+#     echo "No changes. Exiting"
+#     # notify-send "No changes. Exiting"
+#     popd
+#     exit 0
+# fi
 
 #TODO: Format files
 #format **
