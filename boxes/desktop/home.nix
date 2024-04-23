@@ -29,7 +29,7 @@
     pkgs.vscodium
     pkgs.vesktop
     pkgs.kitty
-    pkgs.rofi
+    # pkgs.rofi
     pkgs.go
     pkgs.php
     pkgs.nodejs_21
@@ -56,7 +56,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".gitconfig".source = ../../dotfiles/.gitconfig;
+  "testconfigfile".source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/testconfigfile;
+    # ".gitconfig".source = ../../dotfiles/.gitconfig;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -85,7 +86,9 @@
   #  /etc/profiles/per-user/meyer/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+     EDITOR = "nvim";
+     MANPAGER = "nvim +Man!";
+     MANWIDTH = "999";
   };
 
   # Let Home Manager install and manage itself.
