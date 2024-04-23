@@ -9,6 +9,10 @@
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
 
+  programs = {
+    
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -20,26 +24,27 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.hello
-    pkgs.xsel
-    pkgs.google-chrome
-    pkgs.bitwarden
-    pkgs.spotify
-    pkgs.steam
-    pkgs.vscodium
-    pkgs.vesktop
-    pkgs.kitty
+  home.packages = with pkgs;[
+    hello
+    xsel
+    google-chrome
+    bitwarden
+    spotify
+    steam
+    vscodium
+    vesktop
+    kitty
     # pkgs.rofi
-    pkgs.go
-    pkgs.php
-    pkgs.nodejs_21
+    go
+    php
+    nodejs_21
     # pkgs.temurin-jre-bin-8
-    pkgs.cargo
-    pkgs.lua
-    pkgs.unzip
-    pkgs.temurin-bin-8
-    pkgs.protonvpn-gui
+    cargo
+    lua
+    btop
+    unzip
+    temurin-bin-8
+    protonvpn-gui
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -57,8 +62,18 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+  kitty = {
+    # recursive = true;
+    source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/kitty;
+    target = "./.config/kitty";
+  };
+  btop = {
+    recursive = true;
+    source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/btop;
+    target = "./.config/btop";
+  };
   # "testconfigfile".source = ../../dotfiles/testconfigfile;
-    ".gitconfig".source = ../../dotfiles/.gitconfig;
+    # ".gitconfig".source = ../../dotfiles/.gitconfig;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

@@ -1,3 +1,4 @@
+#commit
 {
   description = "Nixos config flake";
 
