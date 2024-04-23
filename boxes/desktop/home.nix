@@ -26,6 +26,7 @@
   # environment.
   home.packages = with pkgs;[
     hello
+    ksshaskpass
     xsel
     google-chrome
     bitwarden
