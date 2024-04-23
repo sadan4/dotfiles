@@ -63,12 +63,12 @@
   # plain files is through 'home.file'.
   home.file = {
   kitty = {
-    recursive = true;
+    #recursive = true;
     source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/kitty;
     target = "./.config/kitty";
   };
   btop = {
-    recursive = true;
+    #recursive = true;
     source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/btop;
     target = "./.config/btop";
   };
