@@ -26,6 +26,7 @@
     pkgs.google-chrome
     pkgs.bitwarden
     pkgs.spotify
+    pkgs.steam
     pkgs.vscodium
     pkgs.vesktop
     pkgs.kitty
