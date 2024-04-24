@@ -31,6 +31,8 @@
   # environment.
   home.packages = with pkgs;[
     tokyo-night-gtk
+    #NODE
+    nodePackages.ts-node
     zsh-powerlevel10k
     zsh-syntax-highlighting
     hello
