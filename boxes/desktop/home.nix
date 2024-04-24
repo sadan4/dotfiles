@@ -28,6 +28,7 @@
     zsh-powerlevel10k
     zsh-syntax-highlighting
     hello
+    gh
     ksshaskpass
     fzf
     xsel
