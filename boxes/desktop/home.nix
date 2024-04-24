@@ -33,6 +33,8 @@
     tokyo-night-gtk
     #NODE
     nodePackages.ts-node
+    nodePackages.prisma
+    #ENDNODE
     zsh-powerlevel10k
     zsh-syntax-highlighting
     hello
