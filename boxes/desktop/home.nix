@@ -38,7 +38,7 @@
     vscodium
     vesktop
     kitty
-    # pkgs.rofi
+    rofi
     go
     php
     nodejs_21
