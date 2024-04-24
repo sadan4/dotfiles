@@ -8,7 +8,6 @@
   # manage.
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
-
   programs = {
 
   };
@@ -38,7 +37,6 @@ prismlauncher
     google-chrome
     bitwarden
     spotify
-    steam
     vscodium
     vesktop
     kitty

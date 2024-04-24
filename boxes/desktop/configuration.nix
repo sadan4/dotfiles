@@ -76,7 +76,12 @@ services.xserver = {
     ];
   shell = pkgs.zsh;
   };
-  programs.zsh.enable = true;
+
+    programs.steam.enable = true;
+    programs.steam.extraCompatPackages = with pkgs; [
+    proton-ge-bin
+    ];
+programs.zsh.enable = true;
   programs.zsh.ohMyZsh.enable = true;
 programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"  + "\n" + "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
 nixpkgs.config.allowUnfree = true;
