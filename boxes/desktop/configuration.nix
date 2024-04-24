@@ -78,7 +78,7 @@ services.xserver = {
   };
   programs.zsh.enable = true;
   programs.zsh.ohMyZsh.enable = true;
-  programs.zsh.ohMyZsh.theme = "${pkgs.zsh-powerlevel10k.out}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 nixpkgs.config.allowUnfree = true;
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
