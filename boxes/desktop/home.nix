@@ -10,7 +10,7 @@
   home.homeDirectory = "/home/meyer";
 
   programs = {
-    
+
   };
 
   # This value determines the Home Manager release that your configuration is
@@ -29,6 +29,7 @@
     zsh-syntax-highlighting
     hello
     gh
+prismlauncher
     ksshaskpass
     fzf
     xsel
