@@ -1,5 +1,11 @@
 { config, pkgs, inputs,... }:
 
+  # let 
+  #   uns = import <nixos-unstable> {
+  #    config = {
+  #    allowUnfree = true;
+  #    };
+  #   }; in 
 {
 
  nixpkgs.config.allowUnfreePredicate = (pkg: true);
@@ -39,6 +45,7 @@ prismlauncher
     spotify
     vscodium
     vesktop
+    # uns.vesktop
     kitty
     rofi
     go
@@ -53,6 +60,7 @@ prismlauncher
     temurin-bin-8
     protonvpn-gui
     # # It is sometimes useful to fine-tune packages, for example, by applying
+    typescript
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
