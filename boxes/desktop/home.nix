@@ -14,10 +14,6 @@
   # manage.
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
-  programs = {
-
-  };
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -34,6 +30,7 @@
     #NODE
     nodePackages.ts-node
     nodePackages.prisma
+    prisma-engines
     #ENDNODE
     zsh-powerlevel10k
     zsh-syntax-highlighting
