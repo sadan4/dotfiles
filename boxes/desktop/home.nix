@@ -28,6 +28,7 @@
     zsh-powerlevel10k
     hello
     ksshaskpass
+    fzf
     xsel
     google-chrome
     bitwarden
