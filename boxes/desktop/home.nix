@@ -43,6 +43,7 @@
     nodejs_21
     # pkgs.temurin-jre-bin-8
     cargo
+    nerdfonts
     lua
     btop
     unzip
