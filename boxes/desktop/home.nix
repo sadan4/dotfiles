@@ -32,6 +32,7 @@
     gh
 prismlauncher
     ksshaskpass
+        libsForQt5.kinit
     fzf
     xsel
     google-chrome
