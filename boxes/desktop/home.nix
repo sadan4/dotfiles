@@ -7,7 +7,7 @@
   #    };
   #   }; in 
 {
-
+programs.zsh.enable = true;
  nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Home Manager needs a bit of information about you and the paths it should
   # nixpkg.config.allowUnfree = true;
