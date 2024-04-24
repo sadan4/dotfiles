@@ -73,6 +73,11 @@
     source = ../../dotfiles/kitty;
     target = "./.config/kitty";
   };
+  gh = {
+    recursive = true;
+    source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/gh;
+    target = "./.config/gh";
+  };
   btop = {
     recursive = true;
     source = ../../dotfiles/btop;
