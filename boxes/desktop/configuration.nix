@@ -86,7 +86,7 @@ nixpkgs.config.allowUnfree = true;
     "meyer" = import ./home.nix;
     };
   };
-
+networking.nameservers = ["10.0.0.97" "1.1.1.1"];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
