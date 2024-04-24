@@ -106,6 +106,7 @@
      EDITOR = "nvim";
      MANPAGER = "nvim +Man!";
      MANWIDTH = "999";
+     SSH_ASKPASS_REQUIRE="prefer";
   };
 
   # Let Home Manager install and manage itself.

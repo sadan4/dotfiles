@@ -74,7 +74,9 @@ services.xserver = {
     "networkmanager"
     "input" "tty"
     ];
+  shell = pkgs.zsh;
   };
+  programs.zsh.enable = true;
 nixpkgs.config.allowUnfree = true;
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
@@ -106,6 +108,7 @@ programs.nix-ld.libraries = with pkgs; [
 pkgs.curlWithGnuTls
 ];
 programs.ssh.startAgent = true;
+programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
 programs.gnupg.agent = {
 enable = true;
