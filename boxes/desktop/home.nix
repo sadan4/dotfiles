@@ -43,6 +43,11 @@ prismlauncher
     ksshaskpass
         libsForQt5.kinit
     fzf
+    #C AND CXX START
+    glib
+    glibc
+    #C AND CXX END
+
     #PYTHONSTART
     python311
     python311Packages.evdev
