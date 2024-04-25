@@ -56,6 +56,10 @@ prismlauncher
     # python311Packages.evdev
     # python311Packages.xlib
     #PYTHONEND
+    #JAVASTART
+    temurin-bin-8
+    temurin-bin-8
+    #JAVAEND
     xsel
     google-chrome
     bitwarden
@@ -74,7 +78,6 @@ prismlauncher
     lua
     btop
     unzip
-    temurin-bin-8
     protonvpn-gui
     typescript
     # # You can also create simple shell scripts directly inside your
@@ -131,6 +134,9 @@ prismlauncher
   #
   #  /etc/profiles/per-user/meyer/etc/profile.d/hm-session-vars.sh
   #
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
   home.sessionVariables = {
      EDITOR = "nvim";
      MANPAGER = "nvim +Man!";
