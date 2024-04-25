@@ -39,7 +39,13 @@ programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel1
     zsh-syntax-highlighting
     hello
     gh
-prismlauncher
+(prismlauncher.override {
+jdks = [
+jdk8
+jdk17
+jdk19
+];
+})
     ksshaskpass
         libsForQt5.kinit
     fzf
@@ -57,7 +63,6 @@ prismlauncher
     # python311Packages.xlib
     #PYTHONEND
     #JAVASTART
-    temurin-bin-8
     temurin-bin-8
     #JAVAEND
     xsel
