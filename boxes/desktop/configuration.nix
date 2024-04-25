@@ -99,9 +99,9 @@ networking.nameservers = ["10.0.0.97"];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    python311
-    python311Packages.evdev
-    python311Packages.xlib
+    # python311
+    # python311Packages.evdev
+    # python311Packages.xlib
     gcc
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
