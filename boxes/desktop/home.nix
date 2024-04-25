@@ -130,6 +130,7 @@ prismlauncher
      MANWIDTH = "999";
      SSH_ASKPASS_REQUIRE="prefer";
      PRISMA_QUERY_ENGINE_BINARY="${pkgs.prisma-engines}/bin/query-engine";
+     PRISMA_SCHEMA_ENGINE_BINARY="${pkgs.prisma-engines}/bin/schema-engine";
   };
 
   # Let Home Manager install and manage itself.
