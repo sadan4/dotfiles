@@ -42,6 +42,10 @@ prismlauncher
     ksshaskpass
         libsForQt5.kinit
     fzf
+    #PYTHONSTART
+    python312
+    python312Packages.evdev
+    #PYTHONEND
     xsel
     google-chrome
     bitwarden
