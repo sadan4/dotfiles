@@ -29,6 +29,7 @@ programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel1
   # environment.
   home.packages = with pkgs;[
     tokyo-night-gtk
+    linuxHeaders
     #NODE
     nodePackages.ts-node
     nodePackages.prisma
