@@ -131,7 +131,7 @@ prismlauncher
      SSH_ASKPASS_REQUIRE="prefer";
      PRISMA_QUERY_ENGINE_BINARY="${pkgs.prisma-engines}/bin/query-engine";
      PRISMA_SCHEMA_ENGINE_BINARY="${pkgs.prisma-engines}/bin/schema-engine";
-     PRISMA_QUERY_ENGINE_LIBRARY="${pkgs.prisma-engines}/bin/lib/libquery_engine.node";
+     PRISMA_QUERY_ENGINE_LIBRARY="${pkgs.prisma-engines}/lib/libquery_engine.node";
   };
 
   # Let Home Manager install and manage itself.
