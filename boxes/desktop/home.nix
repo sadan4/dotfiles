@@ -43,8 +43,9 @@ prismlauncher
         libsForQt5.kinit
     fzf
     #PYTHONSTART
-    python312
-    python312Packages.evdev
+    python311
+    python311Packages.evdev
+    python311Packages.xlib
     #PYTHONEND
     xsel
     google-chrome
