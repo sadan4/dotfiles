@@ -71,6 +71,7 @@ jdk19
     spotify
     vscodium
     vesktop
+    discord
     # uns.vesktop
     kitty
     rofi
@@ -91,6 +92,19 @@ jdk19
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    (pkgs.writeShellScriptBin "installVencord" ''
+    set -e
+    set -x
+     out=$(mktemp)
+    trap 'rm -f "$out"' EXIT
+    curl -sS  https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
+      --output "$out" \
+      --location
+
+      chmod +x "$out"
+
+      sudo $out -location "${pkgs.discord}/opt/discord"
+    '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
