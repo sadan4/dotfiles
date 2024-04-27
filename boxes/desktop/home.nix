@@ -1,11 +1,9 @@
-{ config, pkgs, inputs,... }:
+{ config, pkgs, inputs, ... }:
 
-  # let 
-  #   uns = import <nixos-unstable> {
-  #    config = {
-  #    allowUnfree = true;
-  #    };
-  #   }; in 
+  let 
+cpkg = import ../../customPackages {inherit pkgs;};
+
+in 
 {
 programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
@@ -24,7 +22,6 @@ programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel1
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
@@ -73,6 +70,7 @@ jdk19
     (discord.override {
     withVencord = true;
     })
+    # cpkg.discord
     # uns.vesktop
     kitty
     rofi
