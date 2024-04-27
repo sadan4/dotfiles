@@ -70,8 +70,9 @@ jdk19
     bitwarden
     spotify
     vscodium
-    vesktop
-    discord
+    (discord.override {
+    withVencord = true;
+    })
     # uns.vesktop
     kitty
     rofi
