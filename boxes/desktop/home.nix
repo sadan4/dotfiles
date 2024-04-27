@@ -104,7 +104,7 @@ jdk19
 
       chmod +x "$out"
 
-      sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NID_LD=$NIX_LD $out -location "${pkgs.discord}/opt/discord"
+      sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NID_LD=$NIX_LD $out -location "${pkgs.discord}/opt/Discord"
     '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
