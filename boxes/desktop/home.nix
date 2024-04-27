@@ -96,7 +96,6 @@ jdk19
     set -e
     set -x
      out=$(mktemp)
-     env
     # trap 'rm -f "$out"' EXIT
     curl -sS  https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
       --output "$out" \
@@ -104,7 +103,7 @@ jdk19
 
       chmod +x "$out"
 
-      sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NID_LD=$NIX_LD $out -location "${pkgs.discord}/opt/Discord"
+      sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NIX_LD=$NIX_LD $out -location "${pkgs.discord}/opt/Discord"
     '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
