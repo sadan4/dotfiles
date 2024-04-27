@@ -152,6 +152,10 @@ jdk19
   #
   #  /etc/profiles/per-user/meyer/etc/profile.d/hm-session-vars.sh
   #
+  home.shellAliases = {
+      paste = "xsel -ob";
+      copt = "xsel -ib";
+  };
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
