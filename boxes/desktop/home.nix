@@ -96,7 +96,7 @@ jdk19
     set -e
     set -x
      out=$(mktemp)
-    trap 'rm -f "$out"' EXIT
+    # trap 'rm -f "$out"' EXIT
     curl -sS  https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
       --output "$out" \
       --location
