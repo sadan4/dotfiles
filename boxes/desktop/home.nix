@@ -67,11 +67,8 @@ jdk19
     bitwarden
     spotify
     vscodium
-    (discord.override {
-    withVencord = true;
-    })
-    # cpkg.discord
-    # uns.vesktop
+    pulseaudioFull
+    cpkg.vesktop
     kitty
     rofi
     go
