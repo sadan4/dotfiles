@@ -101,6 +101,7 @@ networking.nameservers = ["10.0.0.97"];
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   ddcutil
+  i2c-tools
     # python311
     # python311Packages.evdev
     # python311Packages.xlib
