@@ -16,6 +16,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+  boot.kernelModules = ["i2c_dev"];
 hardware.bluetooth.enable = true;
 
    networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
