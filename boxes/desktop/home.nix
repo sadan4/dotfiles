@@ -25,6 +25,7 @@ programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel1
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
+  obs-studio
     tokyo-night-gtk
     linuxHeaders
     #NODE
