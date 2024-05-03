@@ -121,6 +121,11 @@ in
       source = ../../dotfiles/btop;
       target = "./.config/btop";
     };
+    nvim = {
+      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/nvim";
+      target = "./.config/nvim";
+    };
     # "testconfigfile".source = ../../dotfiles/testconfigfile;
     # ".gitconfig".source = ../../dotfiles/.gitconfig;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
