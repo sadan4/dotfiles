@@ -7,7 +7,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -16,16 +17,16 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-  boot.kernelModules = ["i2c_dev"];
-hardware.bluetooth.enable = true;
+  boot.kernelModules = [ "i2c_dev" ];
+  hardware.bluetooth.enable = true;
 
-   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
+  networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-   time.timeZone = "America/New_York";
+  time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -34,16 +35,16 @@ hardware.bluetooth.enable = true;
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
-services.xserver = {
- enable = true;
- displayManager.sddm = {
- enable = true;
- };
- desktopManager.plasma6.enable = true;
-};
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+    };
+    desktopManager.plasma6.enable = true;
+  };
   # Enable the X11 windowing system.
   # servives.desktopManager.plasma6.enable = true;
- # services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
 
 
@@ -53,14 +54,14 @@ services.xserver = {
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable sound.
   sound.enable = true;
   services.pipewire = {
-  enable = true;
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  pulse.enable = true;
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
   # hardware.pulseaudio.enable = true;
 
@@ -71,38 +72,41 @@ services.xserver = {
   users.users.meyer = {
     isNormalUser = true;
     extraGroups = [
-    "wheel"  # Enable ‘sudo’ for the user.
-    "audio" "sound" "video"
-    "networkmanager"
-    "input" "tty"
+      "wheel" # Enable ‘sudo’ for the user.
+      "audio"
+      "sound"
+      "video"
+      "networkmanager"
+      "input"
+      "tty"
     ];
-  shell = pkgs.zsh;
+    shell = pkgs.zsh;
   };
 
 
 
-programs.zsh.enable = true;
-    programs.steam.enable = true;
-    programs.steam.extraCompatPackages = with pkgs; [
+  programs.zsh.enable = true;
+  programs.steam.enable = true;
+  programs.steam.extraCompatPackages = with pkgs; [
     proton-ge-bin
-    ];
-nixpkgs.config.allowUnfree = true;
+  ];
+  nixpkgs.config.allowUnfree = true;
 
 
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
-    "meyer" = import ./home.nix;
+      "meyer" = import ./home.nix;
     };
   };
-# networking.nameservers = ["10.0.0.97" "1.1.1.1"];
-networking.nameservers = ["10.0.0.97"];
+  # networking.nameservers = ["10.0.0.97" "1.1.1.1"];
+  networking.nameservers = [ "10.0.0.97" ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  ddcutil
-  i2c-tools
+    ddcutil
+    i2c-tools
     # python311
     # python311Packages.evdev
     # python311Packages.xlib
@@ -120,18 +124,18 @@ networking.nameservers = ["10.0.0.97"];
     libnotify
     file
   ];
-#LD fix
-programs.nix-ld.enable = true;
-programs.nix-ld.libraries = with pkgs; [
-pkgs.curlWithGnuTls
-];
-programs.ssh.startAgent = true;
-programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  #LD fix
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    pkgs.curlWithGnuTls
+  ];
+  programs.ssh.startAgent = true;
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
-programs.gnupg.agent = {
-enable = true;
-pinentryPackage = pkgs.pinentry-gnome3;
-};
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

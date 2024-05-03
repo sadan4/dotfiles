@@ -1,17 +1,67 @@
-{ pname, version, src, meta, binaryName, desktopName, autoPatchelfHook
-, makeDesktopItem, lib, stdenv, wrapGAppsHook, makeShellWrapper, alsa-lib, at-spi2-atk
-, at-spi2-core, atk, cairo, cups, dbus, expat, fontconfig, freetype, gdk-pixbuf
-, glib, gtk3, libcxx, libdrm, libglvnd, libnotify, libpulseaudio, libuuid, libX11
-, libXScrnSaver, libXcomposite, libXcursor, libXdamage, libXext, libXfixes
-, libXi, libXrandr, libXrender, libXtst, libxcb, libxshmfence, mesa, nspr, nss
-, pango, systemd, libappindicator-gtk3, libdbusmenu, writeScript, python3, runCommand
+{ pname
+, version
+, src
+, meta
+, binaryName
+, desktopName
+, autoPatchelfHook
+, makeDesktopItem
+, lib
+, stdenv
+, wrapGAppsHook
+, makeShellWrapper
+, alsa-lib
+, at-spi2-atk
+, at-spi2-core
+, atk
+, cairo
+, cups
+, dbus
+, expat
+, fontconfig
+, freetype
+, gdk-pixbuf
+, glib
+, gtk3
+, libcxx
+, libdrm
+, libglvnd
+, libnotify
+, libpulseaudio
+, libuuid
+, libX11
+, libXScrnSaver
+, libXcomposite
+, libXcursor
+, libXdamage
+, libXext
+, libXfixes
+, libXi
+, libXrandr
+, libXrender
+, libXtst
+, libxcb
+, libxshmfence
+, mesa
+, nspr
+, nss
+, pango
+, systemd
+, libappindicator-gtk3
+, libdbusmenu
+, writeScript
+, python3
+, runCommand
 , libunity
 , speechd
 , wayland
 , branch
-, withOpenASAR ? false, openasar
-, withVencord ? true, vencord
-, withTTS ? true }:
+, withOpenASAR ? false
+, openasar
+, withVencord ? true
+, vencord
+, withTTS ? true
+}:
 
 let
   disableBreakingUpdates = runCommand "disable-breaking-updates.py"
@@ -130,22 +180,22 @@ stdenv.mkDerivation rec {
         patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
             $out/opt/vencordInstaller
 
-        VENCORD_USER_DATA_DIR="/home/meyer/.config/Vencord/dist" $out/opt/vencordInstaller -location $out/opt/Discord -install 
+        VENCORD_USER_DATA_DIR="/home/meyer/.config/Vencord/dist" $out/opt/vencordInstaller -location $out/opt/Discord -install
     runHook postInstall
   '';
 
   postInstall =
-  ''
-    # set -x
-    # set -e
-    #
-    #     cp "${./installer}" $out/bin/vencordInstaller
-    #     
-    #     chmod +x $out/bin/vencordInstaller
-    #     patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
-    #         $out/bin/vencordInstaller
-    #     $out/bin/vencordInstaller -location $out/opt/Discord -install 
-  '';
+    ''
+      # set -x
+      # set -e
+      #
+      #     cp "${./installer}" $out/bin/vencordInstaller
+      #
+      #     chmod +x $out/bin/vencordInstaller
+      #     patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+      #         $out/bin/vencordInstaller
+      #     $out/bin/vencordInstaller -location $out/opt/Discord -install
+    '';
 
   desktopItem = makeDesktopItem {
     name = pname;

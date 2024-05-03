@@ -1,14 +1,14 @@
 { config, pkgs, inputs, ... }:
 
-  let 
-cpkg = import ../../customPackages {inherit pkgs;};
+let
+  cpkg = import ../../customPackages { inherit pkgs; };
 
-in 
+in
 {
-programs.zsh.enable = true;
+  programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
-programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"  + "\n" + "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" + "\n" + "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
- nixpkgs.config.allowUnfreePredicate = (pkg: true);
+  programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme" + "\n" + "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" + "\n" + "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Home Manager needs a bit of information about you and the paths it should
   # nixpkg.config.allowUnfree = true;
   # manage.
@@ -25,7 +25,7 @@ programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel1
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
-  obs-studio
+    obs-studio
     tokyo-night-gtk
     linuxHeaders
     #NODE
@@ -37,15 +37,15 @@ programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel1
     zsh-syntax-highlighting
     hello
     gh
-(prismlauncher.override {
-jdks = [
-jdk8
-jdk17
-jdk19
-];
-})
+    (prismlauncher.override {
+      jdks = [
+        jdk8
+        jdk17
+        jdk19
+      ];
+    })
     ksshaskpass
-        libsForQt5.kinit
+    libsForQt5.kinit
     fzf
     #C AND CXX START
     glib
@@ -53,9 +53,9 @@ jdk19
     #C AND CXX END
 
     #PYTHONSTART
-    (python39.withPackages(ps: with ps;[
-    evdev
-    xlib
+    (python39.withPackages (ps: with ps;[
+      evdev
+      xlib
     ]))
     # python311Packages.evdev
     # python311Packages.xlib
@@ -90,38 +90,38 @@ jdk19
     #   echo "Hello, ${config.home.username}!"
     # '')
     (pkgs.writeShellScriptBin "installVencord" ''
-    set -e
-    set -x
-     out=$(mktemp)
-    # trap 'rm -f "$out"' EXIT
-    curl -sS  https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
-      --output "$out" \
-      --location
+      set -e
+      set -x
+       out=$(mktemp)
+      # trap 'rm -f "$out"' EXIT
+      curl -sS  https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
+        --output "$out" \
+        --location
 
-      chmod +x "$out"
+        chmod +x "$out"
 
-      sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NIX_LD=$NIX_LD $out -location "${pkgs.discord}/opt/Discord"
+        sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NIX_LD=$NIX_LD $out -location "${pkgs.discord}/opt/Discord"
     '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-  kitty = {
-    recursive = true;
-    source = ../../dotfiles/kitty;
-    target = "./.config/kitty";
-  };
-  gh = {
-    recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/gh";
-    target = "./.config/gh";
-  };
-  btop = {
-    recursive = true;
-    source = ../../dotfiles/btop;
-    target = "./.config/btop";
-  };
-  # "testconfigfile".source = ../../dotfiles/testconfigfile;
+    kitty = {
+      recursive = true;
+      source = ../../dotfiles/kitty;
+      target = "./.config/kitty";
+    };
+    gh = {
+      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/gh";
+      target = "./.config/gh";
+    };
+    btop = {
+      recursive = true;
+      source = ../../dotfiles/btop;
+      target = "./.config/btop";
+    };
+    # "testconfigfile".source = ../../dotfiles/testconfigfile;
     # ".gitconfig".source = ../../dotfiles/.gitconfig;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -151,20 +151,20 @@ jdk19
   #  /etc/profiles/per-user/meyer/etc/profile.d/hm-session-vars.sh
   #
   home.shellAliases = {
-      paste = "xsel -ob";
-      copt = "xsel -ib";
+    paste = "xsel -ob";
+    copt = "xsel -ib";
   };
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
   home.sessionVariables = {
-     EDITOR = "nvim";
-     MANPAGER = "nvim +Man!";
-     MANWIDTH = "999";
-     SSH_ASKPASS_REQUIRE="prefer";
-     PRISMA_QUERY_ENGINE_BINARY="${pkgs.prisma-engines}/bin/query-engine";
-     PRISMA_SCHEMA_ENGINE_BINARY="${pkgs.prisma-engines}/bin/schema-engine";
-     PRISMA_QUERY_ENGINE_LIBRARY="${pkgs.prisma-engines}/lib/libquery_engine.node";
+    EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
+    MANWIDTH = "999";
+    SSH_ASKPASS_REQUIRE = "prefer";
+    PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
+    PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
+    PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
   };
 
   # Let Home Manager install and manage itself.
