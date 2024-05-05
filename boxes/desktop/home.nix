@@ -21,8 +21,8 @@ in
         enable = true;
         settings.General.showDesktopNotification = false;
         settings.General.startupLaunch = true;
-        settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
-        settings.Shortcuts.TYPE_COPY = "Return";
+        # settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
+        # settings.Shortcuts.TYPE_COPY = "Return";
     };
   };
   # This value determines the Home Manager release that your configuration is
