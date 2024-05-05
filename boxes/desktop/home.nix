@@ -14,6 +14,17 @@ in
   # manage.
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
+  
+
+  services = {
+    flameshot = {
+        enable = true;
+        settings.General.showDesktopNotificaation = false;
+        settings.General.startupLaunch = true;
+        settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
+        settings.Shortcuts.TYPE_COPY = "Return";
+    };
+  };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -30,6 +41,7 @@ in
     linuxHeaders
     #NODE
     nodePackages.ts-node
+    nodePackages.pnpm
     nodePackages.prisma
     prisma-engines
     #ENDNODE
