@@ -20,7 +20,7 @@ in
     flameshot = {
         enable = true;
         settings.General.showDesktopNotification = false;
-        settings.General.startupLaunch = true;
+        settings.General.startupLaunch = false;
         # settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
         # settings.Shortcuts.TYPE_COPY = "Return";
     };
