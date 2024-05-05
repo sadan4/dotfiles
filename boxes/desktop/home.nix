@@ -19,7 +19,7 @@ in
   services = {
     flameshot = {
         enable = true;
-        settings.General.showDesktopNotificaation = false;
+        settings.General.showDesktopNotification = false;
         settings.General.startupLaunch = true;
         settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
         settings.Shortcuts.TYPE_COPY = "Return";
