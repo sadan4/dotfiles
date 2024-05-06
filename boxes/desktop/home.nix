@@ -37,6 +37,7 @@ in
   # environment.
   home.packages = with pkgs;[
     protontricks
+    thunderbird
     obs-studio
     tokyo-night-gtk
     linuxHeaders
