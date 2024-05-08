@@ -43,6 +43,8 @@ in
   home.packages = with pkgs;[
     protontricks
     thunderbird
+    vlc
+    jellyfin-web
     obs-studio
     tokyo-night-gtk
     linuxHeaders
