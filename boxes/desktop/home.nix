@@ -102,25 +102,16 @@ in
     unzip
     protonvpn-gui
     typescript
+    #MASON
+    nodePackages_latest.typescript-language-server
+    #ENDMASON
     # # You can also create simple shell scripts directly inside your
+
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    (pkgs.writeShellScriptBin "installVencord" ''
-      set -e
-      set -x
-       out=$(mktemp)
-      # trap 'rm -f "$out"' EXIT
-      curl -sS  https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux \
-        --output "$out" \
-        --location
-
-        chmod +x "$out"
-
-        sudo NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH NIX_LD=$NIX_LD $out -location "${pkgs.discord}/opt/Discord"
-    '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
