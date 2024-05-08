@@ -81,6 +81,7 @@ in
     #PYTHONEND
     #JAVASTART
     temurin-bin-8
+    pkgs.discord
     #JAVAEND
     xsel
     google-chrome
