@@ -1,33 +1,39 @@
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   cpkg = import ../../customPackages { inherit pkgs; };
-
+  zshInitArgs = [
+    "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+    "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
+    "setopt globstarshort"
+  ];
+  _z1 = lib.concatMapStrings (x: x + "\n") zshInitArgs;
 in
 {
   programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
-  programs.zsh.initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme" + "\n" + "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" + "\n" + "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
+  programs.zsh.initExtra = builtins.trace _z1 _z1;
 
-    programs.zoxide.enable = true;
-    programs.zoxide.enableZshIntegration = true;
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
 
-  
+
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Home Manager needs a bit of information about you and the paths it should
   # nixpkg.config.allowUnfree = true;
   # manage.
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
-  
+
 
   services = {
     flameshot = {
-        enable = true;
-        settings.General.showDesktopNotification = false;
-        settings.General.startupLaunch = false;
-        # settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
-        # settings.Shortcuts.TYPE_COPY = "Return";
+      enable = true;
+      settings.General.showDesktopNotification = false;
+      settings.General.startupLaunch = false;
+      # settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
+      # settings.Shortcuts.TYPE_COPY = "Return";
     };
   };
   # This value determines the Home Manager release that your configuration is
