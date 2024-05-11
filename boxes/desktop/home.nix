@@ -55,6 +55,7 @@ in
     tokyo-night-gtk
     linuxHeaders
     #NODE
+    nodePackages.nodemon
     nodePackages.ts-node
     nodePackages.pnpm
     nodePackages.prisma
