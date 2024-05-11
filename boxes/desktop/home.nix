@@ -121,15 +121,6 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    (pkgs.writeShellScriptBin "__eslint_default_config" ''
-      if [[ -e ./.eslintrc.json ]]; then
-          eslint_d $@
-          exit $?
-      else
-          eslint_d --config /home/${config.home.username}/.config/.eslintrc.json $@
-          exit $?
-          fi
-    '')
     (pkgs.writeShellScriptBin "install_eslint" ''
       set -x
       cp /home/${config.home.username}/.config/.eslintrc.json .
