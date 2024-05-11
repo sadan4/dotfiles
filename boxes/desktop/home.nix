@@ -90,10 +90,12 @@ in
     #JAVASTART
     temurin-bin-8
     pkgs.discord
+
     #JAVAEND
     xsel
     google-chrome
     bitwarden
+    eslint_d
     spotify
     vscodium
     pulseaudioFull
@@ -192,7 +194,8 @@ in
   #
   home.shellAliases = {
     paste = "xsel -ob";
-    copt = "xsel -ib";
+    copy = "xsel -ib";
+    b = "/home/${config.home.username}/nixos/build";
   };
   home.sessionPath = [
     "$HOME/.local/bin"
