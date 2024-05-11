@@ -122,15 +122,23 @@ in
     #   echo "Hello, ${config.home.username}!"
     # '')
     (pkgs.writeShellScriptBin "__eslint_default_config" ''
-
-    if [[ -e ./.eslintrc.json ]]; then
-        eslint_d $@
-        exit $?
-    else
-        eslint_d --config /home/${config.home.username}/.config/.eslintrc.json $@ 
-        exit $?
-        fi
-
+      if [[ -e ./.eslintrc.json ]]; then
+          eslint_d $@
+          exit $?
+      else
+          eslint_d --config /home/${config.home.username}/.config/.eslintrc.json $@
+          exit $?
+          fi
+    '')
+    (pkgs.writeShellScriptBin "install_eslint" ''
+      pkgs=("@stylistic/eslint-plugin" "@typescript-eslint/eslint-plugin")
+      if [[ -z $1 ]]; then
+          echo please specify npm, pnpm, or yarn
+          exit 1
+      fi
+      for i in "''${pkgs[@]}"; do
+        `$1 i $i`
+      done
     '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -142,8 +150,8 @@ in
       target = "./.config/kitty";
     };
     eslint_d_config = {
-    source = ../../dotfiles/eslintrc.json;
-    target = "./.config/.eslintrc.json";
+      source = ../../dotfiles/eslintrc.json;
+      target = "./.config/.eslintrc.json";
     };
     gh = {
       recursive = true;
