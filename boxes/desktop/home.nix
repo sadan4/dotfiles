@@ -123,8 +123,14 @@ in
     # '')
     (pkgs.writeShellScriptBin "__eslint_default_config" ''
 
-   echo $(pwd)
-   exit 0
+    if [[ -e ./.eslintrc.json ]]; then
+        eslint_d $@
+        exit $?
+    else
+        eslint_d --config /home/${config.home.username}/.config/.eslintrc.json $@ 
+        exit $?
+        fi
+
     '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -134,6 +140,10 @@ in
       recursive = true;
       source = ../../dotfiles/kitty;
       target = "./.config/kitty";
+    };
+    eslint_d_config = {
+    source = ../../dotfiles/eslintrc.json;
+    target = "./.config/.eslintrc.json";
     };
     gh = {
       recursive = true;
