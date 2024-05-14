@@ -126,6 +126,11 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    (pkgs.writeShellScriptBin "git_fetchAll" ''
+    git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "''${remote#origin/}" "$remote"; done
+git fetch --all
+git pull --all
+    '')
     (pkgs.writeShellScriptBin "install_eslint" ''
       set -x
       cp /home/${config.home.username}/.config/.eslintrc.json .
@@ -197,6 +202,7 @@ in
   #
   home.shellAliases = {
     paste = "xsel -ob";
+    lg = "lazygit";
     copy = "xsel -ib";
     b = "/home/${config.home.username}/nixos/build";
   };
