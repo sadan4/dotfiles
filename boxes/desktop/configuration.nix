@@ -19,7 +19,7 @@
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.kernelModules = [ "i2c_dev" ];
   hardware.bluetooth.enable = true;
-
+       services.tailscale.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
