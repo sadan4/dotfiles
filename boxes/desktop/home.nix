@@ -65,9 +65,11 @@ in
     nodePackages.pnpm
     nodePackages.prisma
     prisma-engines
+    nodePackages.live-server
     #ENDNODE
     zsh-powerlevel10k
     zsh-syntax-highlighting
+
     hello
     gh
     (prismlauncher.override {
