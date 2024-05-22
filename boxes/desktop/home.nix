@@ -51,6 +51,7 @@ in
     clang
     gnumake
     jq
+    gradle
     lazygit
     protontricks
     thunderbird
