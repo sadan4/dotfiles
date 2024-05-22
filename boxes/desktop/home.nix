@@ -14,7 +14,8 @@ in
   programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.initExtra = builtins.trace _z1 _z1;
-
+    programs.java.enable = true;
+    programs.java.package = pkgs.temurin-bin-17;
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
 
@@ -98,7 +99,6 @@ in
     # python311Packages.xlib
     #PYTHONEND
     #JAVASTART
-    temurin-bin-17
     pkgs.discord
 
     #JAVAEND
