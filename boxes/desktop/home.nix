@@ -98,7 +98,7 @@ in
     # python311Packages.xlib
     #PYTHONEND
     #JAVASTART
-    temurin-bin-8
+    temurin-bin-17
     pkgs.discord
 
     #JAVAEND
