@@ -21,7 +21,7 @@
   boot.extraModulePackages = with pkgs.linuxKernel.packages.linux_zen; [
     xpadneo
   ];
-  boot.kernelModules = [ "i2c_dev" ];
+  boot.kernelModules = [ "i2c_dev" "xpadneo"];
   hardware.bluetooth.enable = true;
        services.tailscale.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
