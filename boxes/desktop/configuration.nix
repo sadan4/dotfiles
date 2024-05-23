@@ -18,10 +18,8 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-  boot.extraModulePackages = with pkgs.linuxKernel.packages.linux_zen; [
-    xpadneo
-  ];
-  boot.kernelModules = [ "i2c_dev" "xpadneo"];
+  hardware.i2c.enable = true;
+  hardware.xpadneo.enable = true;
   hardware.bluetooth.enable = true;
        services.tailscale.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
