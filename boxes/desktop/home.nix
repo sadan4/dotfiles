@@ -94,6 +94,7 @@ in
     #PYTHONSTART
     (python39.withPackages (ps: with ps;[
       evdev
+      setuptools
       xlib
     ]))
     # python311Packages.evdev
