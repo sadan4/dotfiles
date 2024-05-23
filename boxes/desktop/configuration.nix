@@ -14,9 +14,13 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+  boot.extraModulePackages = with pkgs.linuxKernel.packages.linux_zen; [
+    xpadneo
+  ];
   boot.kernelModules = [ "i2c_dev" ];
   hardware.bluetooth.enable = true;
        services.tailscale.enable = true;
