@@ -14,8 +14,8 @@ in
   programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.initExtra = builtins.trace _z1 _z1;
-    programs.java.enable = true;
-    programs.java.package = pkgs.temurin-bin-17;
+  programs.java.enable = true;
+  programs.java.package = pkgs.temurin-bin-17;
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
 
@@ -48,6 +48,7 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
+    jetbrains.pycharm-community
     jetbrains.idea-community-bin
     tailscale
     clang
