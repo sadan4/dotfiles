@@ -48,6 +48,7 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs;[
+    pavucontrol
     jetbrains.pycharm-community
     jetbrains.idea-community-bin
     tailscale
@@ -153,8 +154,8 @@ in
       done
     '')
     (pkgs.writeShellScriptBin "math" ''
-    set -e
-    python3 -c "print($*)"
+      set -e
+      python3 -c "print($*)"
     '')
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
