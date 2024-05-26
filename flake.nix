@@ -18,7 +18,7 @@
     # in
     {
       nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./boxes/desktop/configuration.nix
