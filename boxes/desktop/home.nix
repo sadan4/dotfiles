@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
+  files = import ../../common/files.nix { inherit config; };
   cpkg = import ../../customPackages { inherit pkgs; };
   zshInitArgs = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
@@ -161,44 +162,7 @@ in
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    kitty = {
-      recursive = true;
-      source = ../../dotfiles/kitty;
-      target = "./.config/kitty";
-    };
-    eslint_d_config = {
-      source = ../../dotfiles/eslintrc.json;
-      target = "./.config/.eslintrc.json";
-    };
-    gh = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/gh";
-      target = "./.config/gh";
-    };
-    btop = {
-      recursive = true;
-      source = ../../dotfiles/btop;
-      target = "./.config/btop";
-    };
-    nvim = {
-      recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/nvim";
-      target = "./.config/nvim";
-    };
-    # "testconfigfile".source = ../../dotfiles/testconfigfile;
-    # ".gitconfig".source = ../../dotfiles/.gitconfig;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
+  home.file = files;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
