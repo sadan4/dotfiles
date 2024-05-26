@@ -2,7 +2,9 @@
 
 let
   files = import ../../common/files.nix { inherit config; };
-  cpkg = import ../../customPackages { inherit pkgs; };
+  shell = import ../../common/shell.nix {inherit config pkgs;};
+  p = import ../../common/pkgs.nix {inherit pkgs config;};
+  _p1 = p.dev ++ p.gui ++ p.general ++ p.scripts ++ p.gaming;
   zshInitArgs = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
     "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -10,6 +12,7 @@ let
     "setopt globstarshort"
   ];
   _z1 = lib.concatMapStrings (x: x + "\n") zshInitArgs;
+    
 in
 {
   programs.zsh.enable = true;
@@ -48,118 +51,7 @@ in
   home.stateVersion = "23.11"; # Please read the comment before changing.
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;[
-    lutris
-    pavucontrol
-    jetbrains.pycharm-community
-    jetbrains.idea-community-bin
-    tailscale
-    clang
-    gnumake
-    jq
-    gradle
-    lazygit
-    protontricks
-    thunderbird
-    vlc
-    jellyfin-web
-    obs-studio
-    tokyo-night-gtk
-    linuxHeaders
-    #NODE
-    nodePackages.nodemon
-    nodePackages.ts-node
-    nodePackages.pnpm
-    nodePackages.prisma
-    prisma-engines
-    nodePackages.live-server
-    #ENDNODE
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
-
-    hello
-    gh
-    (prismlauncher.override {
-      jdks = [
-        jdk8
-        jdk17
-        jdk19
-      ];
-    })
-    ksshaskpass
-    libsForQt5.kinit
-    fzf
-    #C AND CXX START
-    glib
-    glibc
-    #C AND CXX END
-
-    #PYTHONSTART
-    (python39.withPackages (ps: with ps;[
-      evdev
-      setuptools
-      xlib
-    ]))
-    # python311Packages.evdev
-    # python311Packages.xlib
-    #PYTHONEND
-    #JAVASTART
-    pkgs.discord
-
-    #JAVAEND
-    xsel
-    google-chrome
-    bitwarden
-    eslint_d
-    spotify
-    vscodium
-    pulseaudioFull
-    cpkg.vesktop
-    kitty
-    rofi
-    go
-    php
-    nodejs_21
-    # pkgs.temurin-jre-bin-8
-    cargo
-    nerdfonts
-    lua
-    btop
-    unzip
-    protonvpn-gui
-    typescript
-    #MASON
-    nodePackages_latest.typescript-language-server
-    #ENDMASON
-    # # You can also create simple shell scripts directly inside your
-
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-    (pkgs.writeShellScriptBin "git_fetchAll" ''
-          git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "''${remote#origin/}" "$remote"; done
-      git fetch --all
-      git pull --all
-    '')
-    (pkgs.writeShellScriptBin "install_eslint" ''
-      set -x
-      cp /home/${config.home.username}/.config/.eslintrc.json .
-      pkgs=("@stylistic/eslint-plugin" "@typescript-eslint/eslint-plugin")
-      if [[ -z $1 ]]; then
-          echo please specify npm, pnpm, or yarn
-          exit 1
-      fi
-      for i in "''${pkgs[@]}"; do
-        `$1 i -D $i`
-      done
-    '')
-    (pkgs.writeShellScriptBin "math" ''
-      set -e
-      python3 -c "print($*)"
-    '')
-  ];
+  home.packages = _p1;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = files;
@@ -179,24 +71,9 @@ in
   #
   #  /etc/profiles/per-user/meyer/etc/profile.d/hm-session-vars.sh
   #
-  home.shellAliases = {
-    paste = "xsel -ob";
-    lg = "lazygit";
-    copy = "xsel -ib";
-    b = "/home/${config.home.username}/nixos/build";
-  };
-  home.sessionPath = [
-    "$HOME/.local/bin"
-  ];
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    MANPAGER = "nvim +Man!";
-    MANWIDTH = "999";
-    SSH_ASKPASS_REQUIRE = "prefer";
-    PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
-    PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
-    PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
-  };
+  home.shellAliases = shell.dev.aliases;
+  home.sessionPath = shell.dev.path;
+  home.sessionVariables = shell.dev.env;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
