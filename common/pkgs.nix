@@ -1,6 +1,8 @@
-{ pkgs, config }:let
+{ pkgs, config }:
+let
   cpkg = import ../customPackages { inherit pkgs; };
-in {
+in
+{
   dev = with pkgs;[
     nodePackages_latest.typescript-language-server
     cargo
@@ -54,6 +56,7 @@ in {
     libsForQt5.kinit
   ];
   general = with pkgs; [
+    sops
     fzf
     zsh-powerlevel10k
     zsh-syntax-highlighting
