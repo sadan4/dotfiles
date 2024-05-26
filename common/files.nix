@@ -23,6 +23,11 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/nvim";
       target = "./.config/nvim";
     };
+    p10k = {
+        recursive = true;
+        source = ../dotfiles/.p10k.zsh;
+        target = ".p10k.zsh";
+    };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
