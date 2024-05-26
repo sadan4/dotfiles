@@ -2,8 +2,8 @@
 
 let
   files = import ../../common/files.nix { inherit config; };
-  shell = import ../../common/shell.nix {inherit config pkgs;};
-  p = import ../../common/pkgs.nix {inherit pkgs config;};
+  shell = import ../../common/shell.nix { inherit config pkgs; };
+  p = import ../../common/pkgs.nix { inherit pkgs config; };
   _p1 = p.dev ++ p.gui ++ p.general ++ p.scripts ++ p.gaming;
   zshInitArgs = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
@@ -12,7 +12,7 @@ let
     "setopt globstarshort"
   ];
   _z1 = lib.concatMapStrings (x: x + "\n") zshInitArgs;
-    
+
 in
 {
   programs.zsh.enable = true;
@@ -22,7 +22,20 @@ in
   programs.java.package = pkgs.temurin-bin-17;
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
-
+  programs.git.enable = true;
+  programs.git.userName = "sadan";
+  programs.git.userEmail = "117494111+sadan4@users.noreply.github.com";
+  programs.git.extraConfig = {
+    user = {
+      signingkey = "F1A53BC2CC6565EADD7B644FB2E2F4A5161A7800";
+    };
+    commit.gpgsign = true;
+    core.autocrlf = "input";
+    pull.rebase = true;
+    push.autoSetupRemote = true;
+    init.defaultBranch = "main";
+    rerere.enabled = true;
+  };
 
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Home Manager needs a bit of information about you and the paths it should
