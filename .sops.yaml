@@ -1,7 +1,11 @@
 keys:
   - &desktop age1xsuyaeehzv4ar4f6xpc6tfp9pttzjf7qdyl3x2tj42vjc8szlqpq834e3d
+  - &laptop age1tq8zaaqe8t4u2jgyf7usngtzyql0ymyxq6hntmu04vt5ypwhxensmzynhl
+  - &win10 age1cz006hex596lmj88kkhrkvq89luqk59hxuq83q4kvhz82ltwpe4ss8gm3t
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
       - age:
         - *desktop
+        - *laptop
+        - *win10
