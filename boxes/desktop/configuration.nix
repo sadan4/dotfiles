@@ -2,7 +2,6 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-# { config, lib, pkgs, inputs, ... }:
 { config, lib, pkgs, inputs, ... }:
 
 {
@@ -10,8 +9,32 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.sops-nix.nixosModules.sops
     ];
-
+  sops.defaultSopsFile = ../../secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/meyer/.config/sops/age/keys.txt";
+  sops.secrets.password.neededForUsers = true;
+  users.users.meyer = {
+    isNormalUser = true;
+    hashedPasswordFile = config.sops.secrets.password.path;
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "audio"
+      "sound"
+      "video"
+      "networkmanager"
+      "input"
+      "tty"
+    ];
+    shell = pkgs.zsh;
+  };
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "meyer" = import ./home.nix;
+    };
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -21,7 +44,7 @@
   hardware.i2c.enable = true;
   hardware.xpadneo.enable = true;
   hardware.bluetooth.enable = true;
-       services.tailscale.enable = true;
+  services.tailscale.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -71,19 +94,6 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.meyer = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
-      "audio"
-      "sound"
-      "video"
-      "networkmanager"
-      "input"
-      "tty"
-    ];
-    shell = pkgs.zsh;
-  };
 
 
 
@@ -96,12 +106,6 @@
 
 
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "meyer" = import ./home.nix;
-    };
-  };
   # networking.nameservers = ["10.0.0.97" "1.1.1.1"];
   networking.nameservers = [ "10.0.0.97" ];
   # List packages installed in system profile. To search, run:
