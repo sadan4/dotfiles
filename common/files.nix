@@ -28,6 +28,11 @@
         source = ../dotfiles/.p10k.zsh;
         target = ".p10k.zsh";
     };
+    rofi = {
+    recursive = true;
+    source = ../dotfiles/rofi;
+    target = "./.config/rofi";
+    };
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
