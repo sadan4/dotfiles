@@ -27,6 +27,7 @@ in
   programs.git.userEmail = "117494111+sadan4@users.noreply.github.com";
   programs.git.extraConfig = {
     user = {
+    gpg.format = "ssh";
       signingkey = "F1A53BC2CC6565EADD7B644FB2E2F4A5161A7800";
     };
     commit.gpgsign = true;
