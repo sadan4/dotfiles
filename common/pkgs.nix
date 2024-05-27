@@ -31,6 +31,7 @@ in
       setuptools
       xlib
     ]))
+    nodejs_22
   ];
   gui = with pkgs;[
     pkgs.discord
@@ -63,7 +64,6 @@ in
     jq
     unzip
     btop
-    nodejs_21
   ];
   gaming = with pkgs; [
     (prismlauncher.override {

@@ -6,10 +6,32 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-
+  imports = [
+    inputs.sops-nix.nixosModules.sops
+  ];
+  sops.defaultSopsFile = ../../secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/meyer/.config/sops/age/keys.txt";
+  sops.secrets.password.neededForUsers = true;
   wsl.enable = true;
   wsl.defaultUser = "meyer";
   # Use the systemd-boot EFI boot loader.
+  users.users.meyer = {
+    isNormalUser = true;
+    hashedPasswordFile = config.sops.secrets.password.path;
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "input"
+      "tty"
+    ];
+    shell = pkgs.zsh;
+  };
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "meyer" = import ./home.nix;
+    };
+  };
   boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.i2c.enable = true;
   networking.hostName = "nix-wsl"; # Define your hostname.
@@ -43,15 +65,6 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.meyer = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
-      "input"
-      "tty"
-    ];
-    shell = pkgs.zsh;
-  };
 
 
 
@@ -60,12 +73,6 @@
 
 
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "meyer" = import ./home.nix;
-    };
-  };
   # networking.nameservers = ["10.0.0.97" "1.1.1.1"];
   networking.nameservers = [ "10.0.0.97" ];
   # List packages installed in system profile. To search, run:
