@@ -11,7 +11,7 @@ notify(){
     if [[ $? -ne 0 ]]; then 
         return
     else
-        notify-send "$@"
+        notify-send "$@" 2>/dev/null || :
     fi
 }
 # if git diff --quiet '*.nix' && [[ !( $1 =~ "*force*") ]] then
