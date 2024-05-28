@@ -10,7 +10,7 @@
     };
     gh = {
       recursive = true;
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/gh";
+      source = ../dotfiles/gh;
       target = "./.config/gh";
     };
     btop = {

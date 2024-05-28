@@ -4,7 +4,7 @@ let
   files = import ../../common/files.nix { inherit config; };
   shell = import ../../common/shell.nix { inherit config pkgs; };
   p = import ../../common/pkgs.nix { inherit pkgs config; };
-  _p1 = p.dev ++ p.general ++ p.scripts;
+  _p1 = p.dev ++ p.general ++ p.scripts ++ p.wsl;
   zshInitArgs = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
     "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

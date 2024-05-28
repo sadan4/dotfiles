@@ -99,4 +99,7 @@ in
       python3 -c "print($*)"
     '')
   ];
+  wsl = with pkgs;[
+  wslu
+  ];
 }
