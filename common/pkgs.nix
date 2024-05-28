@@ -77,6 +77,27 @@ in
     lutris
   ];
   scripts = [
+    (pkgs.writeShellScriptBin "paste" ''
+      command -v xsel > /dev/null
+      if [[ $? -eq 0 ]]; then
+          xsel -ob && return
+      fi
+      command -v wslclip > /dev/null
+      if [[ $? -eq 0 ]]; then
+          wslclip -g && return
+      fi
+    '')
+    (pkgs.writeShellScriptBin "copy" ''
+      command -v xsel > /dev/null
+      if [[ $? -ne 0 ]]; then
+          xsel -ib $@ && return
+      fi
+      command -v wslclip > /dev/null
+      if [[ $? -ne 0 ]]; then
+          wslclip $@ && return
+      fi
+    
+    '')
     (pkgs.writeShellScriptBin "git_fetchAll" ''
           git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "''${remote#origin/}" "$remote"; done
       git fetch --all
@@ -100,6 +121,6 @@ in
     '')
   ];
   wsl = with pkgs;[
-  wslu
+    wslu
   ];
 }

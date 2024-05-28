@@ -23,8 +23,8 @@
       "$HOME/.local/bin"
     ];
     aliases = {
-      paste = "xsel -ob || wslclip -g";
-      copy = "xsel -ib || wslclip";
+#      paste = "xsel -ob || wslclip -g";
+#      copy = "xsel -ib || wslclip";
       b = "/home/${config.home.username}/nixos/build";
     };
   };
