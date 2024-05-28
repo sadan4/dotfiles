@@ -15,6 +15,9 @@ let
 
 in
 {
+imports = [
+    inputs.sops-nix.homeManagerModules.sops
+]
   programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.initExtra = builtins.trace _z1 _z1;
