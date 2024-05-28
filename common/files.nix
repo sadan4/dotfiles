@@ -12,10 +12,6 @@
     source = ../dotfiles/gh/config.yml;
     target = "./.config/gh/config.yml";
   };
-  gh_auth = {
-    source = config.sops.hosts.path;
-    target = "./.config/gh/hosts.yml"
-  }
   btop = {
     recursive = true;
     source = ../dotfiles/btop;

@@ -3,7 +3,7 @@ keys:
   - &laptop age1tq8zaaqe8t4u2jgyf7usngtzyql0ymyxq6hntmu04vt5ypwhxensmzynhl
   - &win10 age1cz006hex596lmj88kkhrkvq89luqk59hxuq83q4kvhz82ltwpe4ss8gm3t
 creation_rules:
-  - path_regex: secrets/hosts.yml
+  - path_regex: secrets/hosts
     key_groups:
       - age:
         - *desktop

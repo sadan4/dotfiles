@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  _s1 = import ../../common/sops.nix {inherit configl; };
+  _s1 = import ../../common/sops.nix {inherit config; };
   files = import ../../common/files.nix { inherit config; };
   shell = import ../../common/shell.nix { inherit config pkgs; };
   p = import ../../common/pkgs.nix { inherit pkgs config; };

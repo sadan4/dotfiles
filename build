@@ -2,10 +2,11 @@
 
 set -e
 
+pushd ~/nixos/
+
 #Change to change box setup
 BOX="$(cat .box)"
 
-pushd ~/nixos/
 notify(){
     command -v notify-send > /dev/null
     if [[ $? -ne 0 ]]; then 
