@@ -80,21 +80,21 @@ in
     (pkgs.writeShellScriptBin "paste" ''
       command -v xsel > /dev/null
       if [[ $? -eq 0 ]]; then
-          xsel -ob && return
+          xsel -ob && exit 0
       fi
       command -v wslclip > /dev/null
       if [[ $? -eq 0 ]]; then
-          wslclip -g && return
+          wslclip -g && exit 0
       fi
     '')
     (pkgs.writeShellScriptBin "copy" ''
       command -v xsel > /dev/null
-      if [[ $? -ne 0 ]]; then
-          xsel -ib $@ && return
+      if [[ $? -eq 0 ]]; then
+          xsel -ib $@ && exit 0
       fi
       command -v wslclip > /dev/null
-      if [[ $? -ne 0 ]]; then
-          wslclip $@ && return
+      if [[ $? -eq 0 ]]; then
+          wslclip $@ && exit 0
       fi
     
     '')
