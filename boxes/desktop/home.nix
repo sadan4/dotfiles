@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
+  _s1 = import ../../common/sops.nix { inherit config; };
   files = import ../../common/files.nix { inherit config; };
   shell = import ../../common/shell.nix { inherit config pkgs; };
   p = import ../../common/pkgs.nix { inherit pkgs config; };
@@ -15,9 +16,10 @@ let
 
 in
 {
-imports = [
+  imports = [
     inputs.sops-nix.homeManagerModules.sops
-]
+  ];
+  sops = _s1;
   programs.zsh.enable = true;
   programs.zsh.oh-my-zsh.enable = true;
   programs.zsh.initExtra = builtins.trace _z1 _z1;
