@@ -34,7 +34,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
-    pkgs.discord
+    cpkg.discord
     xsel
     spotify
     pulseaudioFull
