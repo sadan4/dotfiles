@@ -5,7 +5,7 @@
 , buildWebExtension ? false
 }:
 let
-  version = "1.7.9";
+  version = "1.8.6";
   gitHash = "d294128";
 in
 buildNpmPackage rec {
