@@ -19,6 +19,7 @@ popd
 
 # update-source-version vencord "${latestTag#v}"
 
-sed -E 's#\bgitHash = ".*?"#gitHash = "'"${gitHash:0:7}"'"#' -i "$pkgDir/package.nix"
-sed -E 's#\bnpmDepsHash = ".*?"#npmDepsHash = "'"$npmDepsHash"'"#' -i "$pkgDir/package.nix"
+sed -E 's#\bgitHash = ".*?"#gitHash = "'"${gitHash:0:7}"'"#' -i "./package.nix"
+echo $npmDepsHash
+sed -E 's#\bnpmDepsHash = ".*?"#npmDepsHash = "'"$npmDepsHash"'"#' -i "./default.nix"
 cp "$tempDir/package-lock.json" "$pkgDir/package-lock.json"

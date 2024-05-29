@@ -16,7 +16,7 @@ buildNpmPackage rec {
     owner = "Vendicated";
     repo = "Vencord";
     rev = "v${version}";
-    hash = "";
+    hash = "sha256-akCuZcB7psZlMAnDKJU3bK1K++ACjHxTUFxl5DRdtQ4=";
   };
 
   ESBUILD_BINARY_PATH = lib.getExe (esbuild.overrideAttrs (final: _: {
@@ -34,7 +34,7 @@ buildNpmPackage rec {
   npmRebuildFlags = [ "|| true" ];
 
   makeCacheWritable = true;
-  npmDepsHash = "sha256-G3adLiSrEyAShTsNEaYLEPYACHoXTISiNp/9jru0mUc=";
+  npmDepsHash = "sha256-oWzohL72DP5MIMF5gmGZuHQ64Cg1FRVW2bOryEFi7Ms=";
   npmFlags = [ "--legacy-peer-deps" ];
   npmBuildScript = if buildWebExtension then "buildWeb" else "build";
   npmBuildFlags = [ "--" "--standalone" "--disable-updater" ];
