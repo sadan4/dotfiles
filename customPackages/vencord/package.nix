@@ -6,7 +6,7 @@
 }:
 let
   version = "1.8.6";
-  gitHash = "d294128";
+  gitHash = "1866e4d";
 in
 buildNpmPackage rec {
   pname = "vencord";
