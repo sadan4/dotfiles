@@ -134,7 +134,8 @@
   #LD fix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    pkgs.curlWithGnuTls
+    curlWithGnuTls
+    mimalloc
   ];
   programs.ssh.startAgent = true;
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
