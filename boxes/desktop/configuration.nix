@@ -59,11 +59,11 @@
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
- 
- # };
- 
-    services.desktopManager.plasma6.enable = true;
- services.xserver = {
+
+  # };
+
+  services.desktopManager.plasma6.enable = true;
+  services.xserver = {
     enable = true;
     displayManager.sddm = {
       enable = true;

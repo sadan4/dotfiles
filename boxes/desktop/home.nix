@@ -16,6 +16,7 @@ let
 
 in
 {
+nixpkgs.config.allowInsecurePredicate = (pkg: true);
   imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
