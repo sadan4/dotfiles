@@ -20,6 +20,7 @@ in
     nodePackages.nodemon
     nodePackages.ts-node
     nodePackages.pnpm
+    corepack_22
     nodePackages.prisma
     prisma-engines
     nodePackages.live-server
