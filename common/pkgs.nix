@@ -59,6 +59,7 @@ in
   ];
   general = with pkgs; [
     sops
+    hyfetch
     fzf
     zsh-powerlevel10k
     zsh-syntax-highlighting
