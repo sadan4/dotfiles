@@ -35,6 +35,8 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    #OCR ENGINE
+    tesseract4
     cpkg.discord
     xsel
     spotify
@@ -120,6 +122,12 @@ in
     (pkgs.writeShellScriptBin "math" ''
       set -e
       python3 -c "print($*)"
+    '')
+    (pkgs.writeShellScriptBin "ocr" ''
+        set -euo pipefail
+        TEMP=$(mktemp)
+        flameshot -s -r gui > $TEMP
+        (tesseract $TEMP --oem 1 -l eng | copy )|| copy "OCR RETUNRED NON-ZERO"
     '')
   ];
   wsl = with pkgs;[
