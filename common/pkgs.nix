@@ -100,7 +100,7 @@ in
       if [[ $? -eq 0 ]]; then
           wslclip $@ && exit 0
       fi
-    
+
     '')
     (pkgs.writeShellScriptBin "git_fetchAll" ''
           git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "''${remote#origin/}" "$remote"; done
@@ -124,10 +124,10 @@ in
       python3 -c "print($*)"
     '')
     (pkgs.writeShellScriptBin "ocr" ''
-        set -euo pipefail
-        TEMP=$(mktemp)
-        flameshot -s -r gui > $TEMP
-        (tesseract $TEMP --oem 1 -l eng | copy )|| copy "OCR RETUNRED NON-ZERO"
+      set -euo pipefail
+      TEMP=$(mktemp)
+      flameshot gui -s -r > $TEMP
+      (tesseract $TEMP - --oem 1 -l eng | copy )|| copy "OCR RETUNRED NON-ZERO"
     '')
   ];
   wsl = with pkgs;[
