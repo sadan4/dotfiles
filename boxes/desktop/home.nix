@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
+    flameshot = import ../../common/programs/flameshot.nix {inherit config;};
   _s1 = import ../../common/sops.nix { inherit config; };
   files = import ../../common/files.nix { inherit config; };
   shell = import ../../common/shell.nix { inherit config pkgs; };
@@ -53,13 +54,7 @@ nixpkgs.config.allowInsecurePredicate = (pkg: true);
 
 
   services = {
-    flameshot = {
-      enable = true;
-      settings.General.showDesktopNotification = false;
-      settings.General.startupLaunch = false;
-      # settings.Shortcuts.TYPE_IMAGEUPLOADER = "";
-      # settings.Shortcuts.TYPE_COPY = "Return";
-    };
+    inherit flameshot;
   };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
