@@ -127,7 +127,7 @@ in
       set -euo pipefail
       TEMP=$(mktemp)
       flameshot gui -s -r > $TEMP
-      (tesseract $TEMP /dev/null --oem 1 -l eng | copy )|| copy "OCR RETUNRED NON-ZERO"
+      (tesseract $TEMP --oem 1 -l eng | copy )|| copy "OCR RETUNRED NON-ZERO"
     '')
   ];
   wsl = with pkgs;[
