@@ -35,6 +35,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    inkscape
     #OCR ENGINE
     tesseract4
     cpkg.discord
