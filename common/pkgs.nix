@@ -35,6 +35,8 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    pinta
+    gimp
     inkscape
     #OCR ENGINE
     tesseract4
@@ -61,6 +63,9 @@ in
     libsForQt5.kinit
   ];
   general = with pkgs; [
+    ffmpeg
+    yt-dlp
+    neofetch
     sops
     hyfetch
     fzf
