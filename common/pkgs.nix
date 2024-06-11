@@ -35,6 +35,8 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    virt-manager
+    qemu_full
     shotcut
     pinta
     gimp
