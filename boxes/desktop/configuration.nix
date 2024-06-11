@@ -4,8 +4,8 @@
 
 { config, lib, pkgs, inputs, ... }:
 
-let 
-_v = import ../../common/programs/virt.nix {};
+let
+  _v = import ../../common/programs/virt.nix { };
 in
 {
   imports =
@@ -22,6 +22,8 @@ in
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.password.path;
     extraGroups = [
+      "kvm"
+      "libvirtd"
       "wheel" # Enable ‘sudo’ for the user.
       "audio"
       "sound"
