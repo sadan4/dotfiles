@@ -4,6 +4,9 @@
 
 { config, lib, pkgs, inputs, ... }:
 
+let 
+_v = import ../../common/programs/virt.nix {};
+in
 {
   imports =
     [
@@ -69,6 +72,8 @@
       enable = true;
     };
   };
+  services.printing.enable = true;
+  virtualisation = _v;
   # Enable the X11 windowing system.
   # servives.desktopManager.plasma6.enable = true;
   # services.desktopManager.plasma6.enable = true;
@@ -80,7 +85,6 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable sound.
   sound.enable = true;

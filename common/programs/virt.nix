@@ -1,0 +1,3 @@
+{} : {
+    libvirtd.enable = true;
+}
