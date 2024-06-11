@@ -8,6 +8,7 @@ let
   _v = import ../../common/programs/virt.nix { };
 in
 {
+  # fileSystems."/mnt/c"
   imports =
     [
       # Include the results of the hardware scan.
