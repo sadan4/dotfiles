@@ -8,7 +8,39 @@ let
   _v = import ../../common/programs/virt.nix { };
 in
 {
-  # fileSystems."/mnt/c"
+  fileSystems."/mnt/d" = {
+    device = "/dev/disks/by-uuid/A02A12F22A12C566";
+    options = [
+      "nofail"
+      "uid=1000"
+      "gid=100"
+    ];
+  };
+  fileSystems."/mnt/c" = {
+    device = "/dev/disks/by-uuid/046C2BB16C2B9D04";
+    options = [
+      "nofail"
+      "uid=1000"
+      "gid=100"
+      "noauto"
+    ];
+  };
+  fileSystems."/mnt/f" = {
+    device = "/dev/disks/by-uuid/2E06B65306B61C31";
+    options = [
+      "nofail"
+      "uid=1000"
+      "gid=100"
+    ];
+  };
+  fileSystems."/mnt/h" = {
+    device = "/dev/disks/by-uuid/E0A4F8C1A4F89B6C";
+    options = [
+      "nofail"
+      "uid=1000"
+      "gid=100"
+    ];
+  };
   imports =
     [
       # Include the results of the hardware scan.
