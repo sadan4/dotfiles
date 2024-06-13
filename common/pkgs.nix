@@ -35,6 +35,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    filezilla
     virt-manager
     qemu_full
     shotcut
@@ -66,7 +67,7 @@ in
     libsForQt5.kinit
   ];
   general = with pkgs; [
-  tree
+    tree
     ffmpeg
     yt-dlp
     neofetch
