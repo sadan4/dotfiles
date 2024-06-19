@@ -103,7 +103,7 @@ in
       fi
     '')
     (pkgs.writeShellScriptBin "http2ssh" ''
-      set -euo pipefail
+      set -eo pipefail
 
       if [[ -z $1 ]]; then
           echo "You need to provide a remote name";
