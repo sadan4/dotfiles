@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#! nix-shell -i bash -p curl jq common-updater-scripts prefetch-npm-deps nodejs
+#! nix-shell -i bash -p curl jq common-updater-scripts prefetch-npm-deps nodejs perl
 set -eou pipefail
 
 pkgDir="$(dirname "$(readlink -f "$0")")"
@@ -19,7 +19,7 @@ popd
 
 # update-source-version vencord "${latestTag#v}"
 
-sed -E 's#\bgitHash = ".*?"#gitHash = "'"${gitHash:0:7}"'"#' -i "./package.nix"
-echo $npmDepsHash
-sed -E 's#\bnpmDepsHash = ".*?"#npmDepsHash = "'"$npmDepsHash"'"#' -i "./default.nix"
+perl -i -pe "s/(?<=gitHash = \")\w{7}(?=\";)/${gitHash:0:7}/" ./default.nix
+perl -i -pe "s/(?<=npmDepsHash = \")sha256-.*(?=\";)/${npmDepsHash}/" ./default.nix
+perl -i -pe "s/(?<=version = \")(\d.?){0,4}(?=\")/${latestTag:1}/" ./default.nix
 cp "$tempDir/package-lock.json" "$pkgDir/package-lock.json"
