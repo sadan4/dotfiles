@@ -114,6 +114,7 @@ in
       URL=''$(git remote get-url $1);
       URL=''${URL/https:\/\//git@};
       URL=''${URL/\//:};
+      git remote set-url $1 $URL;
     ''
     )
     (pkgs.writeShellScriptBin "copy" ''
