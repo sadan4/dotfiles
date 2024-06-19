@@ -102,6 +102,20 @@ in
           wslclip -g && exit 0
       fi
     '')
+    (pkgs.writeShellScriptBin "http2ssh" ''
+      set -euo pipefail
+
+      if [[ -z $1 ]]; then
+          echo "You need to provide a remote name";
+          echo "Avilable remotes";
+          git remote -v;
+          exit 1;
+      fi
+      URL=''$(git remote get-url $1);
+      URL=''${URL/https:\/\//git@};
+      URL=''${URL/\//:};
+    ''
+    )
     (pkgs.writeShellScriptBin "copy" ''
       command -v xsel > /dev/null
       if [[ $? -eq 0 ]]; then
