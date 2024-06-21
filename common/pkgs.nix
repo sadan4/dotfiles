@@ -49,7 +49,7 @@ in
     spotify
     pulseaudioFull
     pavucontrol
-    jetbrains.pycharm-community
+    # jetbrains.pycharm-community
     jetbrains.idea-community-bin
     google-chrome
     bitwarden

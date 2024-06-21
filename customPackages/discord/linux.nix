@@ -10,7 +10,7 @@
 , wayland
 , branch
 , withOpenASAR ? false, openasar
-, withVencord ? true, vencord
+, withVencord ? false, vencord
 , withTTS ? true }:
 
 let

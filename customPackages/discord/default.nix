@@ -66,7 +66,7 @@ let
   };
   package =
     if stdenv.isLinux
-    then ./linux.nix
+    then ./linux.nix 
     else ./darwin.nix;
 
   openasar = callPackage ./openasar.nix { };
