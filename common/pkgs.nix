@@ -35,6 +35,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    arrpc
     filezilla
     virt-manager
     qemu_full
