@@ -1,5 +1,6 @@
-{vencord, branch ? "stable", callPackage, fetchurl, lib, stdenv }:
+{ branch ? "stable", pkgs, callPackage, fetchurl, lib, stdenv }:
 let
+  vencord = (import ./..{ inherit pkgs; }).vencord;
   versions =
     if stdenv.isLinux then {
       stable = "0.0.53";
@@ -66,7 +67,7 @@ let
   };
   package =
     if stdenv.isLinux
-    then ./linux.nix 
+    then ./linux.nix
     else ./darwin.nix;
 
   openasar = callPackage ./openasar.nix { };
