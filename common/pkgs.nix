@@ -4,6 +4,7 @@ let
 in
 {
   dev = with pkgs;[
+	cmake
     nodePackages_latest.typescript-language-server
     cargo
     lua
