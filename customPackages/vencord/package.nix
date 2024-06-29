@@ -7,6 +7,8 @@
 let
   version = "1.9.1";
   gitHash = "3d46f19";
+  # this is probably a bad name for this
+  sourceHash = "sha256-mq0gUKH7zmMzi497zru0bfjHPT69kWhIVhSO4GNdNKc=";
 in
 buildNpmPackage rec {
   pname = "vencord";
@@ -16,7 +18,7 @@ buildNpmPackage rec {
     owner = "Vendicated";
     repo = "Vencord";
     rev = "v${version}";
-    hash = "sha256-mq0gUKH7zmMzi497zru0bfjHPT69kWhIVhSO4GNdNKc=";
+    hash = sourceHash;
   };
 
   ESBUILD_BINARY_PATH = lib.getExe (esbuild.overrideAttrs (final: _: {
