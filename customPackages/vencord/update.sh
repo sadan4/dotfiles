@@ -25,5 +25,5 @@ Hash=$(nix-prefetch-github Vendicated Vencord | jq -r .hash)
 perl -i -pe "s#(?<=sourceHash = \").*(?=\")#${Hash}#" ./package.nix
 perl -i -pe "s/(?<=gitHash = \")\w{7}(?=\";)/${gitHash:0:7}/" ./package.nix
 perl -i -pe "s#(?<=npmDepsHash = \")sha256-.*(?=\";)#${npmDepsHash}#" ./package.nix
-perl -i -pe "s/(?<=version = \")(\d.?){0,4}(?=\")/${latestTag:1}/" ./package.nix
+perl -i -pe "s/(?<=vencordVersion = \")(\d.?){0,4}(?=\")/${latestTag:1}/" ./package.nix
 cp "$tempDir/package-lock.json" "$pkgDir/package-lock.json"
