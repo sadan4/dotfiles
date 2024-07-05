@@ -36,6 +36,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    polychromatic
     arrpc
     filezilla
     virt-manager
