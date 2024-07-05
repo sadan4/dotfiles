@@ -4,7 +4,7 @@ let
 in
 {
   dev = with pkgs;[
-	cmake
+    cmake
     nodePackages_latest.typescript-language-server
     cargo
     lua
@@ -52,10 +52,10 @@ in
     #     withVencord = true;
     # };
     (pkgs.discord.override {
-        vencord = cpkg.vencord;
+      vencord = cpkg.vencord;
     })
     (pkgs.vesktop.override {
-    vencord = cpkg.vencord;
+      vencord = cpkg.vencord;
     })
     xsel
     spotify
@@ -78,6 +78,7 @@ in
     libsForQt5.kinit
   ];
   general = with pkgs; [
+    bat
     usbutils
     tree
     ffmpeg
