@@ -14,7 +14,7 @@ let
     "setopt globstarshort"
   ];
   _z1 = lib.concatMapStrings (x: x + "\n") zshInitArgs;
-
+    DES = import ../../common/desktopEntries.nix {};
 in
 {
 nixpkgs.config.allowInsecurePredicate = (pkg: true);
@@ -89,6 +89,7 @@ nixpkgs.config.allowInsecurePredicate = (pkg: true);
   home.shellAliases = shell.dev.aliases;
   home.sessionPath = shell.dev.path;
   home.sessionVariables = shell.dev.env;
+  xdg.desktopEntries = DES;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
