@@ -1,4 +1,9 @@
 { config }: rec{
+  lazygit = {
+    recursive = true;
+    source = ../dotfiles/lazygit;
+    target = "./.config/lazygit";
+  };
   kitty = {
     recursive = true;
     source = ../dotfiles/kitty;
