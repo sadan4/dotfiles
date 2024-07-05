@@ -46,7 +46,16 @@ in
     inkscape
     #OCR ENGINE
     tesseract4
-    cpkg.discord
+    # discord = cpkg.discord.override {
+    #     withOpenASAR = true;
+    #     withVencord = true;
+    # };
+    (pkgs.discord.override {
+        vencord = cpkg.vencord;
+    })
+    (pkgs.vesktop.override {
+    vencord = cpkg.vencord;
+    })
     xsel
     spotify
     pulseaudioFull
@@ -59,7 +68,6 @@ in
     vscodium
     kitty
     rofi
-    cpkg.vesktop
     thunderbird
     vlc
     jellyfin-web
@@ -69,6 +77,7 @@ in
     libsForQt5.kinit
   ];
   general = with pkgs; [
+    usbutils
     tree
     ffmpeg
     yt-dlp

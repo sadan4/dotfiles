@@ -64,6 +64,7 @@ in
       "networkmanager"
       "input"
       "tty"
+      "plugdev"
     ];
     shell = pkgs.zsh;
   };
@@ -79,6 +80,9 @@ in
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+  # add user to "openrazer" group
+  hardware.openrazer.enable = true;
+  hardware.openrazer.users = ["meyer"];
   hardware.i2c.enable = true;
   hardware.xpadneo.enable = true;
   hardware.bluetooth.enable = true;
