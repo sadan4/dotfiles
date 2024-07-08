@@ -14,7 +14,7 @@
   };
   common = {
     env = {
-      LG_CONFIG_FILE = "./config/lazygit/tokyonight_night.conf";
+      LG_CONFIG_FILE = "~/.config/lazygit/tokyonight_night.conf";
       BAT_THEME = "Dracula";
       EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
