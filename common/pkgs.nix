@@ -37,6 +37,7 @@ in
   ];
   gui = with pkgs;[
     polychromatic
+    jellyfin-media-player
     arrpc
     filezilla
     virt-manager
