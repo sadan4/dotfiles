@@ -9,7 +9,6 @@ in
     cargo
     lua
     go
-    protonvpn-gui
     eslint_d
     typescript
     php
@@ -36,6 +35,8 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    element-desktop
+    protonvpn-gui
     xclicker
     polychromatic
     jellyfin-media-player
