@@ -35,6 +35,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    fluffychat
     element-desktop
     protonvpn-gui
     xclicker
