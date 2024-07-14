@@ -82,6 +82,7 @@ in
     libsForQt5.kinit
   ];
   general = with pkgs; [
+    dig
     bat
     usbutils
     tree
