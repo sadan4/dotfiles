@@ -183,6 +183,8 @@ in
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     curlWithGnuTls
+    fuse
+    fuse3
     mimalloc
   ];
   programs.ssh.startAgent = true;
