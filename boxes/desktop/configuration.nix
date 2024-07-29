@@ -82,7 +82,7 @@ in
   boot.loader.grub.efiInstallAsRemovable = true;
   # add user to "openrazer" group
   hardware.openrazer.enable = true;
-  hardware.openrazer.users = ["meyer"];
+  hardware.openrazer.users = [ "meyer" ];
   hardware.i2c.enable = true;
   hardware.xpadneo.enable = true;
   hardware.bluetooth.enable = true;
@@ -186,6 +186,7 @@ in
     fuse
     fuse3
     mimalloc
+    libstdcxx5
   ];
   programs.ssh.startAgent = true;
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
