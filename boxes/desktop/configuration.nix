@@ -105,6 +105,7 @@ in
   # };
 
   services = {
+    avahi.enable = true;
     usbmuxd.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
