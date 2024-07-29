@@ -35,6 +35,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    python312Packages.openai-whisper
     cinny-desktop
     element-desktop
     protonvpn-gui
