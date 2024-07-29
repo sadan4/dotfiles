@@ -116,6 +116,9 @@ in
     };
   };
   services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+  hplip
+  ];
   virtualisation = _v;
   # Enable the X11 windowing system.
   # servives.desktopManager.plasma6.enable = true;
