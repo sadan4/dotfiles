@@ -5,10 +5,10 @@
 , buildWebExtension ? false
 }:
 let
-  vencordVersion = "1.9.3";
-  gitHash = "484d70f";
+  vencordVersion = "1.9.7";
+  gitHash = "d919cd6";
   # this is probably a bad name for this
-  sourceHash = "sha256-dtskvmrDOhOWBh6TLDxM22ArAaCj8wXdhBvyexkS4Qs=";
+  sourceHash = "sha256-/EBnwDjHtAXqBn1mxnYqRvQMwiN1ykBRaI4ArRO/W9o=";
 in
 buildNpmPackage rec {
   pname = "vencord";
@@ -36,7 +36,7 @@ buildNpmPackage rec {
   npmRebuildFlags = [ "|| true" ];
 
   makeCacheWritable = true;
-  npmDepsHash = "sha256-MYadxXRY7ZtOY7t73YivbB/Z3bOudi1a3gZemrQwh7k=";
+  npmDepsHash = "sha256-vozr3FBKKqhD1FGxbUrfTWOtxdSLW7P14sWUjwwGdgA=";
   npmFlags = [ "--legacy-peer-deps" ];
   npmBuildScript = if buildWebExtension then "buildWeb" else "build";
   npmBuildFlags = [ "--" "--standalone" "--disable-updater" ];
