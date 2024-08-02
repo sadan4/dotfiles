@@ -133,7 +133,7 @@ in
   # Enable CUPS to print documents.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable sound.
-  sound.enable = true;
+  # sound.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
