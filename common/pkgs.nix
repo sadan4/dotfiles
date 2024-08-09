@@ -4,6 +4,7 @@ let
 in
 {
   dev = with pkgs;[
+    vscode-langservers-extracted
     cmake
     nodePackages_latest.typescript-language-server
     cargo
@@ -17,6 +18,7 @@ in
     gradle
     lazygit
     linuxHeaders
+    nodePackages.eslint
     nodePackages.nodemon
     nodePackages.ts-node
     nodePackages.pnpm
@@ -105,7 +107,7 @@ in
       jdks = [
         jdk8
         jdk17
-        jdk19
+        jdk22
       ];
     })
     protontricks
