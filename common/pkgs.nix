@@ -58,12 +58,19 @@ in
     #     withOpenASAR = true;
     #     withVencord = true;
     # };
-    (pkgs.discord.override {
-      vencord = cpkg.vencord;
+    (self: super: {
+      discord = super.discord.overrideAttrs (oldAttrs: {
+        # mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        withVencord = true;
+        vencord = cpkg.vencord;
+      });
     })
-    (pkgs.vesktop.override {
-      vencord = cpkg.vencord;
-    })
+    # (pkgs.discord.override {
+    #   vencord = cpkg.vencord;
+    # })
+    # (pkgs.vesktop.override {
+    #   vencord = cpkg.vencord;
+    # })
     xsel
     spotify
     pulseaudioFull
