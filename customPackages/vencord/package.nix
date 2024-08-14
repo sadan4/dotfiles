@@ -59,6 +59,7 @@ buildNpmPackage rec {
   passthru.updateScript = ./update.sh;
 
   meta = with lib; {
+    name = pname;
     description = "Vencord web extension";
     homepage = "https://github.com/Vendicated/Vencord";
     license = licenses.gpl3Only;
