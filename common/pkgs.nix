@@ -36,16 +36,6 @@ in
     ]))
     nodejs_22
   ];
-  overlays = {
-    discord = (final: prev: {
-      discord = prev.discord.override {
-        # withOpenASAR = false;
-        # withVencord = true;
-        # pname = "Discord";
-        vencord = cpkg.vencord;
-      };
-    });
-  };
   gui = with pkgs;[
     python312Packages.openai-whisper
     cinny-desktop
@@ -67,23 +57,7 @@ in
     (pkgs.discord.override {
       withVencord = true;
     })
-    # discord = cpkg.discord.override {
-    #     withOpenASAR = true;
-    #     withVencord = true;
-    # };
-    # (self: super: {
-    #   discord = super.discord (oldAttrs: {
-    #     # mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    #     withVencord = true;
-    #     vencord = cpkg.vencord;
-    #   });
-    # })
-    # (pkgs.discord.override {
-    #   vencord = cpkg.vencord;
-    # })
-    # (pkgs.vesktop.override {
-    #   vencord = cpkg.vencord;
-    # })
+    vesktop
     xsel
     spotify
     pulseaudioFull
