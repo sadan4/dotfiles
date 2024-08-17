@@ -38,6 +38,7 @@ in
   ];
   gui = with pkgs;[
     python312Packages.openai-whisper
+    firefox-devedition
     cinny-desktop
     element-desktop
     protonvpn-gui
