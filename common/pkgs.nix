@@ -37,7 +37,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
-    kdePackages.kcolorpicker
+    libsForQt5.kcolorchooser
     python312Packages.openai-whisper
     firefox-devedition
     cinny-desktop
