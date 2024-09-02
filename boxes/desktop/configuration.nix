@@ -80,6 +80,7 @@ in
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   # add user to "openrazer" group
   hardware.openrazer.enable = true;
   hardware.openrazer.users = [ "meyer" ];
