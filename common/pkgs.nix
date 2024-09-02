@@ -18,12 +18,12 @@ in
     gradle
     lazygit
     linuxHeaders
-    nodePackages.eslint
+    eslint
     nodePackages.nodemon
     nodePackages.ts-node
     nodePackages.pnpm
     corepack_22
-    nodePackages.prisma
+    prisma
     prisma-engines
     nodePackages.live-server
     gh

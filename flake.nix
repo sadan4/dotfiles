@@ -22,6 +22,16 @@
     # in
     {
       nixosConfigurations = {
+        desktopIso = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [
+                ./boxes/desktop/configuration.nix
+                inputs.home-manager.nixosModules.default
+                ({ pkgs, modulesPath, ...}: {
+                imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")];
+                })
+            ];
+        };
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [

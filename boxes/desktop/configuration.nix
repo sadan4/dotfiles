@@ -76,7 +76,7 @@ in
   };
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiInstallAsRemovable = true;
