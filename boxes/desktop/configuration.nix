@@ -86,6 +86,7 @@ in
   hardware.openrazer.users = [ "meyer" ];
   hardware.i2c.enable = true;
   hardware.xpadneo.enable = true;
+  hardware.amdgpu.opencl.enable = true;
   hardware.bluetooth.enable = true;
   services.tailscale.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
@@ -111,6 +112,7 @@ in
   };
   services.desktopManager.plasma6.enable = true;
   services.xserver = {
+    videoDrivers = [ "amdgpu" ];
     enable = true;
     displayManager.sddm = {
       enable = true;
@@ -118,7 +120,7 @@ in
   };
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [
-  hplip
+    hplip
   ];
   virtualisation = _v;
   # Enable the X11 windowing system.
@@ -164,6 +166,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  clinfo
     fuse
     ifuse
     ddcutil
