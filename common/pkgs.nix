@@ -37,6 +37,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    warp-terminal
     gnome.gnome-calculator
     libsForQt5.kcolorchooser
     python312Packages.openai-whisper

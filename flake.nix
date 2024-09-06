@@ -30,7 +30,6 @@
             ({ pkgs, modulesPath, ... }: {
               imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
               boot.kernelPackages = pkgs.linuxPackages_testing;
-            nixpkgs.config.allowBroken = true;
             })
           ];
         };
