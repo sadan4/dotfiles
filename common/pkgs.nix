@@ -37,6 +37,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    davinci-resolve
     warp-terminal
     gnome.gnome-calculator
     libsForQt5.kcolorchooser
