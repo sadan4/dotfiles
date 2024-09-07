@@ -107,6 +107,7 @@ in
   # };
 
   services = {
+    teamviewer.enable = true;
     avahi.enable = true;
     usbmuxd.enable = true;
   };
