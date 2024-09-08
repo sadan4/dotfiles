@@ -85,6 +85,7 @@ in
     libsForQt5.kinit
   ];
   general = with pkgs; [
+    imagemagick
     p7zip
     dig
     bat
