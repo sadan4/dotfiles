@@ -7,6 +7,8 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
     };
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,6 +40,8 @@
           modules = [
             ./boxes/desktop/configuration.nix
             inputs.home-manager.nixosModules.default
+            inputs.nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
           ];
         };
         wsl = nixpkgs.lib.nixosSystem {

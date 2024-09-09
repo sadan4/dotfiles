@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed onconfigurati
+# Edit this configuration file to define what should be installed onconfiguraticonfig
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
@@ -191,6 +191,29 @@ in
   #LD fix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    libGL
+    alsa-lib
+    expat
+    mesa
+    libxkbcommon
+    xorg.libxcb
+    xorg.libXrandr
+    xorg.libXfixes
+    xorg.libXext
+    xorg.libXdamage
+    xorg.libXcomposite
+    xorg.libX11
+    cairo
+    pango
+    gtk3
+    libdrm
+    cups
+    at-spi2-atk
+    lzo
+    dbus
+    nspr
+    nss
+    glib
     curlWithGnuTls
     fuse
     fuse3
