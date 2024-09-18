@@ -1,6 +1,7 @@
 { pkgs, config }:
 let
   cpkg = import ../customPackages { inherit pkgs; };
+  pinned = import ./pinned {};
 in
 {
   dev = with pkgs;[
@@ -37,6 +38,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    pinned.vscode
     teamviewer
     davinci-resolve
     warp-terminal
@@ -73,7 +75,7 @@ in
     google-chrome
     bitwarden
     nerdfonts
-    vscodium
+    # vscodium
     kitty
     rofi
     thunderbird
