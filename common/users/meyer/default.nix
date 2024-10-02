@@ -7,6 +7,8 @@ in
     (import ../../systemModules/networkManager.nix { inherit NAME; })
     (import ../../systemModules/sops.nix { inherit NAME; })
     (import ../../systemModules/vm.nix { inherit NAME; })
+    (import ../../systemModules/razer.nix { inherit NAME; })
+    (import ../../systemModules/nixHelper.nix { inherit NAME; })
     (import ../../programs/wireshark.nix { inherit NAME; })
   ];
   users = {

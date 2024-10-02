@@ -2,66 +2,42 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common/systemModules/boot.nix
       ../../common/systemModules/audio.nix
       ../../common/systemModules/kde.nix
+      ../../common/systemModules/tailscale.nix
+      ../../common/systemModules/gaming.nix
+      ../../common/systemModules/crypt.nix
+      ../../common/systemModules/printing.nix
+      # USERS
       ../../common/users/meyer
     ];
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.device = "nodev";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  # add user to "openrazer" group
-  hardware.openrazer.enable = true;
-  hardware.openrazer.users = [ "meyer" ];
   hardware.i2c.enable = true;
-  hardware.xpadneo.enable = true;
   hardware.amdgpu.opencl.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.bluetooth.enable = true;
-  services.tailscale.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-
-  # };
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services = {
     teamviewer.enable = true;
-    avahi.enable = true;
     usbmuxd.enable = true;
   };
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  services.printing.enable = true;
-  services.printing.drivers = with pkgs; [
-    hplip
-  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.zsh.enable = true;
-  programs.steam.enable = true;
-  programs.steam.extraCompatPackages = with pkgs; [
-    proton-ge-bin
-  ];
-  nixpkgs.config.allowUnfree = true;
 
 
 
@@ -77,10 +53,6 @@
     wget
     ripgrep
     tldr
-    gnupg
-    openssh
-    pinentry-curses
-    pinentry
     libnotify
     file
   ];
@@ -116,13 +88,6 @@
     mimalloc
     libstdcxx5
   ];
-  programs.ssh.startAgent = true;
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-gnome3;
-  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
