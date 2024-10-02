@@ -6,6 +6,7 @@
 
 let
   _v = import ../../common/programs/virt.nix { };
+  wireshark = import ../../common/programs/wireshark.nix {};
 in
 {
   fileSystems."/mnt/d" = {
@@ -153,6 +154,9 @@ in
 
 
 
+  programs = {
+    inherit wireshark;
+  };
   programs.zsh.enable = true;
   programs.steam.enable = true;
   programs.steam.extraCompatPackages = with pkgs; [
