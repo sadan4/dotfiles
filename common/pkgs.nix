@@ -38,6 +38,7 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    wireshark
     pinned.vscode
     insomnia
     teamviewer
