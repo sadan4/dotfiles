@@ -39,6 +39,7 @@ in
   ];
   gui = with pkgs;[
     pinned.vscode
+    insomnia
     teamviewer
     davinci-resolve
     warp-terminal
