@@ -1,29 +1,22 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
-  flameshot = import ../../common/programs/flameshot.nix { inherit config; };
-  arrpc = import ../../common/programs/arrpc.nix { };
-  zsh = import ../../common/programs/zsh.nix { inherit lib pkgs; };
-  _s1 = import ../../common/sops.nix { inherit config; };
-  files = import ../../common/files.nix { inherit config; };
-  shell = import ../../common/shell.nix { inherit config pkgs; };
-  p = import ../../common/pkgs.nix { inherit pkgs config; };
-  _p1 = p.dev ++ p.gui ++ p.general ++ p.scripts ++ p.gaming;
-  DES = import ../../common/desktopEntries.nix { };
+  files = import ../../files.nix { inherit config; };
+  shell = import ../../shell.nix { inherit config pkgs; };
+  pkgTypes = import ../../pkgs.nix { inherit pkgs config; };
+  packages = pkgTypes.dev ++ pkgTypes.gui ++ pkgTypes.general ++ pkgTypes.scripts ++ pkgTypes.gaming;
 in
 {
   nixpkgs.config.allowInsecurePredicate = (pkg: true);
   imports = [
-    inputs.sops-nix.homeManagerModules.sops
+    ../homeModules/flameshot.nix
+    ../homeModules/arrpc.nix
+    ../homeModules/zsh.nix
+    ../homeModules/desktopEntries.nix
+    ./sops.nix
   ];
-  sops = _s1;
-  programs = {
-    inherit zsh;
-  };
   programs.java.enable = true;
   programs.java.package = pkgs.temurin-bin-17;
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
   programs.git.enable = true;
   programs.git.userName = "sadan";
   programs.git.userEmail = "117494111+sadan4@users.noreply.github.com";
@@ -48,9 +41,6 @@ in
   home.homeDirectory = "/home/meyer";
 
 
-  services = {
-    inherit arrpc flameshot;
-  };
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -61,7 +51,9 @@ in
   home.stateVersion = "23.11"; # Please read the comment before changing.
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = _p1;
+  home = {
+    inherit packages;
+  };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = files;
@@ -84,7 +76,6 @@ in
   home.shellAliases = shell.dev.aliases;
   home.sessionPath = shell.dev.path;
   home.sessionVariables = shell.dev.env;
-  xdg.desktopEntries = DES;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

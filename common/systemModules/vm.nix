@@ -1,15 +1,13 @@
 { NAME }: { ... }: {
-  programs = {
-    wireshark = {
+  virtualisation = {
+    libvirtd = {
       enable = true;
     };
   };
   users = {
     users = {
       "${NAME}" = {
-        extraGroups = [
-          "wireshark"
-        ];
+        extraGroups = [ "kvm" "libvirtd" ];
       };
     };
   };

@@ -3,48 +3,15 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, inputs, ... }:
-
-let
-  _v = import ../../common/programs/virt.nix { };
-  wireshark = import ../../common/programs/wireshark.nix { };
-in
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../common/modules/audio.nix
-      ../../common/modules/kde.nix
+      ../../common/systemModules/audio.nix
+      ../../common/systemModules/kde.nix
       ../../common/users/meyer
-      inputs.sops-nix.nixosModules.sops
     ];
-  sops.defaultSopsFile = ../../secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/meyer/.config/sops/age/keys.txt";
-  sops.secrets.password.neededForUsers = true;
-  users.users.meyer = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.password.path;
-    extraGroups = [
-      "wireshark"
-      "kvm"
-      "libvirtd"
-      "wheel" # Enable ‘sudo’ for the user.
-      "audio"
-      "sound"
-      "video"
-      "input"
-      "tty"
-      "plugdev"
-    ];
-    shell = pkgs.zsh;
-  };
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "meyer" = import ./home.nix;
-    };
-  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.device = "nodev";
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -81,28 +48,14 @@ in
     avahi.enable = true;
     usbmuxd.enable = true;
   };
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [
     hplip
   ];
-  virtualisation = _v;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-
-
-  programs = {
-    inherit wireshark;
-  };
   programs.zsh.enable = true;
   programs.steam.enable = true;
   programs.steam.extraCompatPackages = with pkgs; [
@@ -112,18 +65,12 @@ in
 
 
 
-  # networking.nameservers = ["10.0.0.97" "1.1.1.1"];
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     clinfo
     fuse
     ifuse
     ddcutil
     i2c-tools
-    # python311
-    # python311Packages.evdev
-    # python311Packages.xlib
     gcc
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl

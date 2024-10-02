@@ -1,0 +1,7 @@
+{ ... }: {
+  services = {
+    arrpc = {
+      enable = true;
+    };
+  };
+}
