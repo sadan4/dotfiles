@@ -7,8 +7,6 @@
 let
   _v = import ../../common/programs/virt.nix { };
   wireshark = import ../../common/programs/wireshark.nix { };
-  # audio = import ../../common/modules/audio.nix { };
-  util = import ../../common/util.nix { inherit pkgs; };
 in
 {
   imports =
@@ -16,6 +14,7 @@ in
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../common/modules/audio.nix
+      ../../common/modules/kde.nix
       inputs.sops-nix.nixosModules.sops
     ];
   sops.defaultSopsFile = ../../secrets.yaml;
@@ -83,30 +82,13 @@ in
     avahi.enable = true;
     usbmuxd.enable = true;
   };
-  services.desktopManager.plasma6.enable = true;
-  services.xserver = {
-    videoDrivers = [ "amdgpu" ];
-    enable = true;
-    displayManager.sddm = {
-      enable = true;
-    };
-  };
+  services.xserver.videoDrivers = ["amdgpu"];
   services.printing.enable = true;
   services.printing.drivers = with pkgs; [
     hplip
   ];
   virtualisation = _v;
-  # Enable the X11 windowing system.
-  # servives.desktopManager.plasma6.enable = true;
-  # services.desktopManager.plasma6.enable = true;
 
-
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable sound.
   # sound.enable = true;
@@ -196,29 +178,6 @@ in
     enable = true;
     pinentryPackage = pkgs.pinentry-gnome3;
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
