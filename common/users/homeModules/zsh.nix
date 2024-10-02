@@ -4,6 +4,8 @@ let
   _ = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
     "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    "eval \"$(${pkgs.nh}/bin/nh completions --shell=zsh)\""
+    "eval \"$(${pkgs.nodejs_22}/bin/node --completion-bash)\""
     "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
     "setopt globstarshort"
   ];

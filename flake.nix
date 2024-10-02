@@ -35,7 +35,7 @@
             })
           ];
         };
-        desktop = nixpkgs.lib.nixosSystem {
+        nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./boxes/desktop/configuration.nix
