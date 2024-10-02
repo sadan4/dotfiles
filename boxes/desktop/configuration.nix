@@ -15,6 +15,7 @@ in
       ./hardware-configuration.nix
       ../../common/modules/audio.nix
       ../../common/modules/kde.nix
+      ../../common/users/meyer
       inputs.sops-nix.nixosModules.sops
     ];
   sops.defaultSopsFile = ../../secrets.yaml;
@@ -32,7 +33,6 @@ in
       "audio"
       "sound"
       "video"
-      "networkmanager"
       "input"
       "tty"
       "plugdev"
@@ -63,7 +63,6 @@ in
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -114,7 +113,6 @@ in
 
 
   # networking.nameservers = ["10.0.0.97" "1.1.1.1"];
-  networking.nameservers = [ "10.0.0.97" ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
