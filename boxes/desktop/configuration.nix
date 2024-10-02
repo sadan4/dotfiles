@@ -6,46 +6,16 @@
 
 let
   _v = import ../../common/programs/virt.nix { };
-  wireshark = import ../../common/programs/wireshark.nix {};
+  wireshark = import ../../common/programs/wireshark.nix { };
+  # audio = import ../../common/modules/audio.nix { };
+  util = import ../../common/util.nix { inherit pkgs; };
 in
 {
-  fileSystems."/mnt/d" = {
-    device = "/dev/disks/by-uuid/A02A12F22A12C566";
-    options = [
-      "nofail"
-      "uid=1000"
-      "gid=100"
-    ];
-  };
-  fileSystems."/mnt/c" = {
-    device = "/dev/disks/by-uuid/046C2BB16C2B9D04";
-    options = [
-      "nofail"
-      "uid=1000"
-      "gid=100"
-      "noauto"
-    ];
-  };
-  fileSystems."/mnt/f" = {
-    device = "/dev/disks/by-uuid/2E06B65306B61C31";
-    options = [
-      "nofail"
-      "uid=1000"
-      "gid=100"
-    ];
-  };
-  fileSystems."/mnt/h" = {
-    device = "/dev/disks/by-uuid/E0A4F8C1A4F89B6C";
-    options = [
-      "nofail"
-      "uid=1000"
-      "gid=100"
-    ];
-  };
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common/modules/audio.nix
       inputs.sops-nix.nixosModules.sops
     ];
   sops.defaultSopsFile = ../../secrets.yaml;
@@ -56,6 +26,7 @@ in
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.password.path;
     extraGroups = [
+      "wireshark"
       "kvm"
       "libvirtd"
       "wheel" # Enable ‘sudo’ for the user.
@@ -139,12 +110,6 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Enable sound.
   # sound.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
   # hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -171,7 +136,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  clinfo
+    clinfo
     fuse
     ifuse
     ddcutil
