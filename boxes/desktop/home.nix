@@ -1,31 +1,25 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-    flameshot = import ../../common/programs/flameshot.nix {inherit config;};
-    arrpc = import ../../common/programs/arrpc.nix {};
+  flameshot = import ../../common/programs/flameshot.nix { inherit config; };
+  arrpc = import ../../common/programs/arrpc.nix { };
+  zsh = import ../../common/programs/zsh.nix { inherit lib pkgs; };
   _s1 = import ../../common/sops.nix { inherit config; };
   files = import ../../common/files.nix { inherit config; };
   shell = import ../../common/shell.nix { inherit config pkgs; };
   p = import ../../common/pkgs.nix { inherit pkgs config; };
   _p1 = p.dev ++ p.gui ++ p.general ++ p.scripts ++ p.gaming;
-  zshInitArgs = [
-    "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-    "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
-    "setopt globstarshort"
-  ];
-  _z1 = lib.concatMapStrings (x: x + "\n") zshInitArgs;
-    DES = import ../../common/desktopEntries.nix {};
+  DES = import ../../common/desktopEntries.nix { };
 in
 {
-nixpkgs.config.allowInsecurePredicate = (pkg: true);
+  nixpkgs.config.allowInsecurePredicate = (pkg: true);
   imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
   sops = _s1;
-  programs.zsh.enable = true;
-  programs.zsh.oh-my-zsh.enable = true;
-  programs.zsh.initExtra = builtins.trace _z1 _z1;
+  programs = {
+    inherit zsh;
+  };
   programs.java.enable = true;
   programs.java.package = pkgs.temurin-bin-17;
   programs.zoxide.enable = true;

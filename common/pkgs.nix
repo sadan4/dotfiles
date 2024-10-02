@@ -1,7 +1,7 @@
 { pkgs, config }:
 let
   cpkg = import ../customPackages { inherit pkgs; };
-  pinned = import ./pinned {};
+  pinned = import ./pinned.nix { inherit pkgs config; };
 in
 {
   dev = with pkgs;[
