@@ -27,11 +27,10 @@
         desktopIso = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
-            # ./boxes/desktop/configuration.nix
-            # inputs.home-manager.nixosModules.default
-            ({ pkgs, modulesPath, ... }: {
+            ({ pkgs, modulesPath,lib, ... }: {
               imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
-              boot.kernelPackages = pkgs.linuxPackages_testing;
+              boot.kernelPackages = pkgs.linuxPackages_latest;
+              boot.supportedFilesystems = lib.mkForce [ "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "ext4" ];
             })
           ];
         };

@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports =
     [
@@ -18,7 +18,8 @@
       # USERS
       ../../common/users/meyer
     ];
-  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
   hardware.i2c.enable = true;
   hardware.amdgpu.opencl.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
