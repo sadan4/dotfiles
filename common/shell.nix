@@ -10,6 +10,7 @@
     ];
     aliases = common.aliases // {
       lg = "lazygit";
+      sd = ''lsusb | grep Elgato | grep --perl-regexp "(?<=Device 0{0,10})[1-9]+" --only-matching | xargs printf "usb.device_address eq %s" | copy'';
     };
   };
   common = {

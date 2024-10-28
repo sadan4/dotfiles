@@ -15,6 +15,8 @@ in
     ../homeModules/zsh.nix
     ../homeModules/desktopEntries.nix
     ../homeModules/java.nix
+    ../homeModules/jetbrains
+    ../homeModules/notion.nix
     ./sops.nix
     ./git.nix
   ];

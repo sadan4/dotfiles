@@ -1,8 +1,8 @@
 # https://lazamar.co.uk/nix-versions/
 { pkgs, config }:
-let
+{
   # 1.89.1
-  vsc_pkgs = import
+  vscode = (import
     (builtins.fetchGit {
       # Descriptive name to make the store path easier to identify
       name = "my-old-revision";
@@ -15,9 +15,19 @@ let
       config = {
         allowUnfree = true;
       };
-    };
-  a = vsc_pkgs.vscode;
-in
-{
-  vscode = a;
+    }).vscode;
+  etcher = (import
+    (builtins.fetchGit {
+      # Descriptive name to make the store path easier to identify
+      name = "my-old-revision";
+      url = "https://github.com/NixOS/nixpkgs/";
+      ref = "refs/heads/nixpkgs-unstable";
+      rev = "336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3";
+    })
+    {
+      system = pkgs.system;
+      config = {
+        permittedInsecurePackages = [ "electron-19.1.9" ];
+      };
+    }).etcher;
 }

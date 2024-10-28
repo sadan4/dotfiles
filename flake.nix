@@ -36,6 +36,7 @@
         };
         nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
           modules = [
             ./boxes/desktop/configuration.nix
             inputs.home-manager.nixosModules.default

@@ -5,10 +5,13 @@ let
 in
 {
   dev = with pkgs;[
+    meson
+    deno
+    rustup
+    android-studio-tools
     vscode-langservers-extracted
     cmake
     nodePackages_latest.typescript-language-server
-    cargo
     lua
     go
     eslint_d
@@ -30,7 +33,13 @@ in
     gh
     glib
     glibc
-    (python39.withPackages (ps: with ps;[
+    (python312.withPackages (ps: with ps;[
+      pytesseract
+      pillow
+      pyzbar
+      pygobject3
+      nanoid
+      loguru
       evdev
       setuptools
       xlib
@@ -38,8 +47,16 @@ in
     nodejs_22
   ];
   gui = with pkgs;[
+    cpkg.frog
+    legcord
+    obsidian
+    bottles
+    parsec-bin
+    jadx
+    android-studio
     wireshark
     pinned.vscode
+    pinned.etcher
     insomnia
     teamviewer
     davinci-resolve
@@ -73,7 +90,7 @@ in
     pulseaudioFull
     pavucontrol
     # jetbrains.pycharm-community
-    jetbrains.idea-community-bin
+    jbeap.idea-ultimate
     google-chrome
     bitwarden
     nerdfonts
@@ -90,6 +107,7 @@ in
   ];
   general = with pkgs; [
     imagemagick
+    onefetch
     p7zip
     dig
     bat
