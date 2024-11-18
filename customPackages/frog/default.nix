@@ -30,8 +30,8 @@ python3Packages.buildPythonApplication rec {
   src = ( fetchFromGitHub {
         owner = "sadan4";
         repo = "frog";
-        rev = "4e43c19701032de6dc741c92ed505f8fe660fbbb";
-        hash = "sha256-olQofXrUF97NvY/lYBic/u50zuFvuOm4XrWUKn83xac=";
+        rev = "e4b48239238e1947e74b919fd85609b6500aca31";
+        hash = "sha256-0/ZFmcaMKM/GpS8Q35e0joHTq4D0IEKdsCBJ16P8JZs=";
     });
   format = "other";
 

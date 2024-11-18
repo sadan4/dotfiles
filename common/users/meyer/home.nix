@@ -1,9 +1,22 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
-  file = import ../../files.nix { inherit config; };
-  shell = import ../../shell.nix { inherit config pkgs; };
-  pkgTypes = import ../../pkgs.nix { inherit pkgs config; };
+  file = import ../../files.nix { inherit config cpkg; };
+  shell = import ../../shell.nix { inherit config pkgs cpkg; };
+  cpkg = import ../../../customPackages { inherit pkgs inputs; };
+  pkgTypes = import ../../pkgs.nix {
+    inherit
+      pkgs
+      config
+      inputs
+      cpkg
+      ;
+  };
   packages = pkgTypes.dev ++ pkgTypes.gui ++ pkgTypes.general ++ pkgTypes.scripts ++ pkgTypes.gaming;
 in
 {
@@ -26,7 +39,6 @@ in
   # manage.
   home.username = "meyer";
   home.homeDirectory = "/home/meyer";
-
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

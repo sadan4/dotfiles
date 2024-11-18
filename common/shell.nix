@@ -1,4 +1,5 @@
-{ config, pkgs }: rec {
+{ config, pkgs, cpkg }:
+rec {
   dev = {
     env = common.env // {
       PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";

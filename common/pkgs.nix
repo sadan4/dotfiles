@@ -1,10 +1,14 @@
-{ pkgs, config }:
+{
+  pkgs,
+  config,
+  inputs,
+  cpkg,
+}:
 let
-  cpkg = import ../customPackages { inherit pkgs; };
   pinned = import ./pinned.nix { inherit pkgs config; };
 in
 {
-  dev = with pkgs;[
+  dev = with pkgs; [
     meson
     deno
     rustup
@@ -46,7 +50,7 @@ in
     ]))
     nodejs_22
   ];
-  gui = with pkgs;[
+  gui = with pkgs; [
     cpkg.frog
     legcord
     obsidian
@@ -137,6 +141,9 @@ in
     lutris
   ];
   scripts = [
+    (pkgs.writeShellScriptBin "hashi18n" ''
+      xsel -ob | node ${cpkg.scripts}/hash.js | tr -d '\n' | xsel -ib
+    '')
     (pkgs.writeShellScriptBin "paste" ''
       command -v xsel > /dev/null
       if [[ $? -eq 0 ]]; then
@@ -160,8 +167,7 @@ in
       URL=''${URL/https:\/\//git@};
       URL=''${URL/\//:};
       git remote set-url $1 $URL;
-    ''
-    )
+    '')
     (pkgs.writeShellScriptBin "copy" ''
       command -v xsel > /dev/null
       if [[ $? -eq 0 ]]; then
@@ -194,14 +200,8 @@ in
       set -e
       python3 -c "print($*)"
     '')
-    (pkgs.writeShellScriptBin "ocr" ''
-      set -euo pipefail
-      TEMP=$(mktemp)
-      flameshot gui -s -r > $TEMP
-      (tesseract $TEMP --oem 1 -l eng | copy )|| copy "OCR RETUNRED NON-ZERO"
-    '')
   ];
-  wsl = with pkgs;[
+  wsl = with pkgs; [
     wslu
   ];
 }

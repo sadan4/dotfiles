@@ -14,6 +14,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    scripts = {
+      inputs.scripts.follows = "nixpkgs";
+      url = "github:sadan4/scripts";
+    };
     stylix = {
         url = "github:danth/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -37,11 +41,28 @@
         desktopIso = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
-            ({ pkgs, modulesPath,lib, ... }: {
-              imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
-              boot.kernelPackages = pkgs.linuxPackages_latest;
-              boot.supportedFilesystems = lib.mkForce [ "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "ext4" ];
-            })
+            (
+              {
+                pkgs,
+                modulesPath,
+                lib,
+                ...
+              }:
+              {
+                imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+                boot.kernelPackages = pkgs.linuxPackages_latest;
+                boot.supportedFilesystems = lib.mkForce [
+                  "btrfs"
+                  "reiserfs"
+                  "vfat"
+                  "f2fs"
+                  "xfs"
+                  "ntfs"
+                  "cifs"
+                  "ext4"
+                ];
+              }
+            )
           ];
         };
         nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem {
@@ -59,7 +80,9 @@
         };
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./boxes/wsl/configuration.nix
             inputs.home-manager.nixosModules.default

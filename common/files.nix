@@ -1,4 +1,10 @@
-{ config }: rec{
+{
+  config,
+  cpkg,
+}:
+let
+in
+{
   lazygit = {
     recursive = true;
     source = ../dotfiles/lazygit;
@@ -36,6 +42,10 @@
     recursive = true;
     source = ../dotfiles/rofi;
     target = "./.config/rofi";
+  };
+  scripts = {
+    source = "${cpkg.scripts}";
+    target = ".scripts";
   };
   # # Building this configuration will create a copy of 'dotfiles/screenrc' in
   # # the Nix store. Activating the configuration will then make '~/.screenrc' a
