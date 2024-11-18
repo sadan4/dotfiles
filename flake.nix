@@ -22,6 +22,10 @@
         url = "github:danth/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
     };
+    nekocord = {
+    url = "github:PoolloverNathan/nekocord";
+    inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {

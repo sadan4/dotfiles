@@ -10,6 +10,8 @@ in
 {
   dev = with pkgs; [
     meson
+    nixfmt-rfc-style
+    nil
     deno
     rustup
     android-studio-tools
@@ -37,20 +39,23 @@ in
     gh
     glib
     glibc
-    (python312.withPackages (ps: with ps;[
-      pytesseract
-      pillow
-      pyzbar
-      pygobject3
-      nanoid
-      loguru
-      evdev
-      setuptools
-      xlib
-    ]))
+    (python312.withPackages (
+      ps: with ps; [
+        pytesseract
+        pillow
+        pyzbar
+        pygobject3
+        nanoid
+        loguru
+        evdev
+        setuptools
+        xlib
+      ]
+    ))
     nodejs_22
   ];
   gui = with pkgs; [
+    cpkg.nekocord
     cpkg.frog
     legcord
     obsidian

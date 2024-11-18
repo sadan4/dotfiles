@@ -6,4 +6,10 @@ rec {
   vencord = pkgs.callPackage ./vencord/package.nix { };
   frog = pkgs.callPackage ./frog { };
   scripts = inputs.scripts.flakePackage pkgs;
+  nekocord = inputs.nekocord.lib.patch pkgs {
+    install.renameBinary = true;
+    version = {
+      content = /home/meyer/dev/ts/nekocord/dist;
+    };
+  };
 }
