@@ -14,8 +14,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+        url = "github:danth/stylix";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, nixos-wsl, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-wsl,
+      ...
+    }@inputs:
     # let
     # boxes = [
     # "default"
@@ -35,12 +45,15 @@
           ];
         };
         nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
           system = "x86_64-linux";
           modules = [
             ./boxes/desktop/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.nix-index-database.nixosModules.nix-index
+            inputs.stylix.nixosModules.stylix
             { programs.nix-index-database.comma.enable = true; }
           ];
         };
