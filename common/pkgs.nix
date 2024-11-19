@@ -55,7 +55,6 @@ in
     nodejs_22
   ];
   gui = with pkgs; [
-    cpkg.nekocord
     cpkg.frog
     legcord
     obsidian

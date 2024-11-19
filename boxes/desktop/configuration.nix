@@ -16,7 +16,6 @@
       ../../common/systemModules/crypt.nix
       ../../common/systemModules/printing.nix
       ../../common/systemModules/stylix.nix
-      inputs
       # USERS
       ../../common/users/meyer
     ];

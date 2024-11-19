@@ -22,10 +22,6 @@
         url = "github:danth/stylix";
         inputs.nixpkgs.follows = "nixpkgs";
     };
-    nekocord = {
-    url = "github:PoolloverNathan/nekocord";
-    inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     {
@@ -78,7 +74,6 @@
             ./boxes/desktop/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.nix-index-database.nixosModules.nix-index
-            inputs.stylix.nixosModules.stylix
             { programs.nix-index-database.comma.enable = true; }
           ];
         };
