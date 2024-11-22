@@ -27,7 +27,7 @@
     fonts = {
       emoji = {
         package = pkgs.twemoji-color-font;
-        name = "Twemoji Color Emoji";
+        name = "Twitter Color Emoji";
       };
       sansSerif = {
         package = pkgs.nerdfonts;

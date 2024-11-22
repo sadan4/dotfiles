@@ -177,11 +177,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730016908,
-        "narHash": "sha256-bFCxJco7d8IgmjfNExNz9knP8wvwbXU4s/d53KOK6U0=",
+        "lastModified": 1731968878,
+        "narHash": "sha256-+hTCwETOE9N8voTAaF+IzdUZz28Ws3LDpH90FWADrEE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e83414058edd339148dc142a8437edb9450574c8",
+        "rev": "a42fa14b53ceab66274a21da480c9f8e06204173",
         "type": "github"
       },
       "original": {
@@ -211,65 +211,6 @@
         "type": "github"
       }
     },
-    "nekocord": {
-      "inputs": {
-        "nekocord-installer": "nekocord-installer",
-        "nekocord-latest": "nekocord-latest",
-        "nekocord-latest-dev": "nekocord-latest-dev",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1731460153,
-        "narHash": "sha256-IE/knV89tR9Kv6CBKwJOEDoVNtrk+rOTpvOatoPsB2I=",
-        "owner": "PoolloverNathan",
-        "repo": "nekocord",
-        "rev": "891ff720064a251d537dd89ce943aae669926cc0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PoolloverNathan",
-        "repo": "nekocord",
-        "type": "github"
-      }
-    },
-    "nekocord-installer": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-/89LCtysKgmDN8jGR2lARC7eArnxrENAdiMCSuPZVo0=",
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord-installer/main/latest.json"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord-installer/main/latest.json"
-      }
-    },
-    "nekocord-latest": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-DQw1QXxrsrbuNQZl0LyTRIZZbfrNjiZIEEIZWVhLgQg=",
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/main/latest.json"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/main/latest.json"
-      }
-    },
-    "nekocord-latest-dev": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-Ns+1t7XjrS+TbXWjGEtSTwkqykbjSQ/t0weJh/qhdGI=",
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/dev/latest.json"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://nekocord.dev/uploads/nekocord/dev/latest.json"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -277,11 +218,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1729999765,
-        "narHash": "sha256-LYsavZXitFjjyETZoij8usXjTa7fa9AIF3Sk3MJSX+Y=",
+        "lastModified": 1731814505,
+        "narHash": "sha256-l9ryrx1Twh08a+gxrMGM9O/aZKEimZfa6sZVyPCImgI=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "0e3a8778c2ee218eff8de6aacf3d2fa6c33b2d4f",
+        "rev": "bdba246946fb079b87b4cada4df9b1cdf1c06132",
         "type": "github"
       },
       "original": {
@@ -297,11 +238,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1729717678,
-        "narHash": "sha256-XEfYT1D+4KT9c0mMwsmZdWS2JgKsboAZbnuJvrjBQKg=",
+        "lastModified": 1731682434,
+        "narHash": "sha256-HnZFPB7akVIy0KuPq/tEkiB+Brt1qi0DUIDzR8z25qI=",
         "owner": "nix-community",
         "repo": "nixos-wsl",
-        "rev": "5a965cb108fb1f30b29a26dbc29b473f49e80b41",
+        "rev": "a6b9cf0b7805e2c50829020a73e7bde683fd36dd",
         "type": "github"
       },
       "original": {
@@ -312,22 +253,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1729181673,
-        "narHash": "sha256-LDiPhQ3l+fBjRATNtnuDZsBS7hqoBtPkKBkhpoBHv3I=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "4eb33fe664af7b41a4c446f87d20c9a0a6321fa3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-stable": {
-      "locked": {
         "lastModified": 1729973466,
         "narHash": "sha256-knnVBGfTCZlQgxY1SgH0vn2OyehH9ykfF8geZgS95bk=",
         "owner": "NixOS",
@@ -337,18 +262,18 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "release-24.05",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1729880355,
-        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
+        "lastModified": 1731676054,
+        "narHash": "sha256-OZiZ3m8SCMfh3B6bfGC/Bm4x3qc1m2SVEAlkV6iY7Yg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
+        "rev": "5e4fbfb6b3de1aa2872b76d49fafc942626e2add",
         "type": "github"
       },
       "original": {
@@ -376,11 +301,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1729951556,
-        "narHash": "sha256-bpb6r3GjzhNW8l+mWtRtLNg5PhJIae041sPyqcFNGb4=",
+        "lastModified": 1731763621,
+        "narHash": "sha256-ddcX4lQL0X05AYkrkV2LMFgGdRvgap7Ho8kgon3iWZk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4e0eec54db79d4d0909f45a88037210ff8eaffee",
+        "rev": "c69a9bffbecde46b4b939465422ddc59493d3e4d",
         "type": "github"
       },
       "original": {
@@ -393,7 +318,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nekocord": "nekocord",
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
@@ -422,15 +346,14 @@
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1729999681,
-        "narHash": "sha256-qm0uCtM9bg97LeJTKQ8dqV/FvqRN+ompyW4GIJruLuw=",
+        "lastModified": 1731954233,
+        "narHash": "sha256-vvXx1m2Rsw7MkbKJdpcICzz4YPgZPApGKQGhNZfkhOI=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "1666d16426abe79af5c47b7c0efa82fd31bf4c56",
+        "rev": "e39947d0ee8e341fa7108bd02a33cdfa24a1360e",
         "type": "github"
       },
       "original": {

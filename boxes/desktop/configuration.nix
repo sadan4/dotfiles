@@ -2,23 +2,27 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common/systemModules/boot.nix
-      ../../common/systemModules/audio.nix
-      ../../common/systemModules/kde.nix
-      ../../common/systemModules/tailscale.nix
-      ../../common/systemModules/gaming.nix
-      ../../common/systemModules/crypt.nix
-      ../../common/systemModules/printing.nix
-      ../../common/systemModules/stylix.nix
-      # USERS
-      ../../common/users/meyer
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common/systemModules/boot.nix
+    ../../common/systemModules/audio.nix
+    ../../common/systemModules/kde.nix
+    ../../common/systemModules/tailscale.nix
+    ../../common/systemModules/gaming.nix
+    ../../common/systemModules/crypt.nix
+    ../../common/systemModules/printing.nix
+    ../../common/systemModules/stylix.nix
+    # USERS
+    ../../common/users/meyer
+  ];
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
   hardware.i2c.enable = true;
@@ -31,17 +35,17 @@
   time.timeZone = "America/New_York";
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   services = {
     teamviewer.enable = true;
     usbmuxd.enable = true;
   };
 
-
   programs.zsh.enable = true;
-
-
 
   environment.systemPackages = with pkgs; [
     clinfo
