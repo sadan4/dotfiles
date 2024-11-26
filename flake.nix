@@ -77,7 +77,7 @@
             { programs.nix-index-database.comma.enable = true; }
           ];
         };
-        laptop-evo4b5 = nixpkgs.lib.nixosSystem {
+        arm-laptop-evo4b5 = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = {
             inherit inputs;
