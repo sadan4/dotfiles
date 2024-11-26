@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, config, ...}: {
     home = {
         packages = with pkgs; [
             neovim
@@ -6,7 +6,7 @@
         file = {
             nvim = {
                 recursive = true;
-                source = pkgs.lib.file.mkOutOfStoreSymlink "${pkgs.home.homeDirectory}/nixos/dotfiles/nvim";
+                source = lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/nvim";
                 target = "./.config/nvim";
             };
         };
