@@ -9,7 +9,15 @@
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-wsl.url = "github:nix-community/nixos-wsl";
+    nix-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+      inputs.nixpkgs.follows = "nix-stable";
+    };
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nix-stable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +36,7 @@
       self,
       nixpkgs,
       nixos-wsl,
+      nix-stable,
       ...
     }@inputs:
     # let
@@ -77,14 +86,15 @@
             { programs.nix-index-database.comma.enable = true; }
           ];
         };
-        arm-laptop-evo4b5 = nixpkgs.lib.nixosSystem {
+        arm-laptop-evo4b5 = nix-stable.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = {
             inherit inputs;
+            unstable = nixpkgs;
           };
           modules = [
             ./boxes/wsl/configuration.nix
-            inputs.home-manager.nixosModules.default
+            inputs.home-manager-stable.nixosModules.default
             nixos-wsl.nixosModules.wsl
           ];
         };
