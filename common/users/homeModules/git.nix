@@ -19,7 +19,7 @@
     shellAliases = {
       lg = "lazygit";
     };
-    sessionVariables {
+    sessionVariables = {
       LG_CONFIG_FILE = "/home/${config.home.username}/.config/lazygit/tokyonight_night.conf";
     };
   };
