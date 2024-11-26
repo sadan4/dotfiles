@@ -8,11 +8,11 @@
     file = {
       lazygit = {
         recursive = true;
-        source = ../dotfiles/lazygit;
+        source = ../../../dotfiles/lazygit;
         target = "./.config/lazygit";
       };
       gh = {
-        source = ../dotfiles/gh/config.yml;
+        source = ../../../dotfiles/gh/config.yml;
         target = "./.config/gh/config.yml";
       };
     };

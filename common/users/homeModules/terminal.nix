@@ -10,7 +10,7 @@
         file = {
             kitty = {
                 recursive = true;
-                source = ../dotfiles/kitty;
+                source = ../../../dotfiles/kitty;
                 target = "./.config/kitty";
             };
         };

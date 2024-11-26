@@ -6,7 +6,7 @@
         file = {
             rofi = {
                 recursive = true;
-                source = ../dotfiles/rofi;
+                source = ../../../dotfiles/rofi;
                 target = "./.config/rofi";
             };
         };

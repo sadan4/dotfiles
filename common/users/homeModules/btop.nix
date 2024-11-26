@@ -6,7 +6,7 @@
         file = {
             btop = {
                 recursive = true;
-                source = ../dotfiles/btop;
+                source = ../../../dotfiles/btop;
                 target = "./.config/btop";
             };
         };
