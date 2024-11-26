@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, stable ? pkgs, unstable ? pkgs, ... }:
 let
   NAME = "meyer";
 in
@@ -25,7 +25,7 @@ in
     };
   };
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs stable unstable; };
     users = {
       "${NAME}" = import ./home.nix;
     };
