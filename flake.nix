@@ -95,7 +95,7 @@
           specialArgs = {
             inputs = inputs // {
               nixpkgs = nix-stable;
-              home-manager = inpus.home-manager-stable;
+              home-manager = inputs.home-manager-stable;
               stylix = inputs.stylix-stable;
             };
             unstable = nixpkgs;
