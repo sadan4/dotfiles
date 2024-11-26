@@ -9,7 +9,7 @@
   nixpkgs.config.allowInsecurePredicate = (pkg: true);
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
   imports = [
-    ../homeModules/util.nix
+    ../homeModules/utils.nix
     ../homeModules/dev
     ../homeModules/dev/cpp.nix
     ../homeModules/dev/javascript.nix
