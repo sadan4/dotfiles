@@ -16,7 +16,7 @@
     };
     stylix-stable = {
         url = "github:danth/stylix/release-24.05";
-        inputs.nixpkgs.follows = "nixpkgs-stable";
+        inputs.nixpkgs.follows = "nix-stable";
     };
     home-manager-stable = {
       url = "github:nix-community/home-manager/release-24.05";
