@@ -6,7 +6,7 @@
         file = {
             nvim = {
                 recursive = true;
-                source = lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/nvim";
+                source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/nvim";
                 target = "./.config/nvim";
             };
         };
