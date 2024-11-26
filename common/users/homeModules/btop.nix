@@ -9,6 +9,6 @@
                 source = ../dotfiles/btop;
                 target = "./.config/btop";
             };
-        }
-    }
+        };
+    };
 }
