@@ -1,6 +1,6 @@
 {pkgs, lib, inputs, ...}: 
 let 
-cpkg = import ../../../customPackages { inherit pkgs inputs; };
+cpkg = import ../../../../customPackages { inherit pkgs inputs; };
 # https://discourse.nixos.org/t/how-to-create-a-script-with-dependencies/7970/6
 mkScript = { name, version ? "0.0.1", file, env ? [ ] }:
     pkgs.writeTextFile {
