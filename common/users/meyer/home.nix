@@ -30,6 +30,7 @@ in
     ../homeModules/java.nix
     ../homeModules/jetbrains
     ../homeModules/notion.nix
+    ../homeModules/zed.nix
     # ../homeModules/vscode
     ./sops.nix
     ./git.nix
