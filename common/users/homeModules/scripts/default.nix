@@ -12,7 +12,7 @@ mkScript = { name, version ? "0.0.1", file, env ? [ ] }:
           export PATH="$i/bin:$PATH"
         done
 
-        exec ${bash}/bin/bash ${file} $@
+        exec ${pkgs.bash}/bin/bash ${file} $@
       '';
     };
 in 
