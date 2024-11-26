@@ -69,7 +69,6 @@
     fuse
     fuse3
     mimalloc
-    libstdcxx5
   ];
   programs.ssh.startAgent = true;
   # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
