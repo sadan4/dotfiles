@@ -2,5 +2,5 @@
     wsl = {
         enable = true;
         defaultUser = "meyer";
-    }
+    };
 }
