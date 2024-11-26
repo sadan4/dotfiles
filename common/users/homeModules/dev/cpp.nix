@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, unstable, ...}: {
     home = {
         packages = with pkgs; [
             meson
@@ -6,7 +6,7 @@
             clang
             glib
             glibc
-            llvmPackages_19.clang-tools
+            unstable.llvmPackages_19.clang-tools
         ];
         file = {
             eslint_d_config = {
