@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, unstable, ...}: {
     imports = [
         ../prisma.nix
     ];
@@ -9,7 +9,7 @@
             vscode-langservers-extracted
             nodePackages_latest.typescript-language-server
             typescript
-            eslint
+            unstable.eslint
             corepack_22
             nodejs_22
         ] ++ (with pkgs.nodePackages; [
