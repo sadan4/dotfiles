@@ -18,5 +18,5 @@
             pnpm
             live-server
         ]);
-    }
+    };
 }
