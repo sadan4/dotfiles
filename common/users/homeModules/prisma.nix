@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{pkgs, unstable, ...}: {
     home = {
         packages = with pkgs; [
-            prisma
+            unstable.prisma
             prisma-engines
         ];
         sessionVariables = {

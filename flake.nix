@@ -81,6 +81,8 @@
         nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
+            unstable = nixpkgs;
+            stable = nix-stable;
           };
           system = "x86_64-linux";
           modules = [
@@ -99,6 +101,7 @@
               stylix = inputs.stylix-stable;
             };
             unstable = nixpkgs;
+            stable = nix-stable;
           };
           modules = [
             ./boxes/wsl/configuration.nix
