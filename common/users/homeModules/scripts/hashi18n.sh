@@ -1,0 +1,1 @@
+xsel -ob | node $HOME/.scripts/hash.js | tr -d '\n' | xsel -ib

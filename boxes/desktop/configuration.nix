@@ -9,6 +9,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../common/systemModules/boot.nix
+      ../../common/systemModules/kernel.nix
       ../../common/systemModules/audio.nix
       ../../common/systemModules/kde.nix
       ../../common/systemModules/tailscale.nix
@@ -44,11 +45,11 @@
 
 
   environment.systemPackages = with pkgs; [
+    ddcutil
     clinfo
+    i2c-tools
     fuse
     ifuse
-    ddcutil
-    i2c-tools
     gcc
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl

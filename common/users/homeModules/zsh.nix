@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 let
 
+  # TODO: make these modular
   _ = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
     "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -12,6 +13,19 @@ let
   zshInitArgs = lib.concatMapStrings (x: x + "\n") _;
 in
 {
+  home = {
+    packages = with pkgs; [
+      zsh-powerlevel10k
+      zsh-syntax-highlighting
+    ];
+    file = {
+      p10k = {
+        recursive = true;
+        source = ../dotfiles/.p10k.zsh;
+        target = ".p10k.zsh";
+      };
+    };
+  };
   programs = {
     zoxide = {
       enable = true;

@@ -3,35 +3,40 @@
   pkgs,
   inputs,
   ...
-}:
-
-let
-  file = import ../../files.nix { inherit config cpkg; };
-  shell = import ../../shell.nix { inherit config pkgs cpkg; };
-  cpkg = import ../../../customPackages { inherit pkgs inputs; };
-  pkgTypes = import ../../pkgs.nix {
-    inherit
-      pkgs
-      config
-      inputs
-      cpkg
-      ;
-  };
-  packages = pkgTypes.dev ++ pkgTypes.gui ++ pkgTypes.general ++ pkgTypes.scripts ++ pkgTypes.gaming;
-in
-{
+}: let
+  pinned = import ./pinned.nix { inherit pkgs config; };
+in {
   nixpkgs.config.allowInsecurePredicate = (pkg: true);
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
+
   imports = [
+    ../homeModules/util.nix
+    ../homeModules/dev
+    ../homeModules/dev/ide
+    ../homeModules/dev/ide/jb/idea.nix
+    ../homeModules/dev/javascript.nix
+    ../homeModules/dev/cpp.nix
+    ../homeModules/dev/jvm.nix
+    ../homeModules/dev/python.nix
+    ../homeModules/media
+    ../homeModules/scripts
+    ../homeModules/audio.nix
+    ../homeModules/btop.nix
     ../homeModules/flameshot.nix
-    ../homeModules/arrpc.nix
+    ../homeModules/frog.nix
+    ../homeModules/gaming.nix
+    ../homeModules/git.nix
+    ../homeModules/kde.nix
+    ../homeModules/networking.nix
+    ../homeModules/nvim.nix
+    ../homeModules/obsidian.nix
+    ../homeModules/rofi.nix
+    ../homeModules/social.nix
+    ../homeModules/sops.nix
+    ../homeModules/terminal.nix
+    ../homeModules/virt.nix
+    ../homeModules/web.nix
     ../homeModules/zsh.nix
-    ../homeModules/desktopEntries.nix
-    ../homeModules/java.nix
-    ../homeModules/jetbrains
-    ../homeModules/notion.nix
-    ./sops.nix
-    ./git.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -43,11 +48,13 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home = {
-    inherit packages file;
+    packages = with pkgs; [
+      pinned.etcher
+    ]
   };
-  home.shellAliases = shell.dev.aliases;
-  home.sessionPath = shell.dev.path;
-  home.sessionVariables = shell.dev.env;
+  home.shellAliases = {
+    sd = ''lsusb | grep Elgato | grep --perl-regexp "(?<=Device 0{0,10})[1-9]+" --only-matching | xargs printf "usb.device_address eq %s" | copy'';
+  };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
 

@@ -3,6 +3,9 @@
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
+  environment.systemPackages = with pkgs; [
+    nerdfonts
+  ];
   stylix = {
     enable = true;
     image = ./wallpaper.jpg;

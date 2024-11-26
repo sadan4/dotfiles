@@ -77,8 +77,8 @@
             { programs.nix-index-database.comma.enable = true; }
           ];
         };
-        wsl = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        laptop-evo4b5 = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
           specialArgs = {
             inherit inputs;
           };

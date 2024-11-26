@@ -1,5 +1,11 @@
-{ ... }:
-{
+{pkgs, ...}: {
+    home = {
+        packages = with pkgs; [
+            spotify
+            pulseaudioFull
+            pavucontrol
+        ];
+    };
   xdg = {
     desktopEntries = {
       spotifyOpen = {

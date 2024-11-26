@@ -1,4 +1,28 @@
-{ ... }: {
+{ pkgs, ... }: {
+  home = {
+    packages = with pkgs; [
+      git
+      lazygit
+      gh
+    ];
+    file = {
+      lazygit = {
+        recursive = true;
+        source = ../dotfiles/lazygit;
+        target = "./.config/lazygit";
+      };
+      gh = {
+        source = ../dotfiles/gh/config.yml;
+        target = "./.config/gh/config.yml";
+      };
+    };
+    shellAliases = {
+      lg = "lazygit";
+    }
+    sessionVariables {
+      LG_CONFIG_FILE = "/home/${config.home.username}/.config/lazygit/tokyonight_night.conf";
+    };
+  }
   programs = {
     git = {
       enable = true;

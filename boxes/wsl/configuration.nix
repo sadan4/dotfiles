@@ -7,130 +7,73 @@
 
 {
   imports = [
-    inputs.sops-nix.nixosModules.sops
+    ../../common/users/meyer-wsl
+    ../../common/systemModules/wsl.nix
+    ../../common/systemModules/kernel.nix
+    ../../common/systemModules/crypt.nix
+    ../../common/systemModules/stylix.nix
   ];
-  sops.defaultSopsFile = ../../secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/meyer/.config/sops/age/keys.txt";
-  sops.secrets.password.neededForUsers = true;
-  wsl.enable = true;
-  wsl.defaultUser = "meyer";
-  # Use the systemd-boot EFI boot loader.
-  users.users.meyer = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.password.path;
-    extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
-      "input"
-      "tty"
-    ];
-    shell = pkgs.zsh;
-  };
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "meyer" = import ./home.nix;
-    };
-  };
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  hardware.i2c.enable = true;
-  networking.hostName = "nix-wsl"; # Define your hostname.
 
+  hardware.i2c.enable = true;
+
+  networking.hostName = "arm-laptop-evo4b5"; # Define your hostname.
+
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-  # Enable the X11 windowing system.
-  # servives.desktopManager.plasma6.enable = true;
-  # services.desktopManager.plasma6.enable = true;
-
-
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-
-
   programs.zsh.enable = true;
-  nixpkgs.config.allowUnfree = true;
 
 
 
-  # networking.nameservers = ["10.0.0.97" "1.1.1.1"];
-  networking.nameservers = [ "10.0.0.97" ];
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     ddcutil
     i2c-tools
-    # python311
-    # python311Packages.evdev
-    # python311Packages.xlib
+    fuse
     gcc
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
     wget
-    git
     ripgrep
     tldr
-    gnupg
-    openssh
-    pinentry-curses
-    pinentry
     libnotify
     file
   ];
   #LD fix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    pkgs.curlWithGnuTls
+    libGL
+    alsa-lib
+    expat
+    mesa
+    libxkbcommon
+    xorg.libxcb
+    xorg.libXrandr
+    xorg.libXfixes
+    xorg.libXext
+    xorg.libXdamage
+    xorg.libXcomposite
+    xorg.libX11
+    cairo
+    pango
+    gtk3
+    libdrm
+    cups
+    at-spi2-atk
+    lzo
+    dbus
+    nspr
+    nss
+    glib
+    curlWithGnuTls
+    fuse
+    fuse3
+    mimalloc
+    libstdcxx5
   ];
   programs.ssh.startAgent = true;
   # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-
-  programs.gnupg.agent = {
-    enable = true;
-  };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

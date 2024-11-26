@@ -9,6 +9,5 @@
         efiInstallAsRemovable = true;
       };
     };
-  kernelPackages = pkgs.linuxPackages_latest;
   };
 }
