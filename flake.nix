@@ -14,6 +14,10 @@
       url = "github:nix-community/nixos-wsl";
       inputs.nixpkgs.follows = "nix-stable";
     };
+    stylix-stable = {
+        url = "github:danth/stylix/release-24.05";
+        inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
     home-manager-stable = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nix-stable";
@@ -89,7 +93,11 @@
         arm-laptop-evo4b5 = nix-stable.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = {
-            inherit inputs;
+            inputs = inputs // {
+              nixpkgs = nix-stable;
+              home-manager = home-manager-stable;
+              stylix = stylix-stable;
+            };
             unstable = nixpkgs;
           };
           modules = [
