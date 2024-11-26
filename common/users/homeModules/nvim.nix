@@ -15,5 +15,5 @@
             MANPAGER = "nvim +Man!";
             MANWIDTH = "999";
         };
-    }
+    };
 }
