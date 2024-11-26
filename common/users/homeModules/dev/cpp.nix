@@ -10,7 +10,7 @@
         ];
         file = {
             eslint_d_config = {
-                source = ../../../dotfiles/eslintrc.json;
+                source = ../../../../dotfiles/eslintrc.json;
                 target = "./.config/.eslintrc.json";
             };
         };
