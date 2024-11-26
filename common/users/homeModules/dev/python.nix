@@ -11,7 +11,6 @@
                 loguru
                 evdev
                 setuptools
-                xlib
             ]
             ))
             python312Packages.openai-whisper
