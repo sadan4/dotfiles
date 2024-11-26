@@ -1,7 +1,7 @@
 {pkgs, ...}: {
     imports = [
         ../prisma.nix
-    ]
+    ];
     home = {
         packages = with pkgs; [
             deno
