@@ -18,11 +18,11 @@
     };
     shellAliases = {
       lg = "lazygit";
-    }
+    };
     sessionVariables {
       LG_CONFIG_FILE = "/home/${config.home.username}/.config/lazygit/tokyonight_night.conf";
     };
-  }
+  };
   programs = {
     git = {
       enable = true;
