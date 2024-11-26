@@ -78,11 +78,13 @@
             )
           ];
         };
-        nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem {
+        nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
           specialArgs = {
             inherit inputs;
-            unstable = nixpkgs;
-            stable = nix-stable;
+            stable = import nix-stable {
+              inherit system;
+              config = { allowUnfree = true; };
+            };
           };
           system = "x86_64-linux";
           modules = [
@@ -92,7 +94,7 @@
             { programs.nix-index-database.comma.enable = true; }
           ];
         };
-        arm-laptop-evo4b5 = nix-stable.lib.nixosSystem {
+        arm-laptop-evo4b5 = nix-stable.lib.nixosSystem rec {
           system = "aarch64-linux";
           specialArgs = {
             inputs = inputs // {
@@ -100,8 +102,10 @@
               home-manager = inputs.home-manager-stable;
               stylix = inputs.stylix-stable;
             };
-            unstable = nixpkgs;
-            stable = nix-stable;
+            unstable = import nixpkgs {
+              inherit system;
+              config = { allowUnfree = true; };
+            };
           };
           modules = [
             ./boxes/wsl/configuration.nix

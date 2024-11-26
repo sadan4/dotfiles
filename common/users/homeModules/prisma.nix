@@ -1,4 +1,4 @@
-{pkgs, unstable, ...}: {
+{pkgs, unstable ? pkgs, ...}: {
     home = {
         packages = with pkgs; [
             unstable.prisma
