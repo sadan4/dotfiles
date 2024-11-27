@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{pkgs, stable, ...}: {
     home = {
         packages = with pkgs; [
             parsec-bin
-            protonvpn-gui
+            stable.protonvpn-gui
             insomnia
             teamviewer
             filezilla
