@@ -9,6 +9,7 @@ let
 in
 {
   dev = with pkgs; [
+    bear
     llvmPackages_19.clang-tools
     meson
     nixfmt-rfc-style
