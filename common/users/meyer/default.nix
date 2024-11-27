@@ -10,6 +10,7 @@ in
     (import ../../systemModules/razer.nix { inherit NAME; })
     (import ../../systemModules/nixHelper.nix { inherit NAME; })
     (import ../../programs/wireshark.nix { inherit NAME; })
+    (import ../../programs/kanata.nix { inherit NAME; })
   ];
   users = {
     users = {

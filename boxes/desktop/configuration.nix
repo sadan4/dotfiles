@@ -2,7 +2,6 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, inputs, ... }:
 {
   imports =
     [
@@ -32,17 +31,17 @@
   time.timeZone = "America/New_York";
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   services = {
     teamviewer.enable = true;
     usbmuxd.enable = true;
   };
 
-
   programs.zsh.enable = true;
-
-
 
   environment.systemPackages = with pkgs; [
     ddcutil

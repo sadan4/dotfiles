@@ -1,9 +1,11 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   nixpkgs.overlays = [
     (pkgs: _: {
       ja-netfilter = pkgs.callPackage ./ja-netfilter { inherit lib; };
     })
-    (final: pkgs:
+    (
+      final: pkgs:
       let
         inherit (pkgs) jetbrains;
         globalPlugins = [
@@ -12,7 +14,12 @@
         ];
         ja-netfilter = pkgs.ja-netfilter.override {
           programName = "jetbrains";
-          enabledPlugins = [ "dns" "url" "hideme" "power" ];
+          enabledPlugins = [
+            "dns"
+            "url"
+            "hideme"
+            "power"
+          ];
           pluginConfigs = {
             dns = ''
               [DNS]
@@ -43,21 +50,30 @@
           };
         };
 
-        srcOverrideFn = name: { version
-                              , url
-                              , sha256
-                              , plugins ? [ ]
-                              ,
-                              }:
+        srcOverrideFn =
+          name:
+          {
+            version,
+            url,
+            sha256,
+            plugins ? [ ],
+          }:
           let
-            versionChangedPkg = jetbrains.${name}.overrideAttrs
-              (_: old: rec {
+            versionChangedPkg = jetbrains.${name}.overrideAttrs (
+              _: old: rec {
                 inherit version;
                 src = pkgs.fetchurl {
                   inherit url sha256;
                 };
-                buildInputs = old.buildInputs ++ (with pkgs; [ xorg.libX11 libGL fontconfig ]);
-              });
+                buildInputs =
+                  old.buildInputs
+                  ++ (with pkgs; [
+                    xorg.libX11
+                    libGL
+                    fontconfig
+                  ]);
+              }
+            );
           in
           versionChangedPkg;
         srcPatched = builtins.mapAttrs srcOverrideFn overrides;
@@ -67,7 +83,8 @@
           --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
           -javaagent:${javaAgentJar}=jetbrains
         '';
-        forkingWrapper = package: wrapperName:
+        forkingWrapper =
+          package: wrapperName:
           let
             exe = lib.getExe package;
             wrapperExe = pkgs.writeShellScriptBin wrapperName ''
@@ -76,21 +93,22 @@
           in
           pkgs.symlinkJoin {
             name = package.name;
-            paths = [ package wrapperExe ];
+            paths = [
+              package
+              wrapperExe
+            ];
             postBuild = ''
               ln -s ${exe} $out/bin/${wrapperName}-unwrapped
             '';
           };
-        wrapJetBrains = package: name:
-          forkingWrapper (package.override { inherit vmopts; }) name;
-        netOverrideFn = name: _:
-          wrapJetBrains srcPatched.${name} name;
+        wrapJetBrains = package: name: forkingWrapper (package.override { inherit vmopts; }) name;
+        netOverrideFn = name: _: wrapJetBrains srcPatched.${name} name;
         netPatched = builtins.mapAttrs netOverrideFn overrides;
       in
       {
         jbeap = netPatched;
-      })
-
+      }
+    )
 
   ];
 }

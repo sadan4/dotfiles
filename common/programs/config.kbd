@@ -1,0 +1,13 @@
+(defsrc
+caps
+)
+(defvar
+tap-time 150
+hold-time 200
+)
+(defalias
+caps (tap-hold 150 150 esc lctrl)
+)
+(deflayer base
+    @caps
+)
