@@ -123,7 +123,7 @@ in
     teamviewer
     davinci-resolve
     warp-terminal
-    gnome.gnome-calculator
+    gnome-calculator
     libsForQt5.kcolorchooser
     python312Packages.openai-whisper
     firefox-devedition
