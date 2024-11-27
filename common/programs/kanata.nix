@@ -47,7 +47,7 @@
         ${pkgs.kanata}/bin/kanata \
         --cfg ${./config.kbd}
       '';
-      User=NAME;
+      User="root";
     };
     wantedBy = [ "multi-user.target" ];
   };
