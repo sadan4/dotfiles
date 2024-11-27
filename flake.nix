@@ -15,8 +15,8 @@
       inputs.nixpkgs.follows = "nix-stable";
     };
     stylix-stable = {
-        url = "github:danth/stylix/release-24.05";
-        inputs.nixpkgs.follows = "nix-stable";
+      url = "github:danth/stylix/release-24.05";
+      inputs.nixpkgs.follows = "nix-stable";
     };
     home-manager-stable = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -31,8 +31,8 @@
       url = "github:sadan4/scripts";
     };
     stylix = {
-        url = "github:danth/stylix";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs =
@@ -83,11 +83,21 @@
             inherit inputs;
             stable = import nix-stable {
               inherit system;
-              config = { allowUnfree = true; };
+              config = {
+                allowUnfree = true;
+              };
             };
           };
           system = "x86_64-linux";
           modules = [
+            (
+              { pkgs, ... }:
+              {
+                _module.args = {
+                  unstable = pkgs;
+                };
+              }
+            )
             ./boxes/desktop/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.nix-index-database.nixosModules.nix-index
@@ -104,10 +114,20 @@
             };
             unstable = import nixpkgs {
               inherit system;
-              config = { allowUnfree = true; };
+              config = {
+                allowUnfree = true;
+              };
             };
           };
           modules = [
+            (
+              { pkgs, ... }:
+              {
+                _module.args = {
+                  stable = pkgs;
+                };
+              }
+            )
             ./boxes/wsl/configuration.nix
             inputs.home-manager-stable.nixosModules.default
             nixos-wsl.nixosModules.wsl

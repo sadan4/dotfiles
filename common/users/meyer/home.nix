@@ -10,7 +10,7 @@ in {
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
   imports = [
-    ../homeModules/util.nix
+    ../homeModules/utils.nix
     ../homeModules/dev
     ../homeModules/dev/ide
     ../homeModules/dev/ide/jb/idea.nix
@@ -50,7 +50,7 @@ in {
   home = {
     packages = with pkgs; [
       pinned.etcher
-    ]
+    ];
   };
   home.shellAliases = {
     sd = ''lsusb | grep Elgato | grep --perl-regexp "(?<=Device 0{0,10})[1-9]+" --only-matching | xargs printf "usb.device_address eq %s" | copy'';

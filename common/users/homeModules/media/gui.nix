@@ -7,5 +7,5 @@
             inkscape
             obs-studio
         ];
-    }
+    };
 }

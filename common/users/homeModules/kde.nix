@@ -7,5 +7,5 @@
             libsForQt5.kcolorchooser
             gnome.gnome-calculator
         ];
-    }
+    };
 }

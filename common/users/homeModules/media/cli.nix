@@ -5,5 +5,5 @@
             ffmpeg
             yt-dlp
         ];
-    }
+    };
 }

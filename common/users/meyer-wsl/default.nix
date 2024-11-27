@@ -1,4 +1,4 @@
-{ pkgs, inputs, stable ? pkgs, unstable ? pkgs, ... }:
+{ pkgs, inputs, stable, unstable, ... }:
 let
   NAME = "meyer";
 in
