@@ -7,7 +7,7 @@
                 jdks = [
                     jdk8
                     jdk17
-                    jdk22
+                    jdk23
                 ];
             })
             protontricks
