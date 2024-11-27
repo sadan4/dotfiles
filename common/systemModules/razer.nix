@@ -1,4 +1,4 @@
-{ NAME }: { ... }: {
+{ NAME }: {pkgs, ... }: {
 
   environment.systemPackages = with pkgs; [
     polychromatic
