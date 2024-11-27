@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  pinned = import ./pinned.nix { inherit pkgs config; };
+  pinned = import ../../pinned.nix { inherit pkgs config; };
 in {
   nixpkgs.config.allowInsecurePredicate = (pkg: true);
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
