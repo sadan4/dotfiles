@@ -88,7 +88,6 @@
     fuse
     fuse3
     mimalloc
-    libstdcxx5
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,

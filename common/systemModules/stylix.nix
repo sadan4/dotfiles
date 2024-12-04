@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, stable, ... }:
 {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
-  environment.systemPackages = with pkgs; [
-    nerdfonts
+  environment.systemPackages = [
+    stable.nerdfonts
   ];
   stylix = {
     enable = true;
@@ -33,15 +33,15 @@
         name = "Twitter Color Emoji";
       };
       sansSerif = {
-        package = pkgs.nerdfonts;
+        package = stable.nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
       };
       serif = {
-        package = pkgs.nerdfonts;
+        package = stable.nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
       };
       monospace = {
-        package = pkgs.nerdfonts;
+        package = stable.nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
       };
     };
