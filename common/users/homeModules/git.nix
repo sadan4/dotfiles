@@ -3,6 +3,7 @@
     packages = with pkgs; [
       git
       lazygit
+      act
       gh
     ];
     file = {
