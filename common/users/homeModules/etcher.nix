@@ -1,10 +1,10 @@
 { pkgs, ... }: {
   imports = [
-    ../../../pinned.nix
+    ./pinned.nix
   ];
   home = {
     packages = with pkgs.pinned; [
-      idea-ultimate
+      etcher
     ];
   };
 }

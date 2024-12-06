@@ -1,13 +1,12 @@
 { pkgs, ... }: {
+  imports = [
+    ./ide/jb/idea.nix
+    ./ide/jb/androidStudio.nix
+  ];
   home = {
     packages = with pkgs; [
-      android-studio-tools
       gradle
       jadx
-      android-studio
-      jetbrains.idea-ultimate
-      # jbeap.idea-ultimate
-    # jetbrains.pycharm-community
     ];
   };
   programs = {
