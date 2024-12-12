@@ -62,6 +62,8 @@
   #LD fix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    graalvm-ce
+    zlib.static
     libGL
     alsa-lib
     expat

@@ -3,7 +3,8 @@
         packages = with pkgs; [
             meson
             cmake
-            clang
+            # clang
+            libgcc
             glib
             glibc
             unstable.llvmPackages_19.clang-tools
