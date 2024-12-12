@@ -1,6 +1,7 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
     home = {
         packages = with pkgs; [
+            unixtools.xxd
             p7zip
             dig
             bat
