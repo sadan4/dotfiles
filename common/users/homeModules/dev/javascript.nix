@@ -4,6 +4,7 @@
     ];
     home = {
         packages = with pkgs; [
+            lemminx
             deno
             eslint_d
             vscode-langservers-extracted
