@@ -29,6 +29,9 @@
       enable = true;
       userName = "sadan";
       userEmail = "117494111+sadan4@users.noreply.github.com";
+      lfs = {
+        enable = true;
+      };
       extraConfig = {
         gpg = {
           format = "ssh";
