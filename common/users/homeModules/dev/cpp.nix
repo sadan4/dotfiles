@@ -6,7 +6,10 @@
             # clang
             libgcc
             glib
+            bear
             glibc
+            gdb
+            lldb_19
             unstable.llvmPackages_19.clang-tools
         ];
         file = {

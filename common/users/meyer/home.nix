@@ -14,6 +14,7 @@
     ../homeModules/dev/ide/reverseEng.nix
     ../homeModules/dev/ide/jb/idea.nix
     ../homeModules/dev/javascript.nix
+    ../homeModules/dev/nix.nix
     ../homeModules/dev/cpp.nix
     ../homeModules/dev/go.nix
     ../homeModules/dev/jvm.nix
