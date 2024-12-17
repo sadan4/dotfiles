@@ -1,4 +1,3 @@
-#commit
 {
   description = "Nixos config flake";
 
@@ -34,14 +33,17 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chrome-pak = {
+      url = "git+file:./customPackages/chrome-pak-customizer";
+      flake = false;
+    };
   };
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixos-wsl,
-      nix-stable,
-      ...
+    { self
+    , nixpkgs
+    , nixos-wsl
+    , nix-stable
+    , ...
     }@inputs:
     # let
     # boxes = [
@@ -55,11 +57,10 @@
           system = "aarch64-linux";
           modules = [
             (
-              {
-                pkgs,
-                modulesPath,
-                lib,
-                ...
+              { pkgs
+              , modulesPath
+              , lib
+              , ...
               }:
               {
                 imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];

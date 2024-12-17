@@ -1,11 +1,11 @@
-{pkgs, inputs, ...}: 
-let
-    cpkg = import ../../../customPackages { inherit pkgs inputs; };
-in
+{ pkgs, inputs, ... }:
 {
-    home = {
-        packages = [
-            cpkg.frog
-        ];
-    };
+  imports = [
+    ../../../customPackages
+  ];
+  home = {
+    packages = with pkgs.cpkg;[
+      frog
+    ];
+  };
 }

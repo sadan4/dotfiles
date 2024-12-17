@@ -1,6 +1,6 @@
 {pkgs, lib, inputs, ...}: 
 let 
-cpkg = import ../../../../customPackages { inherit pkgs inputs; };
+# cpkg = import ../../../../customPackages { inherit pkgs inputs; };
 # https://discourse.nixos.org/t/how-to-create-a-script-with-dependencies/7970/6
 mkScript = { name, version ? "0.0.1", file, env ? [ ] }:
     pkgs.writeTextFile {
@@ -17,6 +17,9 @@ mkScript = { name, version ? "0.0.1", file, env ? [ ] }:
     };
 in 
 {
+    imports = [
+        ../../../../customPackages
+    ];
     home = {
         packages = with pkgs; [
             # env for clipboard command will be required by their respective environemnts
@@ -54,7 +57,7 @@ in
         ];
         file = {
             scripts = {
-                source = "${cpkg.scripts}";
+                source = "${pkgs.cpkg.scripts}";
                 target = ".scripts";
             };
         };
