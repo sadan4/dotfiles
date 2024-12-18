@@ -1,25 +1,29 @@
 # Edit this configuration file to define what should be installed onconfiguraticonfig
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-{config, pkgs, inputs, ...}:
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common/systemModules/boot.nix
-      ../../common/systemModules/folding.nix
-      ../../common/systemModules/kernel.nix
-      ../../common/systemModules/audio.nix
-      ../../common/systemModules/kde.nix
-      ../../common/systemModules/tailscale.nix
-      ../../common/systemModules/gaming.nix
-      ../../common/systemModules/crypt.nix
-      ../../common/systemModules/printing.nix
-      ../../common/systemModules/stylix.nix
-      # USERS
-      ../../common/users/meyer
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common/systemModules/boot.nix
+    ../../common/systemModules/folding.nix
+    ../../common/systemModules/kernel.nix
+    ../../common/systemModules/audio.nix
+    ../../common/systemModules/kde.nix
+    ../../common/systemModules/tailscale.nix
+    ../../common/systemModules/gaming.nix
+    ../../common/systemModules/crypt.nix
+    ../../common/systemModules/printing.nix
+    ../../common/systemModules/stylix.nix
+    # USERS
+    ../../common/users/meyer
+  ];
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
   hardware.i2c.enable = true;
@@ -27,9 +31,13 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.bluetooth.enable = true;
   networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
-
+  environment.sessionVariables = {
+    HOSTNAME = config.networking.hostName;
+  };
   # Set your time zone.
   time.timeZone = "America/New_York";
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [
