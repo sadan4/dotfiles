@@ -37,112 +37,139 @@
       url = "git+file:./customPackages/chrome-pak-customizer";
       flake = false;
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
   outputs =
-    { self
-    , nixpkgs
-    , nixos-wsl
-    , nix-stable
-    , ...
-    }@inputs:
-    # let
-    # boxes = [
-    # "default"
-    # ];
-    # forAllSystems = nixpkgs.lib.genAttrs boxes;
-    # in
     {
-      nixosConfigurations = {
-        desktopIso = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          modules = [
-            (
-              { pkgs
-              , modulesPath
-              , lib
-              , ...
-              }:
+      self,
+      nixpkgs,
+      nixos-wsl,
+      nix-stable,
+      flake-parts,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      debug = true;
+      systems = [ "x86_64-linux" ];
+      perSystem = { config, ... }: { };
+      flake = {
+        homeConfigurations = {
+          nixd = inputs.home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            modules = [
               {
-                imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
-                boot.kernelPackages = pkgs.linuxPackages_latest;
-                boot.supportedFilesystems = lib.mkForce [
-                  "btrfs"
-                  "reiserfs"
-                  "vfat"
-                  "f2fs"
-                  "xfs"
-                  "ntfs"
-                  "cifs"
-                  "ext4"
-                ];
-              }
-            )
-          ];
-        };
-        nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
-          specialArgs = {
-            inherit inputs;
-            stable = import nix-stable {
-              inherit system;
-              config = {
-                allowUnfree = true;
-              };
-            };
-          };
-          system = "x86_64-linux";
-          modules = [
-            (
-              { pkgs, ... }:
-              {
-                _module.args = {
-                  unstable = pkgs;
+                home = {
+                  stateVersion = "24.05";
+                  username = "nixd";
+                  homeDirectory = "/dev/null";
                 };
               }
-            )
-            ./boxes/desktop/configuration.nix
-            inputs.home-manager.nixosModules.default
-            inputs.nix-index-database.nixosModules.nix-index
-            { programs.nix-index-database.comma.enable = true; }
-          ];
+              (
+                { pkgs, ... }:
+                {
+                  wayland.windowManager.hyprland.enable = true;
+                  home = {
+                    packages = with pkgs; [ nixd ];
+                  };
+                }
+              )
+            ];
+          };
         };
-        arm-laptop-evo4b5 = nix-stable.lib.nixosSystem rec {
-          system = "aarch64-linux";
-          specialArgs = {
-            inputs = inputs // {
-              nixpkgs = nix-stable;
-              home-manager = inputs.home-manager-stable;
-              stylix = inputs.stylix-stable;
-            };
-            unstable = import nixpkgs {
-              inherit system;
-              config = {
-                allowUnfree = true;
+        nixosConfigurations = {
+          nixd = nixpkgs.lib.nixosSystem { };
+          desktopIso = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [
+              (
+                {
+                  pkgs,
+                  modulesPath,
+                  lib,
+                  ...
+                }:
+                {
+                  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+                  boot.kernelPackages = pkgs.linuxPackages_latest;
+                  boot.supportedFilesystems = lib.mkForce [
+                    "btrfs"
+                    "reiserfs"
+                    "vfat"
+                    "f2fs"
+                    "xfs"
+                    "ntfs"
+                    "cifs"
+                    "ext4"
+                  ];
+                }
+              )
+            ];
+          };
+          nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
+            specialArgs = {
+              inherit inputs;
+              stable = import nix-stable {
+                inherit system;
+                config = {
+                  allowUnfree = true;
+                };
               };
             };
+            system = "x86_64-linux";
+            modules = [
+              (
+                { pkgs, ... }:
+                {
+                  _module.args = {
+                    unstable = pkgs;
+                  };
+                }
+              )
+              ./boxes/desktop/configuration.nix
+              inputs.home-manager.nixosModules.default
+              inputs.nix-index-database.nixosModules.nix-index
+              { programs.nix-index-database.comma.enable = true; }
+            ];
           };
-          modules = [
-            (
-              { pkgs, ... }:
-              {
-                _module.args = {
-                  stable = pkgs;
+          arm-laptop-evo4b5 = nix-stable.lib.nixosSystem rec {
+            system = "aarch64-linux";
+            specialArgs = {
+              inputs = inputs // {
+                nixpkgs = nix-stable;
+                home-manager = inputs.home-manager-stable;
+                stylix = inputs.stylix-stable;
+              };
+              unstable = import nixpkgs {
+                inherit system;
+                config = {
+                  allowUnfree = true;
                 };
-              }
-            )
-            ./boxes/wsl/configuration.nix
-            inputs.home-manager-stable.nixosModules.default
-            nixos-wsl.nixosModules.wsl
-          ];
+              };
+            };
+            modules = [
+              (
+                { pkgs, ... }:
+                {
+                  _module.args = {
+                    stable = pkgs;
+                  };
+                }
+              )
+              ./boxes/wsl/configuration.nix
+              inputs.home-manager-stable.nixosModules.default
+              nixos-wsl.nixosModules.wsl
+            ];
+          };
         };
+        # nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        #   specialArgs = {inherit inputs;};
+        #   modules = [
+        #     ./boxes/desktop/configuration.nix
+        #     inputs.home-manager.nixosModules.default
+        #   ];
+        # };
+        # cpkg = forAllSystems(system: import ./customPackages);
       };
-      # nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {inherit inputs;};
-      #   modules = [
-      #     ./boxes/desktop/configuration.nix
-      #     inputs.home-manager.nixosModules.default
-      #   ];
-      # };
-      # cpkg = forAllSystems(system: import ./customPackages);
     };
 
 }

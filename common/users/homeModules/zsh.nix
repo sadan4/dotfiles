@@ -27,6 +27,13 @@ in
     };
   };
   programs = {
+    direnv = {
+        enable = true;
+        enableZshIntegration = true;
+        nix-direnv = {
+            enable = true;
+        };
+    };
     zoxide = {
       enable = true;
       enableZshIntegration = true;

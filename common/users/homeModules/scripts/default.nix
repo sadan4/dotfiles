@@ -21,7 +21,7 @@ in
         ../../../../customPackages
     ];
     home = {
-        packages = with pkgs; [
+        packages = [
             # env for clipboard command will be required by their respective environemnts
             (mkScript {
                 name = "paste";
@@ -34,12 +34,12 @@ in
             (mkScript {
                 name = "http2ssh";
                 file = ./http2ssh.sh;
-                env = [git];
+                env = [pkgs.git];
             })
             (mkScript {
                 name = "git_fetchAll";
                 file = ./git_fetchAll.sh;
-                env = [git];
+                env = [pkgs.git];
             })
             (mkScript {
                 name = "install_eslint";
@@ -48,11 +48,16 @@ in
             (mkScript {
                 name = "math";
                 file = ./math.sh;
-                env = [python3];
+                env = [pkgs.python3];
             })
             (mkScript {
                 name = "hashi18n";
                 file = ./hashi18n.sh;
+            })
+            (mkScript {
+                name = "flakeify";
+                file = ./flakeify.sh;
+                deps = [pkgs.direnv];
             })
         ];
         file = {

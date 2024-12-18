@@ -1,9 +1,7 @@
 {
-  config,
-  pkgs,
-  inputs,
   ...
-}: {
+}:
+{
   nixpkgs.config.allowInsecurePredicate = (pkg: true);
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
