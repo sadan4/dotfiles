@@ -38,6 +38,7 @@
       flake = false;
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nix-alien.url = "https://flakehub.com/f/thiagokokada/nix-alien/0.1.384.tar.gz";
   };
   outputs =
     {

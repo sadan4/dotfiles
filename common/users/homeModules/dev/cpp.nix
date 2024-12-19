@@ -2,6 +2,7 @@
     home = {
         packages = with pkgs; [
             meson
+            autoPatchelfHook
             cmake
             # clang
             libgcc
