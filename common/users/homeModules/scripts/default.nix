@@ -57,7 +57,7 @@ in
             (mkScript {
                 name = "flakeify";
                 file = ./flakeify.sh;
-                deps = [pkgs.direnv];
+                env = [pkgs.direnv];
             })
         ];
         file = {
