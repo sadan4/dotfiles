@@ -180,6 +180,22 @@
         "type": "github"
       }
     },
+    "ceserver": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734905009,
+        "narHash": "sha256-hH4g4/INaXkrZP35Gv15DU9etqI54bM35uywCPQ/m+4=",
+        "ref": "refs/heads/main",
+        "rev": "ff4da3d52420a78a6c1b5b0b32c2cd886c912bc6",
+        "revCount": 2,
+        "type": "git",
+        "url": "file:./customPackages/ceserver"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:./customPackages/ceserver"
+      }
+    },
     "chrome-pak": {
       "flake": false,
       "locked": {
@@ -676,6 +692,7 @@
     },
     "root": {
       "inputs": {
+        "ceserver": "ceserver",
         "chrome-pak": "chrome-pak",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
