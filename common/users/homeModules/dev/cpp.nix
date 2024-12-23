@@ -12,6 +12,7 @@
       glibc
       gdb
       lldb_19
+      cpkg.ceserver
       unstable.llvmPackages_19.clang-tools
     ];
     file = {
