@@ -21,6 +21,7 @@
     ../../common/systemModules/crypt.nix
     ../../common/systemModules/printing.nix
     ../../common/systemModules/stylix.nix
+    ../../common/systemModules/debug.nix
     # USERS
     ../../common/users/meyer
   ];

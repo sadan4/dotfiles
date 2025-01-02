@@ -1,0 +1,8 @@
+{ ... }:
+{
+  services = {
+    nixseparatedebuginfod = {
+      enable = true;
+    };
+  };
+}
