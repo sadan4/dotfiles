@@ -11,6 +11,7 @@
             fzf
             jq
             unzip
+            unrar
         ];
         sessionVariables = {
             BAT_THEME = "Dracula";
