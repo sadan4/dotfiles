@@ -19,6 +19,7 @@
         unstable.eslint
         corepack_22
         nodejs_22
+        vsce
       ] ++ (with pkgs.nodePackages; [
         nodemon
         ts-node
