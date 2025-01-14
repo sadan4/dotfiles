@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  stable,
   ...
 }:
 {
@@ -27,6 +28,7 @@
   ];
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
+  nix.package = stable.nix;
   hardware.i2c.enable = true;
   hardware.amdgpu.opencl.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];

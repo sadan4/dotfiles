@@ -10,7 +10,7 @@
       glib
       bear
       glibc
-      gdb
+      pinned.gdb
       lldb_19
       cpkg.ceserver
       unstable.llvmPackages_19.clang-tools

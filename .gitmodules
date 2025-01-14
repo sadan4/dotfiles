@@ -7,6 +7,3 @@
 [submodule "customPackages/chrome-pak-customizer"]
 	path = customPackages/chrome-pak-customizer
 	url = git@github.com:sadan4/chrome-pak-customizer
-[submodule "customPackages/ceserver"]
-	path = customPackages/ceserver
-	url = git@github.com:sadan4/ceserver.git

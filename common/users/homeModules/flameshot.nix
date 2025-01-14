@@ -1,4 +1,5 @@
 { config, ... }: {
+  systemd.user.services.flameshot.Unit.After = [];
   services = {
     flameshot = {
       enable = true;
@@ -7,7 +8,6 @@
           savePath = "/home/${config.home.username}/ss/";
           saveAsFileExtension = ".png";
           showDesktopNotification = false;
-          startupLaunch = true;
         };
       };
     };

@@ -38,8 +38,8 @@
       flake = false;
     };
     ceserver = {
-        url = "git+file:./customPackages/ceserver";
-        flake = false;
+        url = "github:sadan4/ceserver";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-alien.url = "https://flakehub.com/f/thiagokokada/nix-alien/0.1.384.tar.gz";

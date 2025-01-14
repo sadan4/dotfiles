@@ -9,7 +9,7 @@
           # vencord = pkgs.callPackage ./vencord/package.nix { };
           frog = pkgs.callPackage ./frog { };
           chrome-pak-customizer = pkgs.callPackage inputs.chrome-pak { };
-          ceserver = pkgs.callPackage inputs.ceserver { };
+          ceserver = inputs.ceserver.flakePackage pkgs;
           scripts = inputs.scripts.flakePackage pkgs;
         };
       })
