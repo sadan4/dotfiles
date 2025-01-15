@@ -15,6 +15,7 @@ in
 {
   home = {
     packages = with pkgs; [
+      powershell
       zsh-powerlevel10k
       zsh-syntax-highlighting
     ];

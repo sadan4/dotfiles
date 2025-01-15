@@ -11,6 +11,8 @@
                 loguru
                 evdev
                 setuptools
+                protobuf
+                psutil
             ]
             ))
             python312Packages.openai-whisper

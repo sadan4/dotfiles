@@ -2,40 +2,35 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     sops-nix = {
       url = "github:Mic92/sops-nix";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-wsl = {
       url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nix-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix-stable = {
-      url = "github:danth/stylix/release-24.05";
-      inputs.nixpkgs.follows = "nix-stable";
-    };
-    home-manager-stable = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nix-stable";
+    stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     scripts = {
       inputs.scripts.follows = "nixpkgs";
       url = "github:sadan4/scripts";
     };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     chrome-pak = {
-      url = "git+file:./customPackages/chrome-pak-customizer";
-      flake = false;
+      url = "github:sadan4/chrome-pak-customizer";
     };
     ceserver = {
         url = "github:sadan4/ceserver";
@@ -47,9 +42,9 @@
   outputs =
     {
       self,
-      nixpkgs,
       nixos-wsl,
-      nix-stable,
+      nixpkgs,
+      nixpkgs-unstable,
       flake-parts,
       ...
     }@inputs:
@@ -113,7 +108,7 @@
           nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
             specialArgs = {
               inherit inputs;
-              stable = import nix-stable {
+              unstable = import nixpkgs-unstable {
                 inherit system;
                 config = {
                   allowUnfree = true;
@@ -126,7 +121,7 @@
                 { pkgs, ... }:
                 {
                   _module.args = {
-                    unstable = pkgs;
+                    stable = pkgs;
                   };
                 }
               )
@@ -136,15 +131,14 @@
               { programs.nix-index-database.comma.enable = true; }
             ];
           };
-          arm-laptop-evo4b5 = nix-stable.lib.nixosSystem rec {
+          arm-laptop-evo4b5 = nixpkgs.lib.nixosSystem rec {
             system = "aarch64-linux";
             specialArgs = {
               inputs = inputs // {
-                nixpkgs = nix-stable;
+                nixpkgs = nixpkgs;
                 home-manager = inputs.home-manager-stable;
-                stylix = inputs.stylix-stable;
               };
-              unstable = import nixpkgs {
+              unstable = import nixpkgs-unstable {
                 inherit system;
                 config = {
                   allowUnfree = true;

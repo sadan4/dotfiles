@@ -8,7 +8,7 @@
           # vesktop = pkgs.callPackage ./vesktop/default.nix { inherit vencord; };
           # vencord = pkgs.callPackage ./vencord/package.nix { };
           frog = pkgs.callPackage ./frog { };
-          chrome-pak-customizer = pkgs.callPackage inputs.chrome-pak { };
+          chrome-pak-customizer = inputs.chrome-pak.flakePackage pkgs;
           ceserver = inputs.ceserver.flakePackage pkgs;
           scripts = inputs.scripts.flakePackage pkgs;
         };
