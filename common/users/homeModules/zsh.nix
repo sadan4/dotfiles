@@ -19,6 +19,9 @@ in
       zsh-powerlevel10k
       zsh-syntax-highlighting
     ];
+    sessionVariables = {
+        POWERSHELL_PATH = "${pkgs.powershell}/bin/pwsh";
+    };
     file = {
       p10k = {
         recursive = true;

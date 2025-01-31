@@ -1,7 +1,12 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 {
+  imports = [
+    ../unstable.nix
+    ./ide/jb/clion.nix
+  ];
   home = {
     packages = with pkgs; [
+      xorg.libX11.man
       meson
       autoPatchelfHook
       cmake

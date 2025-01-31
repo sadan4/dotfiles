@@ -9,6 +9,11 @@
   stylix = {
     enable = true;
     image = ./wallpaper.jpg;
+    targets = {
+        spicetify = {
+            enable = false;
+        };
+    };
     base16Scheme = {
       base00 = "#1A1B26";
       base01 = "#16161E";

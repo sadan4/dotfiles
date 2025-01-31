@@ -1,7 +1,8 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, ... }: {
   imports = [
     ../prisma.nix
     ../../../../customPackages
+    ../unstable.nix
   ];
   home = {
     shellAliases = {
