@@ -9,7 +9,7 @@ in
   home = {
     packages = with pkgs; [
       # pinned.vscode
-      (unstable.vscode.fhsWithPackages (
+      (pinned.vscode.fhsWithPackages (
         pkgs: with pkgs; [
           powershell
         ]

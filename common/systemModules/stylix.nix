@@ -1,4 +1,9 @@
-{ pkgs, inputs, stable, ... }:
+{
+  pkgs,
+  inputs,
+  stable,
+  ...
+}:
 {
   imports = [
     inputs.stylix.nixosModules.stylix
@@ -10,9 +15,12 @@
     enable = true;
     image = ./wallpaper.jpg;
     targets = {
-        spicetify = {
-            enable = false;
-        };
+      chromium = {
+        enable = false;
+      };
+      spicetify = {
+        enable = false;
+      };
     };
     base16Scheme = {
       base00 = "#1A1B26";
@@ -37,14 +45,14 @@
         package = pkgs.twemoji-color-font;
         name = "Twitter Color Emoji";
       };
-      sansSerif = {
-        package = stable.nerdfonts;
-        name = "ComicShannsMono Nerd Font Mono";
-      };
-      serif = {
-        package = stable.nerdfonts;
-        name = "ComicShannsMono Nerd Font Mono";
-      };
+      # sansSerif = {
+      #   package = stable.nerdfonts;
+      #   name = "ComicShannsMono Nerd Font Mono";
+      # };
+      # serif = {
+      #   package = stable.nerdfonts;
+      #   name = "ComicShannsMono Nerd Font Mono";
+      # };
       monospace = {
         package = stable.nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
