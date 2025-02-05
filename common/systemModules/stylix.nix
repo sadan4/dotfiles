@@ -45,14 +45,14 @@
         package = pkgs.twemoji-color-font;
         name = "Twitter Color Emoji";
       };
-      # sansSerif = {
-      #   package = stable.nerdfonts;
-      #   name = "ComicShannsMono Nerd Font Mono";
-      # };
-      # serif = {
-      #   package = stable.nerdfonts;
-      #   name = "ComicShannsMono Nerd Font Mono";
-      # };
+      sansSerif = {
+        package = stable.nerdfonts;
+        name = "ComicShannsMono Nerd Font Mono";
+      };
+      serif = {
+        package = stable.nerdfonts;
+        name = "ComicShannsMono Nerd Font Mono";
+      };
       monospace = {
         package = stable.nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
