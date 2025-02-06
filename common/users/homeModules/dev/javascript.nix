@@ -7,6 +7,7 @@
   home = {
     shellAliases = {
         pd = "/home/meyer/dev/ts/pnpm/pnpm/dev/pd.js";
+        webpack = "webpack-cli";
     };
     packages = with pkgs;
       [
@@ -22,6 +23,7 @@
         nodejs_22
         vsce
       ] ++ (with pkgs.nodePackages; [
+        webpack-cli
         nodemon
         ts-node
         pnpm
