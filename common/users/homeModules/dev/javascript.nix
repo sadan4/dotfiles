@@ -22,6 +22,7 @@
         corepack_22
         nodejs_22
         vsce
+        esbuild
       ] ++ (with pkgs.nodePackages; [
         webpack-cli
         nodemon
