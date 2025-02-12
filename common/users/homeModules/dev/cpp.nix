@@ -13,6 +13,7 @@
       # clang
       libgcc
       glib
+      gdbgui
       bear
       glibc
       pinned.gdb
