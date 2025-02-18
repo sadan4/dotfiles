@@ -2,6 +2,7 @@
     home = {
         packages = with pkgs; [
             unixtools.xxd
+            filelight
             p7zip
             dig
             bat
