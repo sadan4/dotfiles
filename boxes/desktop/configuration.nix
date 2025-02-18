@@ -23,6 +23,7 @@
     ../../common/systemModules/printing.nix
     ../../common/systemModules/stylix.nix
     ../../common/systemModules/debug.nix
+    ../../common/systemModules/nix.nix
     # USERS
     ../../common/users/meyer
   ];
@@ -32,8 +33,6 @@
     dev.enable = true;
   };
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
-  nix.package = stable.nix;
   hardware.i2c.enable = true;
   hardware.amdgpu.opencl.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -45,13 +44,7 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   services = {
     teamviewer.enable = true;
