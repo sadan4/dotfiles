@@ -23,11 +23,11 @@
         nodejs_22
         vsce
         esbuild
+        unstable.pnpm
       ] ++ (with pkgs.nodePackages; [
         webpack-cli
         nodemon
         ts-node
-        pnpm
         live-server
       ]);
   };
