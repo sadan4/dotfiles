@@ -7,7 +7,7 @@
     etc = {
       "all_users_authorized_keys" = {
         source = ./ssh.keys;
-        mode = "0600";
+        mode = "0644";
         uid = 0;
         gid = 0;
       };
