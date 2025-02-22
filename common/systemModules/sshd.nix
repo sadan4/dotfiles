@@ -9,6 +9,9 @@
     openssh = {
       enable = true;
       authorizedKeysFiles = [ "${./ssh.keys}" ];
+      settings = {
+        PasswordAuthentication = false;
+      };
     };
   };
 }
