@@ -4,11 +4,19 @@
     systemPackages = with pkgs; [
       kitty.terminfo
     ];
+    etc = {
+      "all_users_authorized_keys" = {
+        source = ./ssh.keys;
+        mode = "0600";
+        uid = 0;
+        gid = 0;
+      };
+    };
   };
   services = {
     openssh = {
       enable = true;
-      authorizedKeysFiles = [ "${./ssh.keys}" ];
+      authorizedKeysFiles = [ "/etc/all_users_authorized_keys" ];
       settings = {
         PasswordAuthentication = false;
       };
