@@ -19,7 +19,7 @@
         nodePackages_latest.typescript-language-server
         typescript
         unstable.eslint
-        corepack_22
+        unstable.corepack_23
         nodejs_22
         vsce
         esbuild
