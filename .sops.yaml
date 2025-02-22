@@ -2,6 +2,7 @@ keys:
   - &desktop age1xsuyaeehzv4ar4f6xpc6tfp9pttzjf7qdyl3x2tj42vjc8szlqpq834e3d
   - &laptop age1tq8zaaqe8t4u2jgyf7usngtzyql0ymyxq6hntmu04vt5ypwhxensmzynhl
   - &win10 age1cz006hex596lmj88kkhrkvq89luqk59hxuq83q4kvhz82ltwpe4ss8gm3t
+  - &serverpc age1sn4uu6r6wrylpznx75jcw7ww58r9cut35n40gu4scpt9xy79rgrq2d7wga
 creation_rules:
   - path_regex: secrets/hosts
     key_groups:
@@ -9,9 +10,11 @@ creation_rules:
         - *desktop
         - *laptop
         - *win10
+        - *serverpc
   - path_regex: secrets.yaml$
     key_groups:
       - age:
         - *desktop
         - *laptop
         - *win10
+        - *serverpc

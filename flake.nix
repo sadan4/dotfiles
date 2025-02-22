@@ -86,6 +86,30 @@
         };
         nixosConfigurations = {
           nixd = nixpkgs.lib.nixosSystem { };
+          serverpc = nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              unstable = import nixpkgs-unstable {
+                inherit system;
+                config = {
+                  allowUnfree = true;
+                };
+              };
+            };
+            modules = [
+              (
+                { pkgs, ... }:
+                {
+                  _module.args = {
+                    stable = pkgs;
+                  };
+                }
+              )
+              ./boxes/serverpc/configuration.nix
+              inputs.home-manager.nixosModules.default
+            ];
+          };
           desktopIso = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             modules = [

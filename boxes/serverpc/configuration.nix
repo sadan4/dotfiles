@@ -4,7 +4,6 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -12,31 +11,17 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../common/systemModules/boot.nix
-    ../../common/systemModules/folding.nix
     ../../common/systemModules/kernel.nix
-    ../../common/systemModules/audio.nix
-    ../../common/systemModules/kde.nix
     ../../common/systemModules/tailscale.nix
-    ../../common/systemModules/gaming.nix
     ../../common/systemModules/crypt.nix
-    ../../common/systemModules/printing.nix
-    ../../common/systemModules/stylix.nix
-    ../../common/systemModules/debug.nix
     ../../common/systemModules/nix.nix
+    ../../common/systemModules/sshd.nix
+    ../../common/systemModules/tailscaleServer.nix
     # USERS
-    ../../common/users/meyer
+    ../../common/users/meyer-server
   ];
-  documentation = {
-    enable = true;
-    man.enable = true;
-    dev.enable = true;
-  };
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   hardware.i2c.enable = true;
-  hardware.amdgpu.opencl.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  hardware.bluetooth.enable = true;
-  networking.hostName = "nix-desktop-evo4b5"; # Define your hostname.
+  networking.hostName = "serverpc"; # Define your hostname.
   environment.sessionVariables = {
     HOSTNAME = config.networking.hostName;
   };
@@ -45,61 +30,19 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  services = {
-    teamviewer.enable = true;
-    usbmuxd.enable = true;
-  };
-
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    (inputs.nix-alien.packages.${pkgs.system}.nix-alien)
-    ddcutil
-    clinfo
-    i2c-tools
-    fuse
-    ifuse
-    gcc
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
     wget
     ripgrep
     tldr
-    libnotify
     file
   ];
   #LD fix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    graalvm-ce
-    zlib.static
-    libGL
-    alsa-lib
-    expat
-    mesa
-    libxkbcommon
-    xorg.libxcb
-    xorg.libXrandr
-    xorg.libXfixes
-    xorg.libXext
-    xorg.libXdamage
-    xorg.libXcomposite
-    xorg.libX11
-    cairo
-    pango
-    gtk3
-    libdrm
-    cups
-    at-spi2-atk
-    lzo
-    dbus
-    nspr
-    nss
-    glib
-    curlWithGnuTls
-    fuse
-    fuse3
-    mimalloc
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
@@ -118,6 +61,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
-
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
