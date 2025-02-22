@@ -12,6 +12,8 @@
       password = {
         neededForUsers = true;
       };
+      tailscale_server_key = {
+      };
     };
   };
   users = {
