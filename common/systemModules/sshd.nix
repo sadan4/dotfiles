@@ -1,9 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 {
-    services= {
-        openssh = {
-            enable = true;
-            authorizedKeysFiles = ["${./ssh.keys}"];
-        };
+  environment = {
+    systemPackages = with pkgs; [
+      kitty.terminfo
+    ];
+  };
+  services = {
+    openssh = {
+      enable = true;
+      authorizedKeysFiles = [ "${./ssh.keys}" ];
     };
+  };
 }
