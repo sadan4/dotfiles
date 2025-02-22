@@ -1,4 +1,3 @@
-
 {
   ...
 }:
@@ -7,6 +6,12 @@
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
   imports = [
+    ../homeModules/nvim.light.nix
+    ../homeModules/git.nix
+    ../homeModules/zsh.nix
+    ../homeModules/sops.nix
+    ../homeModules/utils.nix
+    ../homeModules/media/cli.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

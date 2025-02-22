@@ -1,6 +1,5 @@
 { lib, pkgs, ... }:
 let
-
   # TODO: make these modular
   _ = [
     "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
