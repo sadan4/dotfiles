@@ -19,7 +19,7 @@
   security = {
     acme = {
       certs = {
-        "*.sadan.zip" = {
+        "sadan.zip" = {
           dnsProvider = "cloudflare";
           email = "certs@sadan.zip";
           environmentFile = config.sops.secrets.cloudflare_env.path;

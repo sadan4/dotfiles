@@ -5,7 +5,7 @@
       virtualHosts = {
         "vw.sadan.zip" = {
           forceSSL = true;
-          useACMEHost = "*.sadan.zip";
+          useACMEHost = "sadan.zip";
           locations = {
             "/" = {
               proxyPass = "http://localhost:3231";
