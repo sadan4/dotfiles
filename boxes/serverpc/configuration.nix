@@ -16,6 +16,7 @@
     ../../common/systemModules/crypt.nix
     ../../common/systemModules/nix.nix
     ../../common/systemModules/sshd.nix
+    ../../common/systemModules/nginx.nix
     ../../common/systemModules/tailscaleServer.nix
     # USERS
     ../../common/users/meyer-server
