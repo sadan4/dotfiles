@@ -21,6 +21,7 @@
       certs = {
         "sadan.zip" = {
           dnsProvider = "cloudflare";
+          email = "certs@sadan.zip";
           extraDomains = [
             "*.sadan.zip"
           ];
