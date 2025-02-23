@@ -7,7 +7,7 @@
     file = {
       vw = {
         source = ./docker_compose.yaml;
-        target = "./src/vw/docker_compose.yml";
+        target = "./src/vw/docker_compose.yaml";
       };
     };
   };
