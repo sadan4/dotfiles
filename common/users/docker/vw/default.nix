@@ -6,7 +6,7 @@
   home = {
     file = {
       vw = {
-        source = ./docker_compose.nix;
+        source = ./docker_compose.yaml;
         target = "./src/vw/docker_compose.yml";
       };
     };
