@@ -22,7 +22,7 @@
         "sadan.zip" = {
           dnsProvider = "cloudflare";
           email = "certs@sadan.zip";
-          extraDomains = [
+          extraDomainNames = [
             "*.sadan.zip"
           ];
           environmentFile = config.sops.secrets.cloudflare_env.path;
