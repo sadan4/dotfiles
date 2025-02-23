@@ -14,12 +14,12 @@
   sops = {
     secrets = {
       vw = {
-        format = "env";
+        format = "dotenv";
         sopsFile = ./vw.env;
         path = "/home/${config.home.username}/src/vw/vw.env";
       };
       vw_backup = {
-        format = "env";
+        format = "dotenv";
         sopsFile = ./backup.env;
         path = "/home/${config.home.username}/src/vw/backup.env";
       };
