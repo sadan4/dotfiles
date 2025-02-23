@@ -25,6 +25,9 @@
           environmentFile = config.sops.secrets.cloudflare_env.path;
         };
       };
+      defaults = {
+        dnsResolver = "1.1.1.1:53";
+      };
       acceptTerms = true;
     };
   };
