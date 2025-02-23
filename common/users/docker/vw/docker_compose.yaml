@@ -17,7 +17,7 @@ services:
     env_file: ./backup.env
     volumes:
       - vw-data:/bitwarden/data/
-      - vw-rc-data:/config/
+      - ./rclone-config:/config/
     #   - /path/to/env:/.env
 
 volumes:
@@ -27,10 +27,3 @@ volumes:
     # and bitwardenrs-data for migrated users
     name: vw-data
     # name: bitwardenrs-data
-  vw-rc-data:
-    external: true
-    # Specify the name of the volume where you save the rclone configuration,
-    # use vaultwarden-rclone-data for new users
-    # and bitwardenrs-rclone-data for migrated users
-    name: vw-rc-data
-    # name: bitwardenrs-rclone-data

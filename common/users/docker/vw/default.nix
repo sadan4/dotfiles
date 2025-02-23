@@ -18,6 +18,11 @@
         sopsFile = ./vw.env;
         path = "/home/${config.home.username}/src/vw/vw.env";
       };
+      rclone_config_file = {
+        format = "binary";
+        sopsFile = ./rclone.conf;
+        path = "/home/${config.home.username}/src/vw/rclone-config/rclone/rclone.conf";
+      };
       vw_backup = {
         format = "dotenv";
         sopsFile = ./backup.env;
