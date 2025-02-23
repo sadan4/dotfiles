@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    env_file: ./vw.env
+    container_name: vaultwarden
+    restart: always
+    ports:
+      - 3231:80
+    volumes:
+      - vw-data:/data
+
+  backup:
+    image: ttionya/vaultwarden-backup:latest
+    restart: always
+    env_file: ./backup.env
+    volumes:
+      - vw-data:/bitwarden/data/
+      - vw-rc-data:/config/
+    #   - /path/to/env:/.env
+
+volumes:
+  vw-data:
+    # Specify the name of the volume where you save the vaultwarden data,
+    # use vaultwarden-data for new users
+    # and bitwardenrs-data for migrated users
+    name: vw-data
+    # name: bitwardenrs-data
+  vw-rc-data:
+    external: true
+    # Specify the name of the volume where you save the rclone configuration,
+    # use vaultwarden-rclone-data for new users
+    # and bitwardenrs-rclone-data for migrated users
+    name: vw-rc-data
+    # name: bitwardenrs-rclone-data

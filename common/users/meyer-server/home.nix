@@ -12,6 +12,8 @@
     ../homeModules/sops.nix
     ../homeModules/utils.nix
     ../homeModules/media/cli.nix
+  ] ++ [
+    ../docker/vw
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
