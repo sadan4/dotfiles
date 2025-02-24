@@ -4,8 +4,13 @@
     nginx = {
       user = "root";
       enable = true;
-      logError = "syslog:server=unix:/dev/log";
+      # how the hell does this option work
+      # logError = "";
       statusPage = true;
+      recommendedTlsSettings = true;
+      recommendedGzipSettings = true;
+      recommendedProxySettings = true;
+      recommendedOptimisation = true;
     };
   };
   sops = {
