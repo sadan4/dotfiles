@@ -19,7 +19,7 @@ in
     (import ../../programs/wireshark.nix { inherit NAME; })
     (import ../../programs/kanata.nix { inherit NAME; })
   ] ++ [
-    import ../docker/vw/nginx.nix
+    (builtins.trace "importing nginx.nix" import ../docker/vw/nginx.nix)
   ];
   users = {
     users = {
