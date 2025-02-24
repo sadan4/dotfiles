@@ -4,10 +4,10 @@
     nginx = {
       enable = true;
       logError = "syslog:server=unix:/dev/log warn";
-      # recommendedTlsSettings = true;
-      # recommendedGzipSettings = true;
-      # recommendedProxySettings = true;
-      # recommendedOptimisation = true;
+      recommendedTlsSettings = true;
+      recommendedGzipSettings = true;
+      recommendedProxySettings = true;
+      recommendedOptimisation = true;
       virtualHosts = {
         "vw.sadan.zip" = {
           forceSSL = true;
