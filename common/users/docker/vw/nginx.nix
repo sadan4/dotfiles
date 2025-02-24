@@ -1,6 +1,6 @@
 { ... }:
 {
-  services = {
+  services = builtins.trace "SERVICES" {
     nginx = {
       virtualHosts = {
         "vw.sadan.zip" = {
@@ -15,5 +15,4 @@
       };
     };
   };
-  environment = throw "THIS SHOULD THROW";
 }
