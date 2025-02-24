@@ -15,4 +15,5 @@
       };
     };
   };
+  environment = throw "THIS SHOULD THROW";
 }
