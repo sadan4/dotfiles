@@ -10,6 +10,11 @@
       recommendedProxySettings = true;
       recommendedOptimisation = true;
     };
+    adguardhome = {
+      port = 3115;
+      enable = true;
+
+    };
   };
   sops = {
     secrets = {
