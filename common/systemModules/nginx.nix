@@ -4,7 +4,7 @@
     nginx = {
       user = "root";
       enable = true;
-      logError = "syslog:warn";
+      logError = "syslog:server=unix:/dev/log";
       statusPage = true;
     };
   };
@@ -26,6 +26,7 @@
         };
       };
       defaults = {
+        # If the local dns server hasnt started yet, then this will fail for any domain configured with tailscale magic dns
         dnsResolver = "1.1.1.1:53";
       };
       acceptTerms = true;
