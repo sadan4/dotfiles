@@ -2,7 +2,6 @@
 {
   services = {
     nginx = {
-      user = "root";
       enable = true;
       # how the hell does this option work
       # logError = "";
