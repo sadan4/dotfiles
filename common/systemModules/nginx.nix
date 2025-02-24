@@ -8,6 +8,17 @@
       # recommendedGzipSettings = true;
       # recommendedProxySettings = true;
       # recommendedOptimisation = true;
+      virtualHosts = {
+        "vw.sadan.zip" = {
+          forceSSL = true;
+          useACMEHost = "sadan.zip";
+          locations = {
+            "/" = {
+              proxyPass = "http://localhost:3231";
+            };
+          };
+        };
+      };
     };
     adguardhome = {
       port = 3115;
