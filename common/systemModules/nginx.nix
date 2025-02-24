@@ -45,7 +45,7 @@
           dnsProvider = "cloudflare";
           email = "certs@sadan.zip";
           environmentFile = config.sops.secrets.cloudflare_env.path;
-          user = "nginx";
+          group = "nginx";
         };
       };
       defaults = {
