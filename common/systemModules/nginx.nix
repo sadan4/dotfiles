@@ -8,6 +8,12 @@
       recommendedGzipSettings = true;
       recommendedProxySettings = true;
       recommendedOptimisation = true;
+      resolver = {
+        addresses = [
+          "1.0.0.1"
+          "1.1.1.1"
+        ];
+      };
       virtualHosts = {
         "vw.sadan.zip" = {
           forceSSL = true;
