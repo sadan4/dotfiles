@@ -46,6 +46,9 @@
           email = "certs@sadan.zip";
           environmentFile = config.sops.secrets.cloudflare_env.path;
           group = "nginx";
+          extraDomainNames = [
+            "*.sadan.zip"
+          ];
         };
       };
       defaults = {
