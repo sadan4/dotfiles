@@ -3,8 +3,7 @@
   services = {
     nginx = {
       enable = true;
-      # how the hell does this option work
-      # logError = "";
+      logError = "syslog:server=unix:/dev/log warn";
       statusPage = true;
       recommendedTlsSettings = true;
       recommendedGzipSettings = true;
