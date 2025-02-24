@@ -9,9 +9,7 @@ let
   NAME = "meyer";
 in
 {
-  imports =
-    [ ]
-    ++ [
+  imports = [
       (import ../../systemModules/sops.nix { inherit NAME; })
       (import ../../systemModules/networkManager.nix { inherit NAME; })
       (import ../../systemModules/docker.nix { inherit NAME; })
