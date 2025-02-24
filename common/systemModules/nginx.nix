@@ -13,7 +13,11 @@
     adguardhome = {
       port = 3115;
       enable = true;
-
+    };
+  };
+  networking = {
+    firewall = {
+      enable = true;
     };
   };
   sops = {
