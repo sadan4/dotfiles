@@ -86,11 +86,11 @@
         };
         nixosConfigurations = {
           nixd = nixpkgs.lib.nixosSystem { };
-          serverpc = nixpkgs.lib.nixosSystem rec {
+          serverpc = nixpkgs-unstable.lib.nixosSystem rec {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
-              unstable = import nixpkgs-unstable {
+              stable = import nixpkgs {
                 inherit system;
                 config = {
                   allowUnfree = true;
@@ -102,7 +102,7 @@
                 { pkgs, ... }:
                 {
                   _module.args = {
-                    stable = pkgs;
+                    unstable = pkgs;
                   };
                 }
               )
