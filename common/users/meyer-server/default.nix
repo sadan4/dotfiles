@@ -15,10 +15,10 @@ in
       (import ../../systemModules/networkManager.nix { inherit NAME; })
       (import ../../systemModules/docker.nix { inherit NAME; })
       (import ../../systemModules/nixHelper.nix { inherit NAME; })
-    ]
-    ++ [
-      import
-      ../docker/vw/nginx.nix
+    # ]
+    # ++ [
+    #   import
+    #   ../docker/vw/nginx.nix
     ];
   users = {
     users = {
