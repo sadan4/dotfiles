@@ -1,6 +1,6 @@
 { ... }:
 {
-  services = builtins.trace "SERVICES" {
+  services = {
     nginx = {
       virtualHosts = {
         "vw.sadan.zip" = {
