@@ -18,8 +18,6 @@ in
     (import ../../systemModules/nixHelper.nix { inherit NAME; })
     (import ../../programs/wireshark.nix { inherit NAME; })
     (import ../../programs/kanata.nix { inherit NAME; })
-  ] ++ [
-    (builtins.trace "importing nginx.nix" import ../docker/vw/nginx.nix)
   ];
   users = {
     users = {
@@ -41,14 +39,7 @@ in
   home-manager = {
     extraSpecialArgs = { inherit inputs stable unstable; };
     users = {
-      "${NAME}" =
-        { ... }:
-        {
-          imports = [
-            ../docker/vw
-            ./home.nix
-          ];
-        };
+      "${NAME}" = import ./home.nix;
     };
   };
 }

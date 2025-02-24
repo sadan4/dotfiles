@@ -9,12 +9,18 @@ let
   NAME = "meyer";
 in
 {
-  imports = [
-    (import ../../systemModules/sops.nix { inherit NAME; })
-    (import ../../systemModules/networkManager.nix { inherit NAME; })
-    (import ../../systemModules/docker.nix { inherit NAME; })
-    (import ../../systemModules/nixHelper.nix { inherit NAME; })
-  ];
+  imports =
+    [ ]
+    ++ [
+      (import ../../systemModules/sops.nix { inherit NAME; })
+      (import ../../systemModules/networkManager.nix { inherit NAME; })
+      (import ../../systemModules/docker.nix { inherit NAME; })
+      (import ../../systemModules/nixHelper.nix { inherit NAME; })
+    ]
+    ++ [
+      import
+      ../docker/vw/nginx.nix
+    ];
   users = {
     users = {
       "${NAME}" = {
@@ -37,7 +43,14 @@ in
       inherit inputs stable unstable;
     };
     users = {
-      "${NAME}" = import ./home.nix;
+      "${NAME}" =
+        { ... }:
+        {
+          imports = [
+            ../docker/vw
+            ./home.nix
+          ];
+        };
     };
   };
 }
