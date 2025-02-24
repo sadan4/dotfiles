@@ -4,11 +4,10 @@
     nginx = {
       enable = true;
       logError = "syslog:server=unix:/dev/log warn";
-      statusPage = true;
-      recommendedTlsSettings = true;
-      recommendedGzipSettings = true;
-      recommendedProxySettings = true;
-      recommendedOptimisation = true;
+      # recommendedTlsSettings = true;
+      # recommendedGzipSettings = true;
+      # recommendedProxySettings = true;
+      # recommendedOptimisation = true;
     };
     adguardhome = {
       port = 3115;
