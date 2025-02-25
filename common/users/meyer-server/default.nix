@@ -19,6 +19,7 @@ in
     ]
     ++ [
       ../docker/vw/nginx.nix
+      ../docker/obsidian/nginx.nix
     ];
   users = {
     users = {
@@ -47,6 +48,7 @@ in
         {
           imports = [
             ../docker/vw
+            ../docker/obsidian
             ./home.nix
           ];
         }

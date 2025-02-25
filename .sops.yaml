@@ -4,6 +4,13 @@ keys:
   - &win10 age1cz006hex596lmj88kkhrkvq89luqk59hxuq83q4kvhz82ltwpe4ss8gm3t
   - &serverpc age1sn4uu6r6wrylpznx75jcw7ww58r9cut35n40gu4scpt9xy79rgrq2d7wga
 creation_rules:
+  - path_regex: .ini
+    key_groups:
+    - age:
+        - *desktop
+        - *laptop
+        - *win10
+        - *serverpc
   - path_regex: .conf
     key_groups:
     - age:
