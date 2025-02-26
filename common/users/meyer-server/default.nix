@@ -25,6 +25,7 @@ in
     users = {
       "${NAME}" = {
         isNormalUser = true;
+        linger = true;
         extraGroups = [
           "wheel"
           "audio"
