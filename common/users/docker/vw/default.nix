@@ -12,12 +12,14 @@
     };
   };
   systemd = {
-    tmpfiles = {
-      rules = [
-        "C /home/${config.home.username}/src/vw/rclone-config/rclone/rclone.conf 0444 - - 0 ${config.sops.secrets.rclone_config_file.path}"
-        "C /home/${config.home.username}/src/vw/vw.env 0444 - - 0 ${config.sops.secrets.vw.path}"
-        "C /home/${config.home.username}/src/vw/backup.env 0444 - - 0 ${config.sops.secrets.vw_backup.path}"
-      ];
+    user = {
+      tmpfiles = {
+        rules = [
+          "C /home/${config.home.username}/src/vw/rclone-config/rclone/rclone.conf 0444 - - 0 ${config.sops.secrets.rclone_config_file.path}"
+          "C /home/${config.home.username}/src/vw/vw.env 0444 - - 0 ${config.sops.secrets.vw.path}"
+          "C /home/${config.home.username}/src/vw/backup.env 0444 - - 0 ${config.sops.secrets.vw_backup.path}"
+        ];
+      };
     };
   };
   sops = {
