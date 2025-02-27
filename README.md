@@ -7,7 +7,9 @@
 > The code from this repo is MIT, but if it helped you in any way, please credit and/or leave a star
 
 # Notes
-<details><summary><h2>Stable vs. Unstable nixpkgs</h2></summary>
+The most important tidbits about my config
+
+## Stable vs. Unstable nixpkgs
 This repo uses both stable and unstable nix at the same time, in all configurations, in a way where any given configuration can use either stable or unstable as the default
 
 This is done by adding the arguments stable and unstable as special args
@@ -15,8 +17,8 @@ This is done by adding the arguments stable and unstable as special args
 > [!IMPORTANT]  
 > Remember to pass stable and unstable to home manager as `extraSpecialArgs` along with the rest of your args (`inputs`, `pkgs`, ...)
 
-<details><summary>example</summary>
-            <code>nixpkgs.lib.nixosSystem rec {
+```nix
+nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
@@ -37,19 +39,18 @@ This is done by adding the arguments stable and unstable as special args
                 }
               )
               ./boxes/serverpc/configuration.nix
-              inputs.home-manager.nixosModules.default
+              inputs.home-manager.nixosModules.default # home-manager-unstable also exists for unstable systems, make sure to match
             ];
-          };</code>
-</details>
+          };
+```
 they are then used to install packages from the respective channels
 
 In home manager, instead of using unstable directly, unstable is  overlayed onto packages, and any module using unstable packages **MUST** import /common/users/homeModules/unstable.nix
 
 stable will be done using a similar overlay soon
 
-</details>
 
-<details><summary><h2>Pinned Packages</h2></summary>
+## Pinned Packages
 i have various packages pinned for different reasons (unfixed regressions, old software, breaking configuration changes, etc...)
 
 All pinned packages are declared in /common/users/homeModules/pinned.nix, as overlays under a pinned prop, eg: to access the pinned package `foo` you would write `pkgs.pinned.foo`
@@ -59,9 +60,26 @@ Any module using a pinned package **MUST** import /common/users/homeModules/pinn
 To generate the code for a pinned package (commit hash, SRI, etc...) use [nix-versions](https://lazamar.co.uk/nix-versions/) 
 
 Its open source too! [Check it out](https://github.com/lazamar/nix-package-versions) and give it a star.
-</details>
 
-<details><summary><h1>Layout</h1></summary>
+
+## Overlays in Home Manager
+Any package that uses an overlay should itself be a folder with a `./default.nix` file and import `./overlays.nix`
+
+## Graphical and Command line packages
+To make modules more reusable, if a module imports both graphical and command line tools, it should itself be a folder with `./default.nix` importing `./cli.nix` and `./gui.nix`
+
+`./cli.nix` and `./gui.nix` should export the needed CLI and graphical tools, respectively
+
+## Secret Managment
+[sops.nix](https://github.com/Mic92/sops-nix) is used for secret management
+
+see `/.sops.yaml` and both `sops.nix` modules for more info
+
+home modules that use sops **MUST** import `/common/users/homeModules/sops.nix`
+
+---
+
+# Layout
 
 this repo is a bit insane with how things are laid out
 
@@ -155,5 +173,4 @@ only has a default.nix, files for each font planned in the future
 > WIP
 
 Font files to add
-</details>
 
