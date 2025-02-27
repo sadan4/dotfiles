@@ -46,3 +46,4 @@ contains all jet brains or IntelliJ based ides, eg: pycharm, android studio
 has a default module for all ides
 
 ### ./common/users/homeModules/scripts
+contails shell scripts that are added to bash
