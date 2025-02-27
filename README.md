@@ -11,8 +11,12 @@
 This repo uses both stable and unstable nix at the same time, in all configurations, in a way where any given configuration can use either stable or unstable as the default
 
 This is done by adding the arguments stable and unstable as special args
-```nix
-nixpkgs.lib.nixosSystem rec {
+
+> [!IMPORTANT]  
+> Remember to pass stable and unstable to home manager as `extraSpecialArgs` along with the rest of your args (`inputs`, `pkgs`, ...)
+
+<details><summary>example</summary>
+            <code>nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
@@ -35,8 +39,10 @@ nixpkgs.lib.nixosSystem rec {
               ./boxes/serverpc/configuration.nix
               inputs.home-manager.nixosModules.default
             ];
-          };
-```
+          };</code>
+</details>
+they are then used to
+
 
 
 <details><summary><h1>Layout</h1></summary>
