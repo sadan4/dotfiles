@@ -56,7 +56,9 @@ All pinned packages are declared in /common/users/homeModules/pinned.nix, as ove
 
 Any module using a pinned package **MUST** import /common/users/homeModules/pinned.nix
 
-To generate the code for a pinned package (commit hash, SRI, etc...)
+To generate the code for a pinned package (commit hash, SRI, etc...) use [nix-versions](https://lazamar.co.uk/nix-versions/) 
+
+Its open source too! [Check it out](https://github.com/lazamar/nix-package-versions) and give it a star.
 </details>
 
 <details><summary><h1>Layout</h1></summary>
