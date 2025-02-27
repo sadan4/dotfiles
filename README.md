@@ -1,4 +1,45 @@
-# Layout
+# My Dotfiles
+
+> [!NOTE]  
+> I am relatively new to nix and a lot of the things i do are bad practice, if you think something should be done a better way, feel free to open an issue or pr
+
+> [!NOTE]  
+> The code from this repo is MIT, but if it helped you in any way, please credit and/or leave a star
+
+# Notes
+
+This repo uses both stable and unstable nix at the same time, in all configurations, in a way where any given configuration can use either stable or unstable as the default
+
+This is done by adding the arguments stable and unstable as special args
+```nix
+nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              unstable = import nixpkgs-unstable {
+                inherit system;
+                config = {
+                  allowUnfree = true;
+                };
+              };
+            };
+            modules = [
+              (
+                { pkgs, ... }:
+                {
+                  _module.args = {
+                    stable = pkgs;
+                  };
+                }
+              )
+              ./boxes/serverpc/configuration.nix
+              inputs.home-manager.nixosModules.default
+            ];
+          };
+```
+
+
+<details><summary><h1>Layout</h1></summary>
 
 this repo is a bit insane with how things are laid out
 
@@ -92,4 +133,5 @@ only has a default.nix, files for each font planned in the future
 > WIP
 
 Font files to add
+</details>
 
