@@ -79,4 +79,17 @@ GUI tools for handling and managing media (shotcut, pinta, gimp, obs, etc.)
 Davinci Resolve
 
 > [!WARNING]  
-> This is seperate because it causes long build times of 
+> This is seperate because it often causes rebuilds of [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey), which results in _long_ build times (>30 minutes on an i9-14900k)
+
+### /common/users/homeModules/vscode
+
+only has a default.nix, its vscode, what else do you expect
+
+### /common/users/homeModules/fonts
+only has a default.nix, files for each font planned in the future
+
+> [!WARNING]  
+> WIP
+
+Font files to add
+
