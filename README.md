@@ -7,7 +7,7 @@
 > The code from this repo is MIT, but if it helped you in any way, please credit and/or leave a star
 
 # Notes
-
+<details><summary><h2>Stable vs. Unstable nixpkgs</h2></summary>
 This repo uses both stable and unstable nix at the same time, in all configurations, in a way where any given configuration can use either stable or unstable as the default
 
 This is done by adding the arguments stable and unstable as special args
@@ -41,9 +41,23 @@ This is done by adding the arguments stable and unstable as special args
             ];
           };</code>
 </details>
-they are then used to
+they are then used to install packages from the respective channels
 
+In home manager, instead of using unstable directly, unstable is  overlayed onto packages, and any module using unstable packages **MUST** import /common/users/homeModules/unstable.nix
 
+stable will be done using a similar overlay soon
+
+</details>
+
+<details><summary><h2>Pinned Packages</h2></summary>
+i have various packages pinned for different reasons (unfixed regressions, old software, breaking configuration changes, etc...)
+
+All pinned packages are declared in /common/users/homeModules/pinned.nix, as overlays under a pinned prop, eg: to access the pinned package `foo` you would write `pkgs.pinned.foo`
+
+Any module using a pinned package **MUST** import /common/users/homeModules/pinned.nix
+
+To generate the code for a pinned package (commit hash, SRI, etc...)
+</details>
 
 <details><summary><h1>Layout</h1></summary>
 
