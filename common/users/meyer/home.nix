@@ -18,7 +18,6 @@
     ../homeModules/dev/jvm.nix
     ../homeModules/dev/python.nix
     ../homeModules/dev/vim.nix
-    ../homeModules/fonts
     ../homeModules/media
     ../homeModules/scripts
     ../homeModules/audio.nix
