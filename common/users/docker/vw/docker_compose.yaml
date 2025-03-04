@@ -9,21 +9,14 @@ services:
     ports:
       - 3231:80
     volumes:
-      - vw-data:/data
+      - ./vw-data:/data
 
   backup:
     image: ttionya/vaultwarden-backup:latest
     restart: always
     env_file: ./backup.env
     volumes:
-      - vw-data:/bitwarden/data/
+      - ./vw-data:/bitwarden/data/
       - ./rclone-config:/config/
     #   - /path/to/env:/.env
 
-volumes:
-  vw-data:
-    # Specify the name of the volume where you save the vaultwarden data,
-    # use vaultwarden-data for new users
-    # and bitwardenrs-data for migrated users
-    name: vw-data
-    # name: bitwardenrs-data
