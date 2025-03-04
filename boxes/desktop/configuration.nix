@@ -18,6 +18,7 @@
     ../../common/systemModules/kde.nix
     ../../common/systemModules/tailscale.nix
     ../../common/systemModules/gaming.nix
+    ../../common/systemModules/fonts
     ../../common/systemModules/crypt.nix
     ../../common/systemModules/printing.nix
     ../../common/systemModules/stylix.nix
