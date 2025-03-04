@@ -26,7 +26,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     scripts = {
-      inputs.scripts.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:sadan4/scripts";
     };
     chrome-pak = {
