@@ -2,28 +2,33 @@
 {
   imports = [
     ./arrpc.nix
-    inputs.nixcord.homeManagerModules.nixcord
+    # inputs.nixcord.homeManagerModules.nixcord
+    ./unstable.nix
   ];
-  programs.nixcord = {
-    enable = false;
-    discord = {
-      enable = true;
-      vencord = {
-        enable = true;
-        unstable = true;
-      };
-    };
-  };
+  # programs.nixcord = {
+  #   enable = false;
+  #   discord = {
+  #     enable = true;
+  #     vencord = {
+  #       enable = true;
+  #       unstable = true;
+  #     };
+  #   };
+  # };
   home = {
     packages = with pkgs; [
       legcord
       cinny-desktop
       element-desktop
       vesktop
-      (config.programs.nixcord.discord.package.override {
+      (discord.override {
         withVencord = true;
-        vencord = config.programs.nixcord.discord.vencord.package;
+        vencord = unstable.vencord;
       })
+      # (config.programs.nixcord.discord.package.override {
+      #   withVencord = true;
+      #   # vencord = config.programs.nixcord.discord.vencord.package;
+      # })
     ];
   };
 }
