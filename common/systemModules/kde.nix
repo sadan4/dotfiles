@@ -16,17 +16,17 @@
         enable = true;
       };
     };
+    displayManager = {
+      sddm = {
+        wayland = {
+          enable = false;
+        };
+        enable = true;
+        autoNumlock = true;
+      };
+    };
     xserver = {
       enable = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-          autoNumlock = true;
-          wayland = {
-            enable = false;
-          };
-        };
-      };
     };
   };
 }
