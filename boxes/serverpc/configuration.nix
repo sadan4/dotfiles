@@ -18,6 +18,7 @@
     ../../common/systemModules/sshd.nix
     ../../common/systemModules/nginx.nix
     ../../common/systemModules/tailscaleServer.nix
+    ../../common/systemModules/jellyfin.nix
     # USERS
     ../../common/users/meyer-server
   ];
