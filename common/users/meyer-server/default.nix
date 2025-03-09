@@ -20,6 +20,7 @@ in
     ++ [
       ../docker/vw/nginx.nix
       ../docker/obsidian/nginx.nix
+      ../docker/sonarr/nginx.nix
     ];
   users = {
     users = {
@@ -50,6 +51,7 @@ in
           imports = [
             ../docker/vw
             ../docker/obsidian
+            ../docker/sonarr
             ./home.nix
           ];
         }
