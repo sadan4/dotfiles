@@ -1,8 +1,5 @@
-{ config, ... }:
+{ ... }:
 {
-  imports = [
-    ../../homeModules/sops.nix
-  ];
   home = {
     file = {
       sonarr_compose = {
