@@ -1,0 +1,29 @@
+services:
+  gluetun:
+    image: gmcgaw/gluetun:latest
+    cap_add:
+      - NET_ADMIN
+    env_file: ./gluetun.env
+    ports:
+      - 3456:3456
+      - 6881:6881
+      - 6881:6881/udp
+    restart: always
+  qbit:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    network_mode: "service:gluetun"
+    environment:
+      - PUID=1000
+      - PGID=1002
+      - TZ=America/New_York
+      - WEBUI_PORT=3456
+      - TORRENTING_PORT=6881
+    volumes:
+      - /storage/qbitConfig:/config
+      - /storage/downloads:/downloads
+    restart: unless-stopped
+    depends_on:
+      gluetun:
+        condition: service_healthy
+
