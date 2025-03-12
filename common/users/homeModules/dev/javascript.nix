@@ -1,15 +1,28 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  node = pkgs.nodejs_22;
+in
+{
   imports = [
     ../prisma.nix
     ../../../../customPackages
     ../unstable.nix
   ];
+  programs = {
+    zsh = {
+      initExtra = ''
+        eval "$(${node}/bin/node --completion-bash)"
+      '';
+    };
+  };
   home = {
     shellAliases = {
-        pd = "/home/meyer/dev/ts/pnpm/pnpm/dev/pd.js";
-        webpack = "webpack-cli";
+      pd = "/home/meyer/dev/ts/pnpm/pnpm/dev/pd.js";
+      webpack = "webpack-cli";
+      eslintd = "eslint_d";
     };
-    packages = with pkgs;
+    packages =
+      with pkgs;
       [
         cpkg.chrome-pak-customizer
         lemminx
@@ -20,11 +33,12 @@
         typescript
         unstable.eslint
         unstable.corepack_23
-        nodejs_22
+        node
         vsce
         esbuild
         unstable.pnpm
-      ] ++ (with pkgs.nodePackages; [
+      ]
+      ++ (with pkgs.nodePackages; [
         webpack-cli
         nodemon
         ts-node

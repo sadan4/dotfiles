@@ -1,16 +1,4 @@
-{ lib, pkgs, ... }:
-let
-  # TODO: make these modular
-  _ = [
-    "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-    "source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-    "eval \"$(${pkgs.nh}/bin/nh completions --shell=zsh)\""
-    "eval \"$(${pkgs.nodejs_22}/bin/node --completion-bash)\""
-    "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
-    "setopt globstarshort"
-  ];
-  zshInitArgs = lib.concatMapStrings (x: x + "\n") _;
-in
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [
@@ -19,7 +7,7 @@ in
       zsh-syntax-highlighting
     ];
     sessionVariables = {
-        POWERSHELL_PATH = "${pkgs.powershell}/bin/pwsh";
+      POWERSHELL_PATH = "${pkgs.powershell}/bin/pwsh";
     };
     file = {
       p10k = {
@@ -31,11 +19,11 @@ in
   };
   programs = {
     direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv = {
         enable = true;
-        enableZshIntegration = true;
-        nix-direnv = {
-            enable = true;
-        };
+      };
     };
     zoxide = {
       enable = true;
@@ -44,7 +32,13 @@ in
     zsh = {
       enable = true;
       oh-my-zsh.enable = true;
-      initExtra = zshInitArgs;
+      initExtra = ''
+        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+        source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        eval "$(${pkgs.nh}/bin/nh completions --shell=zsh)"
+        setopt globstarshort
+      '';
       enableCompletion = true;
       plugins = [
         {
