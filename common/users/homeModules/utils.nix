@@ -14,6 +14,8 @@
       jq
       unzip
       unrar
+            # GUI version is in kde.nix
+      libqalculate
     ];
     sessionVariables = {
       BAT_THEME = "Dracula";

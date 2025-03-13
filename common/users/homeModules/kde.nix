@@ -5,7 +5,7 @@
             kdePackages.ksshaskpass
             xsel
             kdePackages.kcolorchooser
-            gnome-calculator
+            qalculate-qt
         ];
     };
 }
