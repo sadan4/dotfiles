@@ -6,7 +6,7 @@
   home = {
     file = {
       qbit_compose = {
-        source = ./docker-compose.yal;
+        source = ./docker-compose.yml;
         target = "./src/qbit/docker-compose.yml";
       };
     };

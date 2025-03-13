@@ -21,6 +21,8 @@ in
       ../docker/vw/nginx.nix
       ../docker/obsidian/nginx.nix
       ../docker/sonarr/nginx.nix
+      ../docker/qbit/nginx.nix
+      ../docker/prowlarr/nginx.nix
     ];
   users = {
     users = {
@@ -53,6 +55,8 @@ in
             ../docker/vw
             ../docker/obsidian
             ../docker/sonarr
+            ../docker/qbit
+            ../docker/prowlarr
             ./home.nix
           ];
         }
