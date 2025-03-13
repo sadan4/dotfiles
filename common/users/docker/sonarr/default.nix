@@ -1,11 +1,13 @@
 { ... }:
 {
-  home = {
-    file = {
-      sonarr_compose = {
-        source = ./docker-compose.yml;
-        target = "./src/sonarr/docker-compose.yml";
-      };
+  imports = [
+    ./nginx.nix
+  ];
+  services = {
+    sonarr = {
+        enable = true;
+        group = "media";
+        dataDir = "/storage/sonarrConf";
     };
   };
 }

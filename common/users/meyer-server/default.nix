@@ -20,7 +20,7 @@ in
     ++ [
       ../docker/vw/nginx.nix
       ../docker/obsidian/nginx.nix
-      ../docker/sonarr/nginx.nix
+      ../docker/sonarr
       ../docker/qbit/nginx.nix
       ../docker/prowlarr/nginx.nix
     ];
@@ -54,7 +54,6 @@ in
           imports = [
             ../docker/vw
             ../docker/obsidian
-            ../docker/sonarr
             ../docker/qbit
             ../docker/prowlarr
             ./home.nix
