@@ -1,6 +1,6 @@
 services:
   gluetun:
-    image: gmcgaw/gluetun:latest
+    image: qmcgaw/gluetun:latest
     cap_add:
       - NET_ADMIN
     env_file: ./gluetun.env
