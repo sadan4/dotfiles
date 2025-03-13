@@ -57,6 +57,7 @@ in
             ../docker/obsidian
             ../docker/qbit
             ../docker/prowlarr
+            ../docker/flaresolverr
             ./home.nix
           ];
         }
