@@ -2,6 +2,7 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
+    network_mode: host
     environment:
       - PUID=106
       - PGID=1002
