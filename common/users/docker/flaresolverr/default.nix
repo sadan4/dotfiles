@@ -1,8 +1,10 @@
 {...}: {
     home = {
         file = {
-            source = ./docker-compose.yml;
-            target = "./src/flaresolverr/docker-compose.yml";
+            flaresolverr_compose = {
+                source = ./docker-compose.yml;
+                target = "./src/flaresolverr/docker-compose.yml";
+            };
         };
     };
 }
