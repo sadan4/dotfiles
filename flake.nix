@@ -61,8 +61,8 @@
       perSystem = { config, ... }: { };
       flake = {
         homeConfigurations = {
-          nixd = inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          nixd = inputs.home-manager-unstable.lib.homeManagerConfiguration {
+            pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
             modules = [
               {
                 home = {
@@ -84,7 +84,7 @@
           };
         };
         nixosConfigurations = {
-          nixd = nixpkgs.lib.nixosSystem { };
+          nixd = nixpkgs-unstable.lib.nixosSystem { };
           serverpc = nixpkgs-unstable.lib.nixosSystem rec {
             system = "x86_64-linux";
             specialArgs = {
