@@ -35,6 +35,7 @@ in
           "input"
           "tty"
           "plugdev"
+          "docker"
         ];
         shell = pkgs.zsh;
       };
