@@ -9,6 +9,8 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: always
+    devices:
+      - /dev/net/tun:/dev/net/tun
   qbit:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
