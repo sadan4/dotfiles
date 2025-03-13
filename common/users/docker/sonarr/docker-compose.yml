@@ -12,4 +12,4 @@ services:
       - /storage/downloads:/storage/downloads
     ports:
       - 8989:8989
-    restart: unless_stopped
+    restart: unless-stopped

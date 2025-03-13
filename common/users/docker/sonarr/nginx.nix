@@ -8,7 +8,8 @@
           useACMEHost = "sadan.zip";
           locations = {
             "/" = {
-              proxyPass = "https://localhost:8989";
+              proxyPass = "http://localhost:8989";
+              proxyWebsockets = true;
             };
           };
         };
