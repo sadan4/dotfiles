@@ -1,5 +1,3 @@
-
-
 { ... }:
 {
   services = {
@@ -10,7 +8,7 @@
           useACMEHost = "sadan.zip";
           locations = {
             "/" = {
-              proxyPass = "http://localhost:9696";
+              proxyPass = "http://localhost:7878";
             };
           };
         };
