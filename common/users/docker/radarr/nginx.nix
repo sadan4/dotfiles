@@ -3,6 +3,9 @@
 { ... }:
 {
   services = {
+    flaresolverr = {
+        enable = true;
+    };
     nginx = {
       virtualHosts = {
         "radarr.sadan.zip" = {

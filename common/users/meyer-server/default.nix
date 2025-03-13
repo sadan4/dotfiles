@@ -21,8 +21,9 @@ in
       ../docker/vw/nginx.nix
       ../docker/obsidian/nginx.nix
       ../docker/sonarr
-      ../docker/qbit/nginx.nix
+      ../docker/radarr
       ../docker/prowlarr/nginx.nix
+      ../docker/qbit/nginx.nix
     ];
   users = {
     users = {
