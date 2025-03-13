@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, stable, ... }:
 {
   imports = [
     ./unstable.nix
   ];
   home = {
     packages = with pkgs; [
-      firefox-beta
+      pkgs.firefox-beta-bin
       vlc
       unstable.brave
     ];

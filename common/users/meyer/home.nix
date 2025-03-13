@@ -39,7 +39,6 @@
     ../homeModules/web.nix
     ../homeModules/zsh.nix
   ];
-
   # Home Manager needs a bit of information about you and the paths it should
   # nixpkg.config.allowUnfree = true;
   # manage.

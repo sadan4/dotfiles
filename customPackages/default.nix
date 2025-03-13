@@ -1,4 +1,7 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
+let
+  system = pkgs.system;
+in
 {
   nixpkgs = {
     overlays = [
@@ -10,7 +13,7 @@
           frog = pkgs.callPackage ./frog { };
           chrome-pak-customizer = inputs.chrome-pak.flakePackage pkgs;
           ceserver = inputs.ceserver.flakePackage pkgs;
-          scripts = inputs.scripts.flakePackage pkgs;
+          scripts = inputs.scripts.flakePackage system;
         };
       })
     ];

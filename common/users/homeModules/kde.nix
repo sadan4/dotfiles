@@ -1,11 +1,10 @@
 {pkgs, ...}: {
     home = {
         packages = with pkgs; [
-            filelight
-            ksshaskpass
+            kdePackages.filelight
+            kdePackages.ksshaskpass
             xsel
-            libsForQt5.kinit
-            libsForQt5.kcolorchooser
+            kdePackages.kcolorchooser
             gnome-calculator
         ];
     };

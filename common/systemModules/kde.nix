@@ -2,7 +2,7 @@
 {
   programs = {
     ssh = {
-      askPassword = "${pkgs.ksshaskpass}/bin/ksshaskpass";
+      askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
     };
     gnupg = {
       agent = {

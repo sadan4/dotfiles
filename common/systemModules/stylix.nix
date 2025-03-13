@@ -41,10 +41,10 @@
       base0F = "#F7768E";
     };
     fonts = {
-      emoji = {
-        package = pkgs.twemoji-color-font;
-        name = "Twitter Color Emoji";
-      };
+      # emoji = {
+      #   package = pkgs.twemoji-color-font;
+      #   name = "Twitter Color Emoji";
+      # };
       sansSerif = {
         package = stable.nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
