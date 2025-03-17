@@ -40,6 +40,7 @@
         source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         eval "$(${pkgs.nh}/bin/nh completions --shell=zsh)"
         setopt globstarshort
+        eval "$(${pkgs.docker}/bin/docker completion zsh)"
       '';
       enableCompletion = true;
       plugins = [
