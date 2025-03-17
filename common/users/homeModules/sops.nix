@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
@@ -11,5 +11,10 @@
       sopsFile = ../../../secrets/hosts;
       path = "/home/${config.home.username}/.config/gh/hosts.yml";
     };
+  };
+  home = {
+    packages = with pkgs; [
+        ssh-to-age
+    ];
   };
 }

@@ -1,4 +1,4 @@
-{ NAME }: { config, inputs, ... }: {
+{ NAME }: { config, inputs, pkgs, ... }: {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
@@ -15,6 +15,11 @@
       tailscale_server_key = {
       };
     };
+  };
+  environment = {
+    systemPackages = with pkgs; [
+    ssh-to-age
+    ];
   };
   users = {
     users = {
