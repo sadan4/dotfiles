@@ -5,6 +5,8 @@
       powershell
       zsh-powerlevel10k
       zsh-syntax-highlighting
+      asciinema
+      asciinema-agg
     ];
     sessionVariables = {
       POWERSHELL_PATH = "${pkgs.powershell}/bin/pwsh";
