@@ -9,6 +9,9 @@
         pinentryPackage = pkgs.pinentry-gnome3;
       };
     };
+    kdeconnect = {
+      enable = true;
+    };
   };
   services = {
     desktopManager = {
