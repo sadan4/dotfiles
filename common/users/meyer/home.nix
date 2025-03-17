@@ -1,44 +1,45 @@
 {
+util,
   ...
 }:
 {
   nixpkgs.config.allowInsecurePredicate = (pkg: true);
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
-  imports = [
-    ../homeModules/utils.nix
-    ../homeModules/dev
-    ../homeModules/dev/ide
-    ../homeModules/dev/ide/reverseEng.nix
-    ../homeModules/dev/ide/jb/idea.nix
-    ../homeModules/dev/javascript.nix
-    ../homeModules/dev/nix.nix
-    ../homeModules/dev/cpp.nix
-    ../homeModules/dev/go.nix
-    ../homeModules/dev/jvm.nix
-    ../homeModules/dev/python.nix
-    ../homeModules/dev/vim.nix
-    ../homeModules/dev/rust.nix
-    ../homeModules/media
-    ../homeModules/scripts
-    ../homeModules/audio.nix
-    ../homeModules/btop.nix
-    ../homeModules/etcher.nix
-    ../homeModules/flameshot.nix
-    ../homeModules/frog.nix
-    ../homeModules/gaming.nix
-    ../homeModules/git.nix
-    ../homeModules/kde.nix
-    ../homeModules/networking.nix
-    ../homeModules/nvim.nix
-    ../homeModules/obsidian.nix
-    ../homeModules/rofi.nix
-    ../homeModules/social.nix
-    ../homeModules/sops.nix
-    ../homeModules/terminal.nix
-    ../homeModules/virt.nix
-    ../homeModules/web.nix
-    ../homeModules/zsh.nix
+  imports = util.modulesFromPath ../homeModules [
+    ./utils.nix
+    ./dev
+    ./dev/ide
+    ./dev/ide/reverseEng.nix
+    ./dev/ide/jb/idea.nix
+    ./dev/javascript.nix
+    ./dev/nix.nix
+    ./dev/cpp.nix
+    ./dev/go.nix
+    ./dev/jvm.nix
+    ./dev/python.nix
+    ./dev/vim.nix
+    ./dev/rust.nix
+    ./media
+    ./scripts
+    ./audio.nix
+    ./btop.nix
+    ./etcher.nix
+    ./flameshot.nix
+    ./frog.nix
+    ./gaming.nix
+    ./git.nix
+    ./kde.nix
+    ./networking.nix
+    ./nvim.nix
+    ./obsidian.nix
+    ./rofi.nix
+    ./social.nix
+    ./sops.nix
+    ./terminal.nix
+    ./virt.nix
+    ./web.nix
+    ./zsh.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # nixpkg.config.allowUnfree = true;

@@ -160,6 +160,7 @@
               inputs.home-manager-unstable.nixosModules.default
               inputs.nix-index-database.nixosModules.nix-index
               { programs.nix-index-database.comma.enable = true; }
+              ./common/util
             ];
           };
           arm-laptop-evo4b5 = nixpkgs.lib.nixosSystem rec {
