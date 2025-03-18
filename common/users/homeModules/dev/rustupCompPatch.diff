@@ -1,0 +1,17 @@
+26c26,28
+< '::+toolchain -- release channel (e.g. +stable) or custom toolchain to set override:' \
+---
+> '(+beta +nightly)+stable[use the stable toolchain]' \
+> '(+stable +nightly)+beta[use the beta toolchain]' \
+> '(+stable +beta)+nightly[use the nightly toolchain]' \
+32c34
+<         words=($line[2] "${words[@]}")
+---
+>         words=($line[1] "${words[@]}")
+34,35c36,37
+<         curcontext="${curcontext%:*:*}:rustup-command-$line[2]:"
+<         case $line[2] in
+---
+>         curcontext="${curcontext%:*:*}:rustup-command-$line[1]:"
+>         case $line[1] in
+
