@@ -35,7 +35,7 @@
     ../homeModules/rofi.nix
     ../homeModules/social.nix
     ../homeModules/sops.nix
-    ../homeModules/terminal.nix
+    ../homeModules/terminal
     ../homeModules/virt.nix
     ../homeModules/web.nix
     ../homeModules/zsh.nix
