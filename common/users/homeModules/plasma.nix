@@ -22,6 +22,15 @@
           };
         };
       };
+      # Needed because our color scheme is overwritten
+      workspace = {
+        colorScheme = "TokyoNight";
+        # sleeping cat, installed from marketplace
+        # TODO: declaratively install things from the marketplace
+        splashScreen = {
+          theme = "a2n.kuro";
+        };
+      };
       hotkeys = {
         commands = {
           "ocr" = {
