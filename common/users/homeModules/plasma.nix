@@ -8,6 +8,16 @@
   programs = {
     plasma = {
       enable = true;
+      overrideConfig = true;
+      # input.mice is only on a per-mouse basis and doesnt have these settings
+      configFile = {
+        "kcminputrc" = {
+          Mouse = {
+            X11LibInputXAccelProfileFlat = true;
+            XLbInptAccelProfileFlat = true;
+          };
+        };
+      };
       hotkeys = {
         commands = {
           "ocr" = {
