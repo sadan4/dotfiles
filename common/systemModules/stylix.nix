@@ -13,7 +13,7 @@
   ];
   stylix = {
     enable = true;
-    image = ./wallpaper.jpg;
+    image = ../../dotfiles/wallpaper.jpg;
     targets = {
       chromium = {
         enable = false;
