@@ -27,8 +27,10 @@
     };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.home-manager.follows = "home-manager-unstable";
+      # inputs.nixpkgs.follows = "nixpkgs-unstable";
+      # inputs.home-manager.follows = "home-manager-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     scripts = {
       url = "github:sadan4/scripts";
@@ -141,10 +143,10 @@
               )
             ];
           };
-          nix-desktop-evo4b5 = nixpkgs-unstable.lib.nixosSystem rec {
+          nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
             specialArgs = {
               inherit inputs;
-              stable = import nixpkgs {
+              unstable = import nixpkgs-unstable {
                 inherit system;
                 config = {
                   allowUnfree = true;
@@ -157,12 +159,12 @@
                 { pkgs, ... }:
                 {
                   _module.args = {
-                    unstable = pkgs;
+                    stable = pkgs;
                   };
                 }
               )
               ./boxes/desktop/configuration.nix
-              inputs.home-manager-unstable.nixosModules.default
+              inputs.home-manager.nixosModules.default
               inputs.nix-index-database.nixosModules.nix-index
               { programs.nix-index-database.comma.enable = true; }
             ];
