@@ -1,4 +1,32 @@
-{ inputs, config, ... }:
+{ inputs, pkgs, ... }:
+let
+  # KDE will show a bouncing icon whenever a command is started
+  # this can be an issue for things like screenshot tools, which can capture those icons
+  # Wrap in a nohup bash script to prevent this
+  mkNoIconCommand =
+    command:
+    let
+      inherit (builtins) hasAttr;
+      logs = {
+        enabled = true;
+        identifier = "plasma-manager-commands-${command.name}";
+        extraArgs = "";
+      } // (if hasAttr "logs" command then command.logs else { });
+      inherit (logs) extraArgs identifier enabled;
+      finalCommand = command // {
+        logs = logs // {
+          enabled = false;
+        };
+        command = "${pkgs.writeShellScriptBin "nohupRunner-${identifier}" ''
+          nohup ${
+            if enabled then "${pkgs.systemd}/bin/systemd-cat --identifier=${identifier} ${extraArgs}" else ""
+          } ${command.command} > /dev/null &
+          exit 0
+        ''}";
+      };
+    in
+    finalCommand;
+in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
@@ -35,12 +63,12 @@
       };
       hotkeys = {
         commands = {
-          "ocr" = {
+          "ocr" = mkNoIconCommand {
             name = "OCR";
             key = "Meta+Shift+T";
             command = "frog -e";
           };
-          "flameshot" = {
+          "flameshot" = mkNoIconCommand {
             name = "flameshot";
             key = "Print";
             command = "flameshot gui";
