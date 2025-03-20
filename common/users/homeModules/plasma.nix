@@ -60,6 +60,7 @@ in
         splashScreen = {
           theme = "a2n.kuro";
         };
+        wallpaper = ../../../dotfiles/wallpaper.jpg;
       };
       hotkeys = {
         commands = {
@@ -84,6 +85,13 @@ in
             command = "kitty";
           };
         };
+      };
+    };
+  };
+  stylix = {
+    targets = {
+      kde = {
+        enable = false;
       };
     };
   };
