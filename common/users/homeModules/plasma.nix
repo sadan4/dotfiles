@@ -2,6 +2,8 @@
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
+    # TODO: import dynamically based on hostname
+    ./displays/nix-desktop-evo4b5.nix
   ];
   programs = {
     plasma = {
