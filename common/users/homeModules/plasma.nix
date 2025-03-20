@@ -1,10 +1,14 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
     # TODO: import dynamically based on hostname
     ./displays/nix-desktop-evo4b5.nix
   ];
+  # workaround https://github.com/nix-community/plasma-manager/issues/472
+  # This errors
+  # home.file.".gtkrc-2.0".force = true;
+  gtk.gtk2.configLocation = "${config.home.homeDirectory}/.config/.gtkrc-2.0";
   programs = {
     plasma = {
       enable = true;
