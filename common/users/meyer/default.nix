@@ -37,6 +37,7 @@ in
     };
   };
   home-manager = {
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs stable unstable; };
     users = {
       "${NAME}" = import ./home.nix;
