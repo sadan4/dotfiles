@@ -5,10 +5,6 @@
     # TODO: import dynamically based on hostname
     ./displays/nix-desktop-evo4b5.nix
   ];
-  # workaround https://github.com/nix-community/plasma-manager/issues/472
-  # This errors
-  # home.file.".gtkrc-2.0".force = true;
-  gtk.gtk2.configLocation = "${config.home.homeDirectory}/.config/.gtkrc-2.0";
   programs = {
     plasma = {
       enable = true;
@@ -19,6 +15,12 @@
           Mouse = {
             X11LibInputXAccelProfileFlat = true;
             XLbInptAccelProfileFlat = true;
+          };
+        };
+        # Stylix will write to `~/.gtkrc-2.0`, but KDE has a daemon that will auto-generate a gtk config for the theme in use
+        "kded5rc" = {
+          Module-gtkconfig = {
+            autoload = false;
           };
         };
       };
