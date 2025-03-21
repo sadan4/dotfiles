@@ -62,6 +62,12 @@ in
         };
         wallpaper = ../../../dotfiles/wallpaper.jpg;
       };
+      shortcuts = {
+        kwin = {
+          "Window Quick Tile Top" = [ ];
+          "Window Maximize" = [ "Meta+Up" ];
+        };
+      };
       hotkeys = {
         commands = {
           "ocr" = mkNoIconCommand {
