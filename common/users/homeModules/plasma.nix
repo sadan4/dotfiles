@@ -46,6 +46,12 @@
         };
         wallpaper = ../../../dotfiles/wallpaper.jpg;
       };
+      # Dont open apps from last session (can lead to tons of random things bloating startup times)
+      session = {
+        sessionRestore = {
+          restoreOpenApplicationsOnLogin = "startWithEmptySession";
+        };
+      };
       kwin = {
         titlebarButtons = {
           left = [
