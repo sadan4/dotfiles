@@ -1,32 +1,4 @@
 { inputs, pkgs, ... }:
-let
-  # KDE will show a bouncing icon whenever a command is started
-  # this can be an issue for things like screenshot tools, which can capture those icons
-  # Wrap in a nohup bash script to prevent this
-  mkNoIconCommand =
-    command:
-    let
-      inherit (builtins) hasAttr;
-      logs = {
-        enabled = true;
-        identifier = "plasma-manager-commands-${command.name}";
-        extraArgs = "";
-      } // (if hasAttr "logs" command then command.logs else { });
-      inherit (logs) extraArgs identifier enabled;
-      finalCommand = command // {
-        logs = logs // {
-          enabled = false;
-        };
-        command = "${pkgs.writeShellScriptBin "nohupRunner-${identifier}" ''
-          nohup ${
-            if enabled then "${pkgs.systemd}/bin/systemd-cat --identifier=${identifier} ${extraArgs}" else ""
-          } ${command.command} > /dev/null &
-          exit 0
-        ''}";
-      };
-    in
-    finalCommand;
-in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
@@ -51,6 +23,18 @@ in
             autoload = false;
           };
         };
+        # KDE will add a bouncing cursor to commands launched from hotkeys
+        # which gets in the way of anything launched from a hotkey that uses the display
+        "klaunchrc" = {
+          BusyCursorSettings = {
+            Bouncing = false;
+          };
+          FeedbackStyle = {
+            BusyCursor = false;
+            # Annoying blank file icon in the taskbar while a command is running
+            TaskbarButton = false;
+          };
+        };
       };
       # Needed because our color scheme is overwritten
       workspace = {
@@ -70,12 +54,12 @@ in
       };
       hotkeys = {
         commands = {
-          "ocr" = mkNoIconCommand {
+          "ocr" = {
             name = "OCR";
             key = "Meta+Shift+T";
             command = "frog -e";
           };
-          "flameshot" = mkNoIconCommand {
+          "flameshot" = {
             name = "flameshot";
             key = "Print";
             command = "flameshot gui";
