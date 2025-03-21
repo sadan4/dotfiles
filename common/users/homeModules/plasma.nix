@@ -46,6 +46,18 @@
         };
         wallpaper = ../../../dotfiles/wallpaper.jpg;
       };
+      kwin = {
+        titlebarButtons = {
+          left = [
+            "keep-above-windows"
+          ];
+          right = [
+            "minimize"
+            "maximize"
+            "close"
+          ];
+        };
+      };
       shortcuts = {
         kwin = {
           "Window Quick Tile Top" = [ ];
