@@ -3,6 +3,7 @@ keys:
   - &laptop age1syaxvec0zg07sxpllvenzflh9clf82u05hz40pq6mh42zczlwdrqa7jdvl
   - &win10 age1cz006hex596lmj88kkhrkvq89luqk59hxuq83q4kvhz82ltwpe4ss8gm3t
   - &serverpc age1sn4uu6r6wrylpznx75jcw7ww58r9cut35n40gu4scpt9xy79rgrq2d7wga
+  - &desktopWsl age13mlkm4t2gasf3409syn5xuarja63rukx937e4p3msyzg8x9ayp4se9nz2r
 creation_rules:
   - path_regex: .ini
     key_groups:
@@ -39,6 +40,7 @@ creation_rules:
         - *laptop
         - *win10
         - *serverpc
+        - *desktopWsl
   - path_regex: secrets.yaml$
     key_groups:
       - age:
@@ -46,3 +48,4 @@ creation_rules:
         - *laptop
         - *win10
         - *serverpc
+        - *desktopWsl
