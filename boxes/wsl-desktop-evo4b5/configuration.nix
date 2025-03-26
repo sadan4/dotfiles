@@ -1,6 +1,7 @@
-{...}: {
+{pkgs, ...}: {
 	imports = [
 		../../common/users/meyer-wsl
+        ../../common/systemModules/nix.nix
 		];
 	wsl = {
 		defaultUser = "meyer";
@@ -13,4 +14,8 @@
 	};
 	system.stateVersion = "24.05";
 	programs.zsh.enable = true;
+    environment.systemPackages = with pkgs; [
+    gcc
+    clang
+    ];
 }
