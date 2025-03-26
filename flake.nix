@@ -197,16 +197,42 @@
               nixos-wsl.nixosModules.wsl
             ];
           };
+          wsl-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            specialArgs = {
+              inherit inputs;
+              unstable = import nixpkgs-unstable {
+                inherit system;
+                config = {
+                  allowUnfree = true;
+                };
+              };
+            };
+            modules = [
+              (
+                { pkgs, ... }:
+                {
+                  _module.args = {
+                    stable = pkgs;
+                  };
+                }
+              )
+              nixos-wsl.nixosModules.default
+              ./boxes/wsl-desktop-evo4b5/configuration.nix
+              inputs.home-manager.nixosModules.default
+              inputs.nix-index-database.nixosModules.nix-index
+              { programs.nix-index-database.comma.enable = true; }
+            ];
+          };
+          # nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+          #   specialArgs = {inherit inputs;};
+          #   modules = [
+          #     ./boxes/desktop/configuration.nix
+          #     inputs.home-manager.nixosModules.default
+          #   ];
+          # };
+          # cpkg = forAllSystems(system: import ./customPackages);
         };
-        # nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        #   specialArgs = {inherit inputs;};
-        #   modules = [
-        #     ./boxes/desktop/configuration.nix
-        #     inputs.home-manager.nixosModules.default
-        #   ];
-        # };
-        # cpkg = forAllSystems(system: import ./customPackages);
       };
     };
-
 }

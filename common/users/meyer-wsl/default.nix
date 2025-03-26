@@ -4,7 +4,6 @@ let
 in
 {
   imports = [
-    (import ../../systemModules/sops.nix { inherit NAME; })
     (import ../../systemModules/nixHelper.nix { inherit NAME; })
   ];
   users = {
@@ -25,6 +24,7 @@ in
     };
   };
   home-manager = {
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs stable unstable; };
     users = {
       "${NAME}" = import ./home.nix;
