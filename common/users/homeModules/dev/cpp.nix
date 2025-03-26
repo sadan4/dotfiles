@@ -3,6 +3,7 @@
   imports = [
     ../unstable.nix
     ./ide/jb/clion.nix
+    ../pinned.nix
   ];
   home = {
     packages = with pkgs; [
