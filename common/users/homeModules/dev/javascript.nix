@@ -37,6 +37,7 @@ in
         vsce
         esbuild
         unstable.pnpm
+        asar
       ]
       ++ (with pkgs.nodePackages; [
         webpack-cli
