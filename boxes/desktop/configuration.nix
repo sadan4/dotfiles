@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  unstable,
   ...
 }:
 {
@@ -59,7 +60,7 @@
     i2c-tools
     fuse
     ifuse
-    gcc
+    unstable.gcc
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
     wget
