@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ../unstable.nix
@@ -21,6 +21,7 @@
       lldb_19
       cpkg.ceserver
       unstable.llvmPackages_19.clang-tools
+      inputs.nix-cppman.packages.${pkgs.system}.default
     ];
     file = {
       eslint_d_config = {

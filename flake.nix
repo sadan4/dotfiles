@@ -52,6 +52,10 @@
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-cppman = {
+      url = "github:sadan4/cppman";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
