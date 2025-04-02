@@ -437,11 +437,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1743477991,
-        "narHash": "sha256-2l2F0RdQ8Jfptua/j10lGjNFwKOOf94tF7ah5F3FJ84=",
+        "lastModified": 1743480057,
+        "narHash": "sha256-5JnUq/m2anbXwF0BitH7EvZr7bobE2VEbv2UYuLwMi4=",
         "owner": "sadan4",
         "repo": "cppman",
-        "rev": "e624de27718e80cceb899322627bfa7fc6416170",
+        "rev": "cbb688dbae0c82c81d3033a78a679521efe40e62",
         "type": "github"
       },
       "original": {
