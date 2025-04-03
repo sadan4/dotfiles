@@ -35,6 +35,11 @@
             TaskbarButton = false;
           };
         };
+        "kwinrc" = {
+          MouseBindings = {
+            CommandAllWheel = "Maximize/Restore";
+          };
+        };
       };
       # Needed because our color scheme is overwritten
       workspace = {
