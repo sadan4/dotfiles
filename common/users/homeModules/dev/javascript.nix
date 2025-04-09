@@ -27,6 +27,7 @@ in
         cpkg.chrome-pak-customizer
         lemminx
         deno
+        bun
         eslint_d
         vscode-langservers-extracted
         nodePackages_latest.typescript-language-server
