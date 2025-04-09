@@ -3,7 +3,13 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 # { config, lib, pkgs, inputs, ... }:
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -19,19 +25,20 @@
   networking.hostName = "arm-laptop-evo4b5"; # Define your hostname.
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Set your time zone.
   time.timeZone = "America/New_York";
 
   programs.zsh.enable = true;
 
-
-
   environment.systemPackages = with pkgs; [
     ddcutil
     i2c-tools
     fuse
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    nano
     curl
     wget
     ripgrep
