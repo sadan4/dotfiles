@@ -3,7 +3,7 @@ let
 in
 {
   imports = [
-    # ../../pinned.nix
+    ../../pinned.nix
     ../../unstable.nix
   ];
   home = {
@@ -18,5 +18,12 @@ in
       # codium
       zed-editor
     ];
+    file = {
+      vscode_neovim = {
+        source = "${pkgs.pinned.neovim}/bin/nvim";
+        target = ".bin/vscode-neovim";
+      };
+    };
+    sessionPath = [ "$HOME/.bin" ];
   };
 }
