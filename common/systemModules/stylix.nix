@@ -18,9 +18,6 @@
       chromium = {
         enable = false;
       };
-      spicetify = {
-        enable = false;
-      };
     };
     base16Scheme = {
       base00 = "#1A1B26";
