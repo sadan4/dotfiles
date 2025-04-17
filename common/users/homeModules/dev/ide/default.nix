@@ -18,6 +18,9 @@ in
       # codium
       zed-editor
     ];
+    shellAliases = {
+      codetemp = "code -n $(mktemp -d)";
+    };
     file = {
       vscode_neovim = {
         source = "${pkgs.pinned.neovim}/bin/nvim";

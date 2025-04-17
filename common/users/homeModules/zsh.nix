@@ -41,6 +41,10 @@
         eval "$(${pkgs.nh}/bin/nh completions --shell=zsh)"
         setopt globstarshort
         eval "$(${pkgs.docker}/bin/docker completion zsh)"
+        # *c*d into *n*ew *d*irectory
+        cnd() {
+            mkdir $1 && cd $1;
+        }
       '';
       enableCompletion = true;
       plugins = [
