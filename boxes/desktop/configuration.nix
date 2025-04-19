@@ -72,6 +72,7 @@
   #LD fix
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    unstable.libgcc.lib
     graalvm-ce
     zlib.static
     libGL
@@ -88,7 +89,7 @@
     xorg.libX11
     cairo
     pango
-    gtk3
+    gtk3-x11
     libdrm
     cups
     at-spi2-atk

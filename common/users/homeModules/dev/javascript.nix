@@ -31,6 +31,7 @@ in
         eslint_d
         vscode-langservers-extracted
         nodePackages_latest.typescript-language-server
+        electron-fiddle
         typescript
         unstable.eslint
         unstable.corepack_23
