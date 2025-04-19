@@ -40,6 +40,8 @@ in
         esbuild
         unstable.pnpm
         asar
+        # read electron crash dumps
+        breakpad
       ]
       ++ (with pkgs.nodePackages; [
         webpack-cli
