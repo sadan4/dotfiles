@@ -97,6 +97,11 @@ builtins.map (section: baseConfig // section) [
           time = {
             format = "12h";
           };
+          font = {
+            family = "ComicShannsMono Nerd Font Mono";
+            size = 14;
+            bold = false;
+          };
         };
       }
     ];
