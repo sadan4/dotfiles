@@ -7,6 +7,19 @@
       Requires = [ "graphical-session-pre.target" ];
     };
   };
+  programs = {
+    plasma = {
+      hotkeys = {
+        commands = {
+          "flameshot" = {
+            name = "flameshot";
+            key = "Print";
+            command = "flameshot gui";
+          };
+        };
+      };
+    };
+  };
   services = {
     flameshot = {
       enable = true;

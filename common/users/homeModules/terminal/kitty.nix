@@ -17,10 +17,21 @@
   };
   programs = {
     zsh = {
-            # Completion support for kitten
+      # Completion support for kitten
       initExtra = ''
         compdef _kitty kitten
       '';
+    };
+    plasma = {
+      hotkeys = {
+        commands = {
+          "kitty" = {
+            name = "kitty";
+            key = "Alt+Shift+Return";
+            command = "kitty";
+          };
+        };
+      };
     };
   };
 }
