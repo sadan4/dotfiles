@@ -76,6 +76,7 @@
     graalvm-ce
     zlib.static
     libGL
+    glfw3-minecraft
     alsa-lib
     expat
     mesa
