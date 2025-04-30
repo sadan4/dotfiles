@@ -10,6 +10,8 @@
                     jdk23
                 ];
             })
+            # needed for prism launcher dialogs
+            zenity
             protontricks
             lutris
         ];
