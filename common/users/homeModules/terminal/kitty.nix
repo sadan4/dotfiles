@@ -13,6 +13,8 @@
     };
     shellAliases = {
       "icat" = "kitten icat";
+      # **N**ew **K**itty
+      "nk" = "kitty --detach";
     };
   };
   programs = {
