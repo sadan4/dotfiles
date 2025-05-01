@@ -8,6 +8,7 @@
                     jdk8
                     jdk17
                     jdk23
+                    jdk
                 ];
             })
             # needed for prism launcher dialogs
