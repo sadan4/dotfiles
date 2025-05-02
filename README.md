@@ -1,5 +1,10 @@
 # My Dotfiles
 
+![image](https://github.com/user-attachments/assets/619d479b-4817-420f-8304-a7c7f79373a5)
+
+![image](https://github.com/user-attachments/assets/efab2247-db62-4c90-93f8-941c200cd3ee)
+
+
 > [!NOTE]  
 > I am relatively new to nix and a lot of the things i do are bad practice, if you think something should be done a better way, feel free to open an issue or pr
 
