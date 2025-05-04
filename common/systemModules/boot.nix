@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   boot = {
     loader = {
       timeout = 0;
@@ -9,6 +10,9 @@
         useOSProber = true;
         efiInstallAsRemovable = true;
         timeoutStyle = "hidden";
+        memtest86 = {
+          enable = true;
+        };
       };
     };
   };
