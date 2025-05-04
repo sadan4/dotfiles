@@ -22,8 +22,8 @@
       element-desktop
       vesktop
       (discord.override {
-        withVencord = true;
-        vencord = unstable.vencord;
+      #   withVencord = true;
+      #   vencord = unstable.vencord;
       })
       # (config.programs.nixcord.discord.package.override {
       #   withVencord = true;
