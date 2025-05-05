@@ -13,6 +13,8 @@
         sessionVariables = {
             EDITOR = "nvim";
             MANPAGER = "nvim +Man!";
+            # readonly, quit on q
+            PAGER = "nvim -R +\"nmap q <CMD>q!<CR>\"";
         };
     };
 }
