@@ -84,6 +84,7 @@ in
           file = ./paste.sh;
         })
       }/bin/paste";
+      p = "${builtins.readFile ./projectPicker.sh}";
     };
   };
 }
