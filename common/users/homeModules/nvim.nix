@@ -3,14 +3,11 @@
   config,
   ...
 }:
-let
-  pager_cmd_var = ''nvim -R +\"nmap q <CMD>q\!<CR>\"'';
-  pager_cmd_alias = ''nvim -R +"nmap q <CMD>q!<CR>"'';
-in
 {
   home = {
     packages = with pkgs; [
       neovim
+      nvimpager
     ];
     file = {
       nvim = {
@@ -22,10 +19,7 @@ in
     sessionVariables = {
       EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
-      PAGER = pager_cmd_var;
-    };
-    shellAliases = {
-      pager = pager_cmd_alias;
+      PAGER = "nvimpager";
     };
   };
 }
