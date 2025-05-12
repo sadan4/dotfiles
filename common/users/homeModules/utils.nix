@@ -4,7 +4,7 @@
     packages = with pkgs; [
       # CLI ONLY
       unixtools.xxd
-            cloc
+      cloc
       p7zip
       dig
       bat
@@ -27,7 +27,17 @@
       "$HOME/.local/bin"
     ];
   };
-# FIXME: this errors
+  programs = {
+    fzf = {
+      enableZshIntegration = true;
+    };
+    zsh = {
+      initExtra = ''
+        eval $(fzf --zsh)
+      '';
+    };
+  };
+  # FIXME: this errors
   # programs = {
   #   zsh = {
   #     # patchelf doesnt provide completions by default
