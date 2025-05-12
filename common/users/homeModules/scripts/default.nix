@@ -45,12 +45,16 @@ in
       (mkScript {
         name = "http2ssh";
         file = ./http2ssh.sh;
-        env = [ pkgs.git ];
+        env = with pkgs; [
+          git
+        ];
       })
       (mkScript {
         name = "git_fetchAll";
         file = ./git_fetchAll.sh;
-        env = [ pkgs.git ];
+        env = with pkgs; [
+          git
+        ];
       })
       (mkScript {
         name = "install_eslint";
@@ -59,7 +63,9 @@ in
       (mkScript {
         name = "math";
         file = ./math.sh;
-        env = [ pkgs.python3 ];
+        env = with pkgs; [
+          python3
+        ];
       })
       (mkScript {
         name = "hashi18n";
@@ -68,8 +74,11 @@ in
       (mkScript {
         name = "flakeify";
         file = ./flakeify.sh;
-        env = [ pkgs.direnv ];
+        env = with pkgs; [
+          direnv
+        ];
       })
+      # impl for the cloneRepo command
     ];
     file = {
       scripts = {
@@ -85,6 +94,32 @@ in
         })
       }/bin/paste";
       p = "${builtins.readFile ./projectPicker.sh}";
+    };
+  };
+  programs = {
+    zsh = {
+      initExtra =
+        let
+          implName = "cloneRepoImpl";
+        in
+        ''
+          cloneRepo() {
+              local dir;
+              dir=$(${
+                (mkScript {
+                  name = implName;
+                  file = ./cloneRepoImpl.sh;
+                  env = with pkgs; [
+                    gh
+                    fzf
+                  ];
+                })
+              }/bin/${implName})
+              if [[ $? -eq 0 ]]; then
+                  cd ''${dir}
+              fi
+          }
+        '';
     };
   };
 }
