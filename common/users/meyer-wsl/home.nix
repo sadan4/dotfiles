@@ -31,6 +31,15 @@
       wslu
     ];
   };
+  programs = {
+    zsh = {
+      # fix windows dirs beinng flashbangs
+      # https://stackoverflow.com/questions/43147351/win-10-bash-shell-and-highlighting-of-the-directories-in-console/43147778#43147778
+      initExtra = ''
+        export LS_COLORS="''${LS_COLORS}:ow=1;34:"
+      '';
+    };
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
