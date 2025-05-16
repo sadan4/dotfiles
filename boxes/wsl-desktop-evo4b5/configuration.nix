@@ -19,5 +19,6 @@
     gcc
     clang
     ripgrep
+    file
   ];
 }
