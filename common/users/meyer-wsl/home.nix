@@ -13,6 +13,7 @@
     ../homeModules/dev
     ../homeModules/dev/cpp.nix
     ../homeModules/dev/javascript.nix
+    ../homeModules/dev/nix.nix
     ../homeModules/dev/python.nix
     ../homeModules/scripts
     ../homeModules/btop.nix
