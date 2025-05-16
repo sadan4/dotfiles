@@ -95,6 +95,7 @@
           serverpc = nixpkgs-unstable.lib.nixosSystem rec {
             system = "x86_64-linux";
             specialArgs = {
+              isWsl = false;
               inherit inputs;
               stable = import nixpkgs {
                 inherit system;
@@ -145,6 +146,7 @@
           };
           nix-desktop-evo4b5 = nixpkgs.lib.nixosSystem rec {
             specialArgs = {
+              isWsl = false;
               inherit inputs;
               unstable = import nixpkgs-unstable {
                 inherit system;
@@ -172,6 +174,7 @@
           arm-laptop-evo4b5 = nixpkgs.lib.nixosSystem rec {
             system = "aarch64-linux";
             specialArgs = {
+              isWsl = false;
               inputs = inputs // {
                 nixpkgs = nixpkgs;
                 home-manager = inputs.home-manager-stable;
@@ -201,6 +204,7 @@
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
+              isWsl = true;
               unstable = import nixpkgs-unstable {
                 inherit system;
                 config = {
