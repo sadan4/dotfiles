@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=106
       - PGID=1002
-      - TS=America/New_York
+      - TZ=America/New_York
     volumes:
       - /storage/prowlarrConf:/config
     ports:
