@@ -98,7 +98,6 @@
     dbus
     nspr
     nss
-    glib
     curlWithGnuTls
     fuse
     fuse3
