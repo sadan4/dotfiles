@@ -1,6 +1,6 @@
 {
   config,
-  stable,
+  unstable,
   inputs,
   ...
 }:
@@ -13,7 +13,7 @@
         "flakes"
       ];
     };
-    package = stable.nix;
+    package = unstable.nix;
     nixPath = [ "nixpkgs=${inputs.nixpkgs-unstable}" ];
   };
 }
