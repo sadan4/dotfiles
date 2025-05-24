@@ -1,8 +1,12 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
+  imports = [
+    ./pinned.nix
+  ];
   home = {
     packages = with pkgs; [
       git
-      lazygit
+      pinned.lazygit
       act
       gh
     ];

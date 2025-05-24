@@ -1,16 +1,33 @@
 {
-  pkgs,
   inputs,
-  stable,
+  pkgs,
   ...
 }:
+let
+  oldPkgs = (
+    import
+      (builtins.fetchGit {
+        # Descriptive name to make the store path easier to identify
+        name = "my-old-revision";
+        url = "https://github.com/NixOS/nixpkgs/";
+        ref = "refs/heads/nixpkgs-unstable";
+        rev = "d9d87c51960050e89c79e4025082ed965e770d68";
+      })
+      {
+        inherit (pkgs) system;
+      }
+  );
+  nerdfonts = oldPkgs.nerdfonts;
+in
 {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
-  environment.systemPackages = [
-    stable.nerdfonts
-  ];
+  environment = {
+    systemPackages = [
+      nerdfonts
+    ];
+  };
   stylix = {
     enable = true;
     image = ../../dotfiles/wallpaper.jpg;
@@ -43,15 +60,15 @@
       #   name = "Twitter Color Emoji";
       # };
       sansSerif = {
-        package = stable.nerdfonts;
+        package = nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
       };
       serif = {
-        package = stable.nerdfonts;
+        package = nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
       };
       monospace = {
-        package = stable.nerdfonts;
+        package = nerdfonts;
         name = "ComicShannsMono Nerd Font Mono";
       };
     };

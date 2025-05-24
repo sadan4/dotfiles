@@ -38,7 +38,6 @@
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-        eval "$(${pkgs.nh}/bin/nh completions --shell=zsh)"
         setopt globstarshort
         eval "$(${pkgs.docker}/bin/docker completion zsh)"
         # *c*d into *n*ew *d*irectory

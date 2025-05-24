@@ -35,7 +35,7 @@ in
         electron-fiddle
         typescript
         unstable.eslint
-        unstable.corepack_23
+        unstable.corepack_24
         node
         vsce
         esbuild

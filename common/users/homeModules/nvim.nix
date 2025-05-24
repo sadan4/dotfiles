@@ -4,9 +4,12 @@
   ...
 }:
 {
+  imports = [
+    ./pinned.nix
+  ];
   home = {
     packages = with pkgs; [
-      neovim
+      pinned.neovim
       nvimpager
     ];
     file = {
