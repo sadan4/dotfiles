@@ -75,13 +75,6 @@
                 ref = "refs/heads/nixpkgs-unstable";
                 rev = "05bbf675397d5366259409139039af8077d695ce";
               }) defaultOpts).gdb;
-            # lazygit >=49 has an ugly root symbol with no config to remove it
-            lazygit =
-              (import (builtins.fetchGit {
-                name = "pinned-lazygit";
-                url = "https://github.com/NixOS/nixpkgs/";
-                rev = "785eec1b92a0a4b3246f1307a9325a7e5024fef5";
-              }) defaultOpts).lazygit;
           };
         }
       )

@@ -1,31 +1,20 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./pinned.nix
+    ./lazygit.nix
   ];
   home = {
     packages = with pkgs; [
       git
-      pinned.lazygit
       act
       gh
     ];
     file = {
-      lazygit = {
-        recursive = true;
-        source = ../../../dotfiles/lazygit;
-        target = "./.config/lazygit";
-      };
-      gh = {
+      ghcli = {
         source = ../../../dotfiles/gh/config.yml;
         target = "./.config/gh/config.yml";
       };
-    };
-    shellAliases = {
-      lg = "lazygit";
-    };
-    sessionVariables = {
-      LG_CONFIG_FILE = "/home/${config.home.username}/.config/lazygit/tokyonight_night.conf";
     };
   };
   programs = {
