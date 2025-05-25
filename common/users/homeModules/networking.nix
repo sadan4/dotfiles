@@ -1,8 +1,11 @@
-{pkgs, stable, ...}: {
+{pkgs, ...}: {
+    imports = [
+        ./pinned.nix
+    ];
     home = {
         packages = with pkgs; [
             parsec-bin
-            stable.protonvpn-gui
+            protonvpn-gui
             insomnia
             teamviewer
             filezilla
