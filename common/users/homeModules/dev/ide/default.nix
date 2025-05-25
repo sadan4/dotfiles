@@ -9,12 +9,6 @@ in
   home = {
     packages = with pkgs; [
       unstable.vscode
-      # pinned.vscode
-      # (pinned.vscode.fhsWithPackages (
-      #   pkgs: with pkgs; [
-      #     powershell
-      #   ]
-      # ))
       # codium
       zed-editor
     ];
