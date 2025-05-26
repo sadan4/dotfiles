@@ -128,8 +128,8 @@
                   ...
                 }:
                 {
-                  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
-                  boot.kernelPackages = pkgs.linuxPackages_latest;
+                  imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix") ];
+                  boot.kernelPackages = pkgs.linuxPackages_testing;
                   boot.supportedFilesystems = lib.mkForce [
                     "btrfs"
                     "reiserfs"
