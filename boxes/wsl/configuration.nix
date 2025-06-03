@@ -42,7 +42,6 @@
     curl
     wget
     ripgrep
-    tldr
     libnotify
     file
   ];

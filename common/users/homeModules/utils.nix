@@ -11,6 +11,7 @@
       usbutils
       tree
       sops
+      tlrc
       fzf
       jq
       unzip

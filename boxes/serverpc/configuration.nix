@@ -39,7 +39,6 @@
     curl
     wget
     ripgrep
-    tldr
     file
   ];
   #LD fix
