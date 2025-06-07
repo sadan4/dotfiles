@@ -1,1 +1,0 @@
-cd ~/$(find ~/dev -mindepth 2 -maxdepth 2 -type d | while read f; do zoxide query --all --list --score $f | grep -Eo "[0-9]+?\.[0-9]+? $f$" || echo "0.0 $f"; done | sort -rg | grep -Po "(?<=\d{0,10}?\.\d{0,10}? ${HOME}/).*$" | fzf --scheme path --cycle --filepath-word --height 50% --reverse --border --border-label " Go To Project " --color label:bold:cyan)

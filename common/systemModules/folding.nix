@@ -1,7 +1,0 @@
-{...}: {
-  services = {
-    foldingathome = {
-      enable = true;
-    };
-  };
-}
