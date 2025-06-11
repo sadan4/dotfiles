@@ -3,6 +3,9 @@
   ...
 }:
 {
+  imports = [
+    ./unstable.nix
+  ];
   home = {
     shellAliases = {
       lg = "lazygit";
@@ -18,17 +21,10 @@
   programs = {
     lazygit = {
       enable = true;
-      package = pkgs.lazygit.overrideAttrs (
-        _: old: {
-          src = pkgs.fetchFromGitHub {
-            owner = "jesseduffield";
-            repo = old.pname;
-            rev = "3cff48437e2d831d03be9eda03818368ab7c2a26";
-            hash = "sha256-OA40EgUKwNttsoSLi/xtKuEdbK0P5IKiXUGKSOk0gfE=";
-          };
-        }
-      );
+      package = pkgs.unstable.lazygit;
       settings = {
+        notARepository = "quit";
+        promptToReturnFromSubprocess = false;
         gui = {
           showRootItemInFileTree = false;
           switchTabsWithPanelJumpKeys = true;
