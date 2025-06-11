@@ -19,6 +19,7 @@ let
       executable = true;
       destination = "/bin/${name}";
       text = ''
+        export PATH=""
         for i in ${lib.concatStringsSep " " env}; do
           export PATH="$i/bin:$PATH"
         done
@@ -76,6 +77,13 @@ in
         file = ./flakeify.sh;
         env = with pkgs; [
           direnv
+        ];
+      })
+      (mkScript {
+        name = "detach";
+        file = ./detach.sh;
+        env = with pkgs; [
+          coreutils
         ];
       })
       # impl for the cloneRepo command
