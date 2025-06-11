@@ -7,3 +7,6 @@
 [submodule "light.config"]
 	path = dotfiles/light.config
 	url = git@github.com:sadan4/light.config.git
+[submodule "dotfiles/direnvTemplate"]
+	path = dotfiles/direnvTemplate
+	url = git@github.com:sadan4/direnvTemplate
