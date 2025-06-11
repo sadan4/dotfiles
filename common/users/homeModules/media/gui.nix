@@ -7,6 +7,7 @@
             gimp
             inkscape
             obs-studio
+            screenkey
         ];
     };
 }
