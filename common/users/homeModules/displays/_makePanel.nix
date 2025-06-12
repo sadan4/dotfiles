@@ -64,8 +64,6 @@ builtins.map (section: baseConfig // section) [
           items = {
             hidden = [
               "flameshot"
-              # razer keybord lighting
-              "polychromatic-tray-applet"
               "spotify-client"
               # Electron apps all have the same id, see: https://github.com/electron/electron/issues/40936
               # better to just filter them all out
