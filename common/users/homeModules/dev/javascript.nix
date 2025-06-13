@@ -47,7 +47,7 @@ in
       ++ (with pkgs.nodePackages; [
         webpack-cli
         nodemon
-        ts-node
+        tsx
         live-server
       ]);
   };
