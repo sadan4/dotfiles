@@ -16,8 +16,7 @@ let
     }:
     let
       text = ''
-        export PATH="${builtins.trace (lib.makeSearchPath "bin" env) (lib.makeSearchPath "bin" env)}";
-        echo bar;
+        export PATH="${lib.makeSearchPath "bin" env}";
 
         exec ${pkgs.bash}/bin/bash ${file} $@
       '';
@@ -26,7 +25,7 @@ let
       name = "${name}-${version}";
       executable = true;
       destination = "/bin/${name}";
-      text = builtins.trace text text;
+      inherit text;
     };
   paste = mkScript {
     name = "paste";
