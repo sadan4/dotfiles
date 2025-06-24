@@ -14,19 +14,35 @@ let
       file,
       env ? [ ],
     }:
+    let
+      text = ''
+        export PATH="${builtins.trace (lib.makeSearchPath "bin" env) (lib.makeSearchPath "bin" env)}";
+        echo bar;
+
+        exec ${pkgs.bash}/bin/bash ${file} $@
+      '';
+    in
     pkgs.writeTextFile {
       name = "${name}-${version}";
       executable = true;
       destination = "/bin/${name}";
-      text = ''
-        export PATH=""
-        for i in ${lib.concatStringsSep " " env}; do
-          export PATH="$i/bin:$PATH"
-        done
-
-        exec ${pkgs.bash}/bin/bash ${file} $@
-      '';
+      text = builtins.trace text text;
     };
+  paste = mkScript {
+    name = "paste";
+    file = ./paste.sh;
+    env = with pkgs; [
+      coreutils
+      xsel
+    ];
+  };
+  copy = mkScript {
+    name = "copy";
+    file = ./copy.sh;
+    env = with pkgs; [
+      xsel
+    ];
+  };
 in
 {
   imports = [
@@ -34,15 +50,9 @@ in
   ];
   home = {
     packages = [
+      paste
+      copy
       # env for clipboard command will be required by their respective environemnts
-      (mkScript {
-        name = "paste";
-        file = ./paste.sh;
-      })
-      (mkScript {
-        name = "copy";
-        file = ./copy.sh;
-      })
       (mkScript {
         name = "http2ssh";
         file = ./http2ssh.sh;
@@ -95,12 +105,8 @@ in
       };
     };
     shellAliases = {
-      paste = "${
-        (mkScript {
-          name = "paste";
-          file = ./paste.sh;
-        })
-      }/bin/paste";
+      # needed because of coreutils paste
+      paste = "${paste}/bin/paste";
       p = "${builtins.readFile ./projectPicker.sh}";
     };
   };
