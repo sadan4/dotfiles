@@ -1,8 +1,11 @@
 { pkgs, ... }:
 {
+  imports = [
+    ../unstable.nix
+  ];
   home = {
     packages = with pkgs; [
-      warp-terminal
+      unstable.warp-terminal
     ];
   };
 }
