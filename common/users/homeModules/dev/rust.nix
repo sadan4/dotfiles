@@ -4,6 +4,9 @@
     packages = with pkgs; [
       rustup
       cargo-watch
+      openssl
+      # needed to use openssl
+      pkg-config
     ];
   };
   programs = {
