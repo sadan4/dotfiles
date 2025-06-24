@@ -39,7 +39,6 @@ in
         node
         vsce
         esbuild
-        unstable.pnpm
         asar
         # read electron crash dumps
         breakpad

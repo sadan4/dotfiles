@@ -2,8 +2,11 @@
     home = {
         packages = with pkgs; [
             ghidra
-            ida-free
+            # something something license cant be packaged
+            # fuck ida
+            # ida-free
             cutter
+            binaryninja-free
         ];
     };
 }
