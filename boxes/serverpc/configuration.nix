@@ -19,6 +19,8 @@
     ../../common/systemModules/nginx.nix
     ../../common/systemModules/tailscaleServer.nix
     ../../common/systemModules/jellyfin.nix
+    # for compat with some home modules
+    ../../common/systemModules/stylix.nix
     # USERS
     ../../common/users/meyer-server
   ];
