@@ -74,8 +74,8 @@
     unstable.libgcc.lib
     graalvm-ce
     zlib.static
-    libGL
     glfw3-minecraft
+    libglvnd
     alsa-lib
     expat
     mesa
