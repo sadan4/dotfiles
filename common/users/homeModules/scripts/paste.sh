@@ -1,4 +1,3 @@
-echo PATH: $PATH 2>&1
 command -v xsel > /dev/null
 if [[ $? -eq 0 ]]; then
     xsel -ob && exit 0
