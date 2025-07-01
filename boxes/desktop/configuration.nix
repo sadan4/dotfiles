@@ -72,20 +72,24 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     unstable.libgcc.lib
-    graalvm-ce
     zlib.static
     glfw3-minecraft
-    libglvnd
+    libGL
     alsa-lib
     expat
     mesa
     libxkbcommon
+    freetype
+    fontconfig
     xorg.libxcb
+    xorg.libXi
     xorg.libXrandr
     xorg.libXfixes
     xorg.libXext
     xorg.libXdamage
     xorg.libXcomposite
+    xorg.libXrender
+    xorg.libXtst
     xorg.libX11
     cairo
     pango
