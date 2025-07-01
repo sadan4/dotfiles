@@ -5,7 +5,7 @@
   ];
   home = {
     packages = with pkgs; [
-      pkgs.firefox-beta-bin
+      firefox
       vlc
       unstable.brave
     ];
