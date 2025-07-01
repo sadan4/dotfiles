@@ -13,13 +13,18 @@ let
       version ? "0.0.1",
       file,
       env ? [ ],
+      inheritPath ? false,
     }:
     let
-      text = ''
-        export PATH="${lib.makeSearchPath "bin" env}";
+      text =
+        (lib.optionalString (!inheritPath) ''
 
-        exec ${pkgs.bash}/bin/bash ${file} $@
-      '';
+          export PATH="${lib.makeSearchPath "bin" env}";
+        '')
+        + ''
+
+          exec ${pkgs.bash}/bin/bash ${file} $@
+        '';
     in
     pkgs.writeTextFile {
       name = "${name}-${version}";
@@ -87,6 +92,7 @@ in
         env = with pkgs; [
           direnv
         ];
+        inheritPath = true;
       })
       (mkScript {
         name = "detach";
