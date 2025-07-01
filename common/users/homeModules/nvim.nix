@@ -3,13 +3,16 @@
   config,
   ...
 }:
+let
+  nvim = pkgs.pinned.neovim;
+in
 {
   imports = [
     ./pinned.nix
   ];
   home = {
     packages = with pkgs; [
-      pinned.neovim
+      nvim
       nvimpager
     ];
     file = {
@@ -20,7 +23,7 @@
       };
     };
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "${nvim}/bin/nvim";
       MANPAGER = "nvim +Man!";
       PAGER = "nvimpager";
     };
