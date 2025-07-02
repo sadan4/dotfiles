@@ -27,7 +27,7 @@
     ../homeModules/flameshot.nix
     ../homeModules/frog.nix
     ../homeModules/gaming.nix
-    ../homeModules/git.nix
+    ../homeModules/git
     ../homeModules/kde.nix
     ../homeModules/networking.nix
     ../homeModules/nvim.nix

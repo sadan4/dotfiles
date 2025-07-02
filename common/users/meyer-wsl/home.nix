@@ -17,7 +17,7 @@
     ../homeModules/dev/python.nix
     ../homeModules/scripts
     ../homeModules/btop.nix
-    ../homeModules/git.nix
+    ../homeModules/git/cli.nix
     ../homeModules/nvim.nix
     ../homeModules/sops.nix
     ../homeModules/zsh.nix

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./pinned.nix
-    ./lazygit.nix
+    ../pinned.nix
+    ../lazygit.nix
   ];
   home = {
     packages = with pkgs; [
@@ -12,7 +12,7 @@
     ];
     file = {
       ghcli = {
-        source = ../../../dotfiles/gh/config.yml;
+        source = ../../../../dotfiles/gh/config.yml;
         target = "./.config/gh/config.yml";
       };
     };

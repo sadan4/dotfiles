@@ -7,7 +7,7 @@
 
   imports = [
     ../homeModules/nvim.light.nix
-    ../homeModules/git.nix
+    ../homeModules/git/cli.nix
     ../homeModules/zsh.nix
     ../homeModules/sops.nix
     ../homeModules/utils.nix
