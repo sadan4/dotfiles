@@ -1,9 +1,12 @@
 { pkgs, ... }:
 {
+  imports = [
+    ../unstable.nix
+  ];
   home = {
     packages = with pkgs; [
-      rustup
-      cargo-watch
+      unstable.rustup
+      unstable.cargo-watch
       openssl
       # needed to use openssl
       pkg-config
