@@ -82,6 +82,7 @@
     freetype
     fontconfig
     xorg.libxcb
+    libappindicator
     xorg.libXi
     xorg.libXrandr
     xorg.libXfixes
