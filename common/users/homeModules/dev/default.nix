@@ -6,6 +6,7 @@
       (binutils-unwrapped.override {
         withAllTargets = true;
       })
+      cloc
       libtree
       linuxHeaders
       man-pages

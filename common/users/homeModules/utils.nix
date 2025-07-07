@@ -4,7 +4,6 @@
     packages = with pkgs; [
       # CLI ONLY
       unixtools.xxd
-      cloc
       p7zip
       dig
       bat
