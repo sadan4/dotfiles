@@ -9,6 +9,7 @@
       libtree
       linuxHeaders
       man-pages
+      d-spy
     ];
   };
 }
