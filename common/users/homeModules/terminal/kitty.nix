@@ -20,7 +20,7 @@
   programs = {
     zsh = {
       # Completion support for kitten
-      initExtra = ''
+      initContent = ''
         compdef _kitty kitten
       '';
     };

@@ -35,7 +35,7 @@
     zsh = {
       # fix windows dirs beinng flashbangs
       # https://stackoverflow.com/questions/43147351/win-10-bash-shell-and-highlighting-of-the-directories-in-console/43147778#43147778
-      initExtra = ''
+      initContent = ''
         export LS_COLORS="''${LS_COLORS}:ow=1;34:"
       '';
     };

@@ -10,7 +10,7 @@ in
   ];
   programs = {
     zsh = {
-      initExtra = ''
+      initContent = ''
         eval "$(${node}/bin/node --completion-bash)"
         eval "$(${node}/bin/npm completion)"
       '';

@@ -117,7 +117,7 @@ in
   };
   programs = {
     zsh = {
-      initExtra =
+      initContent =
         let
           implName = "cloneRepoImpl";
         in

@@ -32,7 +32,7 @@
       enableZshIntegration = true;
     };
     zsh = {
-      initExtra = ''
+      initContent = ''
         eval $(fzf --zsh)
       '';
     };
@@ -41,7 +41,7 @@
   # programs = {
   #   zsh = {
   #     # patchelf doesnt provide completions by default
-  #     initExtra = ''
+  #     initContent = ''
   #       eval "$(cat ${
   #         pkgs.fetchurl {
   #           url = "https://raw.githubusercontent.com/NixOS/patchelf/b9976d63c2bb860a7616dd5b3093571b0b48d2a4/completions/zsh/_patchelf";
