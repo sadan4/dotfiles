@@ -10,27 +10,30 @@
       in
       with pkgs;
       [
-        (buildFHSEnv {
-          name = "idea-ultimate";
-          inherit (ij) version meta;
-          targetPkgs = _: [
-            ij
-            libGL
-            freetype
-            fontconfig
-            xorg.libXi
-            xorg.libX11
-            xorg.libXtst
-            xorg.libXrender
-            xorg.libXext
-            libappindicator-gtk3
-          ];
-          runScript = lib.getExe ij;
-          extraInstallCommands = ''
-            mkdir -p $out/share/applications
-            cp ${ij}/share/applications/idea-ultimate.desktop $out/share/applications/idea-ultimate.desktop
-          '';
-        })
+        # (buildFHSEnv {
+        #   name = "idea-ultimate";
+        #   inherit (ij) version meta;
+        #   targetPkgs = _: [
+        #     ij
+        #     libz
+        #     libGL
+        #     freetype
+        #     fontconfig
+        #     xorg.libXi
+        #     xorg.libX11
+        #     xorg.libXtst
+        #     xorg.libXrender
+        #     xorg.libXext
+        #     libappindicator
+        #     gtk3
+        #   ];
+        #   runScript = lib.getExe ij;
+        #   extraInstallCommands = ''
+        #     mkdir -p $out/share/applications
+        #     cp ${ij}/share/applications/idea-ultimate.desktop $out/share/applications/idea-ultimate.desktop
+        #   '';
+        # })
+        ij
       ];
   };
 }

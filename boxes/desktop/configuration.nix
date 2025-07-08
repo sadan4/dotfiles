@@ -81,8 +81,10 @@
     libxkbcommon
     freetype
     fontconfig
+    glib
     xorg.libxcb
     libappindicator
+    libz
     xorg.libXi
     xorg.libXrandr
     xorg.libXfixes
