@@ -16,9 +16,7 @@
     ../../common/systemModules/folding.nix
     ../../common/systemModules/kernel.nix
     ../../common/systemModules/audio.nix
-    ../../common/systemModules/spotifyd.nix
     ../../common/systemModules/kde.nix
-    ../../common/systemModules/gnome.nix
     ../../common/systemModules/tailscale.nix
     ../../common/systemModules/gaming.nix
     ../../common/systemModules/crypt.nix
