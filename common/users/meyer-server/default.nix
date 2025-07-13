@@ -20,9 +20,10 @@ in
     ++ [
       ../docker/vw/nginx.nix
       ../docker/obsidian/nginx.nix
+      ../docker/flaresolverr
       ../docker/sonarr
       ../docker/radarr
-      ../docker/prowlarr/nginx.nix
+      ../docker/prowlarr
       ../docker/qbit/nginx.nix
     ];
   users = {
@@ -56,8 +57,6 @@ in
             ../docker/vw
             ../docker/obsidian
             ../docker/qbit
-            ../docker/prowlarr
-            ../docker/flaresolverr
             ./home.nix
           ];
         }

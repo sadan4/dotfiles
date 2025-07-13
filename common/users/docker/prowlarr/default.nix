@@ -1,10 +1,20 @@
 { ... }:
 {
-  home = {
-    file = {
-      prowlarr_compose = {
-        source = ./docker-compose.yml;
-        target = "./src/prowlarr/docker-compose.yml";
+  imports = [
+    ./nginx.nix
+  ];
+  services = {
+    prowlarr = {
+      enable = true;
+      dataDir = "/storage/prowlarrConf";
+    };
+  };
+  systemd = {
+    services = {
+      prowlarr = {
+        serviceConfig = {
+          Group = "media";
+        };
       };
     };
   };
