@@ -1,12 +1,12 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../../pinned.nix
+    ../../../unstable.nix
   ];
   home = {
     packages =
       let
-        ij = pkgs.pinned.idea-ultimate;
+        ij = pkgs.unstable.jetbrains.idea-ultimate;
       in
       with pkgs;
       [
