@@ -18,6 +18,7 @@
     ../../common/systemModules/sshd.nix
     ../../common/systemModules/nginx.nix
     ../../common/systemModules/tailscaleServer.nix
+    ../../common/systemModules/cloudflared.nix
     ../../common/systemModules/jellyfin.nix
     # for compat with some home modules
     ../../common/systemModules/stylix.nix
