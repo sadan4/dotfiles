@@ -19,6 +19,13 @@ creation_rules:
         - *laptop
         - *win10
         - *serverpc
+  - path_regex: .json$
+    key_groups:
+    - age:
+        - *desktop
+        - *laptop
+        - *win10
+        - *serverpc
   - path_regex: .conf
     key_groups:
     - age:
