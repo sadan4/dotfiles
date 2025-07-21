@@ -75,6 +75,7 @@
     zlib.static
     glfw3-minecraft
     libGL
+    dbus.lib
     alsa-lib
     expat
     mesa
