@@ -5,6 +5,7 @@
       # CLI ONLY
       unixtools.xxd
       btop
+      tmux
       p7zip
       dig
       bat
