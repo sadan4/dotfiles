@@ -4,6 +4,7 @@
     packages = with pkgs; [
       # CLI ONLY
       unixtools.xxd
+      btop
       p7zip
       dig
       bat

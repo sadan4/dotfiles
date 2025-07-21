@@ -22,7 +22,6 @@
     ../homeModules/media
     ../homeModules/scripts
     ../homeModules/audio.nix
-    ../homeModules/btop.nix
     ../homeModules/etcher.nix
     ../homeModules/flameshot.nix
     ../homeModules/frog.nix
