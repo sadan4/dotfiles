@@ -20,7 +20,7 @@
       legcord
       cinny-desktop
       element-desktop
-      vesktop
+      unstable.vesktop
       (discord.override {
       #   withVencord = true;
       #   vencord = unstable.vencord;
