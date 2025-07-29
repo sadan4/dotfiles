@@ -2,7 +2,9 @@
     home = {
         packages = with pkgs; [
             xclicker
-            bottles
+            (bottles.override {
+                removeWarningPopup = true;
+            })
             (prismlauncher.override {
                 jdks = [
                     jdk8

@@ -1,7 +1,9 @@
 {pkgs, ...}: {
     home = {
         packages = with pkgs; [
-            bottles
+            (bottles.override {
+                removeWarningPopup = true;
+            })
             virt-manager
             qemu_full
         ];
