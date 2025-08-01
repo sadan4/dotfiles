@@ -39,6 +39,8 @@ in
         node
         vsce
         esbuild
+        swc
+        terser
         asar
         # read electron crash dumps
         breakpad
