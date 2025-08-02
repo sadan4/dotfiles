@@ -95,6 +95,8 @@
     xorg.libXrender
     xorg.libXtst
     xorg.libX11
+    libxkbcommon
+    systemdLibs
     cairo
     pango
     gtk3-x11
