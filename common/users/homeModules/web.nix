@@ -8,6 +8,7 @@
       firefox
       vlc
       unstable.brave
+      unstable.ladybird
     ];
   };
 }
