@@ -9,6 +9,8 @@
       kdePackages.ksshaskpass
       xsel
       xorg.xkill
+      xorg.xprop
+      xorg.xwininfo
       kdePackages.kcolorchooser
       qalculate-qt
       gnome-disk-utility
