@@ -32,9 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    scripts = {
-      url = "github:sadan4/scripts";
-    };
     chrome-pak = {
       url = "github:sadan4/chrome-pak-customizer";
     };

@@ -1,9 +1,6 @@
 [submodule "dotfiles/nvim"]
 	path = dotfiles/nvim
 	url = git@github.com:sadanslargehole/nvim.git
-[submodule "dotfiles/scripts"]
-	path = dotfiles/scripts
-	url = git@github.com:sadan4/scripts.git
 [submodule "light.config"]
 	path = dotfiles/light.config
 	url = git@github.com:sadan4/light.config.git

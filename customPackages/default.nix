@@ -14,7 +14,7 @@ in
           appimagetool = pkgs.callPackage ./appimagetool { };
           chrome-pak-customizer = inputs.chrome-pak.flakePackage pkgs;
           ceserver = inputs.ceserver.flakePackage pkgs;
-          scripts = inputs.scripts.flakePackage system;
+          scripts = (pkgs.callPackage ./scripts) { useLocal = true; };
         };
       })
     ];

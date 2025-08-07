@@ -562,22 +562,6 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1730200266,
-        "narHash": "sha256-l253w0XMT8nWHGXuXqyiIC/bMvh1VRszGXgdpQlfhvU=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
-      "locked": {
         "lastModified": 1744868846,
         "narHash": "sha256-5RJTdUHDmj12Qsv7XOhuospjAjATNiTMElplWnJE9Hs=",
         "owner": "NixOS",
@@ -656,32 +640,13 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager",
-        "scripts": "scripts",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
       }
     },
-    "scripts": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1741833903,
-        "narHash": "sha256-tJua5LxKyEoFrX3Je4nwQL+mlBdpD22XmxkdZyOJBO8=",
-        "owner": "sadan4",
-        "repo": "scripts",
-        "rev": "9cf2f8a1619216f3cee62b6e1cfaeccd608ed619",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sadan4",
-        "repo": "scripts",
-        "type": "github"
-      }
-    },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1752544651,
