@@ -11,6 +11,7 @@
       xorg.xkill
       xorg.xprop
       xorg.xwininfo
+      xdotool
       kdePackages.kcolorchooser
       qalculate-qt
       gnome-disk-utility
