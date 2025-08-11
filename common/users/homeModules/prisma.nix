@@ -6,6 +6,7 @@
         packages = with pkgs; [
             unstable.prisma
             prisma-engines
+            sqlite
         ];
         sessionVariables = {
             PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
