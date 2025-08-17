@@ -1,5 +1,5 @@
 { NAME }:
-{ ... }:
+{ pkgs, ... }:
 {
   users = {
     users = {
@@ -20,6 +20,9 @@
   networking = {
     networkmanager = {
       enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
     };
     nameservers = [
       "1.1.1.1"
