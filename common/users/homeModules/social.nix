@@ -18,7 +18,6 @@
   home = {
     packages = with pkgs; [
       legcord
-      cinny-desktop
       element-desktop
       unstable.vesktop
       (discord.override {
