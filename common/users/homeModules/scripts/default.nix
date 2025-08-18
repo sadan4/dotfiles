@@ -18,7 +18,6 @@ let
     let
       text =
         (lib.optionalString (!inheritPath) ''
-
           export PATH="${lib.makeSearchPath "bin" env}";
         '')
         + ''
@@ -131,6 +130,9 @@ in
                   env = with pkgs; [
                     gh
                     fzf
+                    gnugrep
+                    git
+                    openssh
                   ];
                 })
               }/bin/${implName})
