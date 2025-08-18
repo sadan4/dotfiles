@@ -44,6 +44,7 @@ in
         asar
         # read electron crash dumps
         breakpad
+        emscripten
       ]
       ++ (with pkgs.nodePackages; [
         webpack-cli
