@@ -7,6 +7,7 @@
       btop
       tmux
       p7zip
+      killall
       dig
       bat
       usbutils
