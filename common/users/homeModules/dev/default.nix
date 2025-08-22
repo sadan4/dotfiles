@@ -6,11 +6,15 @@
       (binutils-unwrapped.override {
         withAllTargets = true;
       })
-      cloc
+      # cloc but faster
+      tokei
       libtree
       linuxHeaders
       man-pages
       d-spy
     ];
+    shellAliases = {
+      cloc = "${pkgs.tokei}/bin/tokei";
+    };
   };
 }
