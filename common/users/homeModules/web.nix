@@ -8,6 +8,8 @@
       firefox
       vlc
       unstable.brave
+      unstable.ungoogled-chromium
+      unstable.microsoft-edge
       unstable.ladybird
     ];
   };
