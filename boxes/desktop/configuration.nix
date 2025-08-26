@@ -75,6 +75,7 @@
     unstable.libgcc.lib
     zlib.static
     glfw3-minecraft
+    libgbm
     libGL
     dbus.lib
     alsa-lib
