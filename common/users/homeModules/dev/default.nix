@@ -12,6 +12,7 @@
       linuxHeaders
       man-pages
       d-spy
+      hyperfine
     ];
     shellAliases = {
       cloc = "${pkgs.tokei}/bin/tokei";
