@@ -13,6 +13,8 @@ in
   home = {
     packages = with pkgs; [
       nvim
+      # vim is useful for larger files where neovim just hangs
+      vim
       nvimpager
     ];
     file = {
