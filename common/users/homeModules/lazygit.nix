@@ -25,6 +25,9 @@
       settings = {
         notARepository = "quit";
         promptToReturnFromSubprocess = false;
+        git = {
+          localBranchSortOrder = "recency";
+        };
         gui = {
           showRootItemInFileTree = false;
           switchTabsWithPanelJumpKeys = true;
