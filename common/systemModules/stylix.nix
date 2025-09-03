@@ -28,6 +28,10 @@ in
       nerdfonts
     ];
   };
+  qt = {
+    # workaround https://github.com/nix-community/stylix/issues/1865
+    platformTheme = pkgs.lib.mkForce "kde";
+  };
   stylix = {
     enable = true;
     image = ../../dotfiles/wallpaper.jpg;
