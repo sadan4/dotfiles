@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./unstable.nix ];
+  imports = [ ./stable.nix ];
   # needed to workaround https://github.com/nix-community/home-manager/issues/2064
   systemd.user.targets.tray = {
     Unit = {
@@ -24,7 +24,7 @@
   services = {
     flameshot = {
       enable = true;
-      package = pkgs.unstable.flameshot;
+      package = pkgs.stable.flameshot;
       settings = {
         General = {
           savePath = "/home/${config.home.username}/ss/";
