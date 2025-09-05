@@ -10,7 +10,8 @@
       xorg.libX11.man
       meson
       autoPatchelfHook
-      unstable.cmakeWithGui
+      cmake
+      ninja
       # clang
       libgcc
       glib
