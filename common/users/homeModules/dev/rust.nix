@@ -7,6 +7,8 @@
     packages = with pkgs; [
       unstable.rustup
       unstable.cargo-watch
+      unstable.cargo-expand
+      unstable.cargo-insta
       openssl
       # needed to use openssl
       pkg-config
