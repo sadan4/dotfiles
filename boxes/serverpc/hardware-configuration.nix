@@ -41,4 +41,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # this is not just for x11, the naming is terrible
+  services.xserver.videoDrivers  = ["nvidia"];
+  hardware.nvidia.open = false;
 }
