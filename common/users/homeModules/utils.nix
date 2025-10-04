@@ -5,6 +5,7 @@
       # CLI ONLY
       unixtools.xxd
       btop
+      pciutils
       tmux
       p7zip
       pciutils

@@ -39,6 +39,7 @@
 
   environment.systemPackages = with pkgs; [
     nano
+    nvtopPackages.full
     curl
     wget
     ripgrep
