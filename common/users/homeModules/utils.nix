@@ -23,6 +23,9 @@
       # GUI version is in kde.nix
       libqalculate
       patchelf
+      # see kde.nix for filelight
+      # NCurses Disk Usage
+      ncdu
     ];
     sessionVariables = {
       BAT_THEME = "Dracula";
