@@ -7,6 +7,7 @@
     packages = with pkgs; [
       kdePackages.filelight
       kdePackages.ksshaskpass
+      kdePackages.kfind
       xsel
       xorg.xkill
       xorg.xprop
