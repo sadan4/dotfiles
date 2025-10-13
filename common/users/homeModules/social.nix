@@ -1,4 +1,9 @@
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 {
   imports = [
     ./arrpc.nix
@@ -19,10 +24,11 @@
     packages = with pkgs; [
       legcord
       element-desktop
+      signal-desktop
       unstable.vesktop
       (discord.override {
-      #   withVencord = true;
-      #   vencord = unstable.vencord;
+        #   withVencord = true;
+        #   vencord = unstable.vencord;
       })
       # (config.programs.nixcord.discord.package.override {
       #   withVencord = true;
