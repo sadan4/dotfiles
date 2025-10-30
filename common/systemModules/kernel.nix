@@ -5,6 +5,7 @@
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1;
+        "fs.inotify.max_user_watches" = 1048576;
       };
     };
   };
