@@ -18,6 +18,7 @@
       gnome-disk-utility
       kdePackages.plasma-browser-integration
       xmacro
+      bitwarden-desktop
     ];
   };
   programs = {

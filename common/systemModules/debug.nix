@@ -1,7 +1,7 @@
 { ... }:
 {
   services = {
-    nixseparatedebuginfod = {
+    nixseparatedebuginfod2 = {
       enable = true;
     };
   };

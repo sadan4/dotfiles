@@ -12,7 +12,7 @@ in
           # vencord = pkgs.callPackage ./vencord/package.nix { };
           frog = pkgs.callPackage ./frog { };
           appimagetool = pkgs.callPackage ./appimagetool { };
-          chrome-pak-customizer = inputs.chrome-pak.flakePackage pkgs;
+          chrome-pak-customizer = inputs.chrome-pak.packages.${system}.default;
           ceserver = inputs.ceserver.flakePackage pkgs;
           scripts = (pkgs.callPackage ./scripts) { useLocal = true; };
         };

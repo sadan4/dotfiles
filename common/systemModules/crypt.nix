@@ -4,7 +4,6 @@
       gnupg
       openssh
       pinentry-curses
-      pinentry
     ];
   };
   programs = {

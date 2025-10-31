@@ -1,8 +1,11 @@
 { pkgs, ... }:
 let
-  g = (pkgs.gradle.override {
-    javaToolchains = [ pkgs.graalvm-ce ];
-  });
+  graal = pkgs.graalvmPackages.graalvm-ce;
+  g = (
+    pkgs.gradle.override {
+      javaToolchains = [ graal ];
+    }
+  );
 in
 {
   imports = [
@@ -11,11 +14,11 @@ in
   ];
   home = {
     sessionVariables = {
-      GRAALVM_HOME = "${pkgs.graalvm-ce}";
+      GRAALVM_HOME = "${graal}";
     };
     file = {
       gradleIntellij = {
-        source = "${pkgs.graalvm-ce}";
+        source = "${graal}";
         target = ".local/graalvm";
       };
     };
