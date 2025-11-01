@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
-  imports = [
-    ./overlays.nix
-  ];
-  home.packages = with pkgs; [
-    vscode-insider
-  ];
+{pkgs, ...}: {
+	imports = [
+		./overlays.nix
+	];
+	home.packages = with pkgs; [
+		vscode-insider
+	];
 }

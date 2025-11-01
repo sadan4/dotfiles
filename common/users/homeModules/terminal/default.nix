@@ -1,7 +1,6 @@
-{ ... }:
-{
-  imports = [
-    ./gui.nix
-    ./cli.nix
-  ];
+{...}: {
+	imports = [
+		./gui.nix
+		./cli.nix
+	];
 }

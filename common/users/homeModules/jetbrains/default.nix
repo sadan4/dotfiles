@@ -1,5 +1,5 @@
 {...}: {
-    imports = [
-        ./overlays.nix
-    ];
+	imports = [
+		./overlays.nix
+	];
 }

@@ -1,7 +1,6 @@
-
 {pkgs, ...}: {
-    imports = [
-        ./kitty.nix
-        ./warp.nix
-    ];
+	imports = [
+		./kitty.nix
+		./warp.nix
+	];
 }

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-    home = {
-        packages = with pkgs; [
-            vim-language-server
-        ];
-    };
+	home = {
+		packages = with pkgs; [
+			vim-language-server
+		];
+	};
 }

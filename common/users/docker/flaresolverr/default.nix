@@ -1,8 +1,7 @@
-{ ... }:
-{
-  services = {
-    flaresolverr = {
-      enable = true;
-    };
-  };
+{...}: {
+	services = {
+		flaresolverr = {
+			enable = true;
+		};
+	};
 }

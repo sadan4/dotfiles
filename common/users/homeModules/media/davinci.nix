@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-    home = {
-        packages = with pkgs; [
-            davinci-resolve
-        ];
-    };
+	home = {
+		packages = with pkgs; [
+			davinci-resolve
+		];
+	};
 }

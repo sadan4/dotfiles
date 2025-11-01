@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-    home = {
-        packages = with pkgs; [
-            imagemagick
-            ffmpeg
-            yt-dlp
-        ];
-    };
+	home = {
+		packages = with pkgs; [
+			imagemagick
+			ffmpeg
+			yt-dlp
+		];
+	};
 }

@@ -1,8 +1,7 @@
-{ stable, ... }:
-{
-  nixpkgs.overlays = [
-    (final: prev: {
-      inherit stable;
-    })
-  ];
+{stable, ...}: {
+	nixpkgs.overlays = [
+		(final: prev: {
+				inherit stable;
+			})
+	];
 }

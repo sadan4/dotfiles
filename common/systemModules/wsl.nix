@@ -1,6 +1,6 @@
 {pkgs, ...}: {
-    wsl = {
-        enable = true;
-        defaultUser = "meyer";
-    };
+	wsl = {
+		enable = true;
+		defaultUser = "meyer";
+	};
 }
