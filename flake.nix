@@ -7,8 +7,10 @@
 		sops-nix = {
 			url = "github:Mic92/sops-nix";
 		};
-		nix-index-database.url = "github:nix-community/nix-index-database";
-		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+		nix-index-database = {
+			url = "github:nix-community/nix-index-database";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		nixos-wsl = {
 			url = "github:nix-community/nixos-wsl";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -29,8 +31,10 @@
 			url = "github:AlexNabokikh/plasma-manager";
 			# inputs.nixpkgs.follows = "nixpkgs-unstable";
 			# inputs.home-manager.follows = "home-manager-unstable";
-			inputs.nixpkgs.follows = "nixpkgs";
-			inputs.home-manager.follows = "home-manager";
+			inputs = {
+				nixpkgs.follows = "nixpkgs";
+				home-manager.follows = "home-manager";
+			};
 		};
 		chrome-pak = {
 			url = "github:sadan4/chrome-pak-customizer";
