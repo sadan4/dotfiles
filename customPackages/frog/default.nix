@@ -27,12 +27,13 @@ python3Packages.buildPythonApplication rec {
 	pname = "gnome-frog";
 	version = "1.5.1";
 
-	src = (fetchFromGitHub {
+	src =
+		fetchFromGitHub {
 			owner = "sadan4";
 			repo = "frog";
 			rev = "e4b48239238e1947e74b919fd85609b6500aca31";
 			hash = "sha256-0/ZFmcaMKM/GpS8Q35e0joHTq4D0IEKdsCBJ16P8JZs=";
-		});
+		};
 	format = "other";
 
 	patches = [./update-compatible-with-non-flatpak-env.patch];
