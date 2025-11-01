@@ -54,7 +54,7 @@
 	programs.zsh.enable = true;
 
 	environment.systemPackages = with pkgs; [
-		(inputs.nix-alien.packages.${pkgs.system}.nix-alien)
+		inputs.nix-alien.packages.${pkgs.system}.nix-alien
 		ddcutil
 		clinfo
 		i2c-tools

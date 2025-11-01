@@ -1,9 +1,4 @@
-{
-	pkgs,
-	config,
-	...
-}: let
-in {
+{pkgs, ...}: {
 	imports = [
 		../../pinned.nix
 		../../unstable.nix

@@ -188,7 +188,7 @@
 								inputs =
 									inputs
 									// {
-										nixpkgs = nixpkgs;
+										inherit nixpkgs;
 										home-manager = inputs.home-manager-stable;
 									};
 								unstable =
