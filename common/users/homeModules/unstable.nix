@@ -1,8 +1,7 @@
-{ unstable, ... }:
-{
-  nixpkgs.overlays = [
-    (final: prev: {
-      inherit unstable;
-    })
-  ];
+{unstable, ...}: {
+	nixpkgs.overlays = [
+		(final: prev: {
+				inherit unstable;
+			})
+	];
 }

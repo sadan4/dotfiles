@@ -1,8 +1,8 @@
 {pkgs, ...}: {
-    home = {
-        packages = with pkgs; [
-            go
-            gopls
-        ];
-    };
+	home = {
+		packages = with pkgs; [
+			go
+			gopls
+		];
+	};
 }

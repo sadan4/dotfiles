@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-    home = {
-        packages = with pkgs; [
-            php
-        ];
-    };
+	home = {
+		packages = with pkgs; [
+			php
+		];
+	};
 }

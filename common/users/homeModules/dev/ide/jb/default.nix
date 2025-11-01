@@ -1,7 +1,7 @@
 {...}: {
-    imports = [
-        ./idea.nix
-        ./androidStudio.nix
-        ./clion.nix
-    ];
+	imports = [
+		./idea.nix
+		./androidStudio.nix
+		./clion.nix
+	];
 }

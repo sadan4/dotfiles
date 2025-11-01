@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-    home = {
-        packages = with pkgs; [
-            lua
-        ];
-    };
+	home = {
+		packages = with pkgs; [
+			lua
+		];
+	};
 }

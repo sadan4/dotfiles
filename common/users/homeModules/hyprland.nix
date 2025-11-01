@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
-  home = {
-    packages = with pkgs; [
-      dunst
-      waybar
-    ];
-  };
+{pkgs, ...}: {
+	home = {
+		packages = with pkgs; [
+			dunst
+			waybar
+		];
+	};
 }

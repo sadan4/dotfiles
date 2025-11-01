@@ -1,15 +1,14 @@
-{ pkgs, ... }:
-{
-  imports = [
-    ../../../../customPackages
-  ];
-  home = {
-    packages = with pkgs; [
-      # for rpmbuild
-      swift
-      rpm
-      cpkg.appimagetool
-      appstream
-    ];
-  };
+{pkgs, ...}: {
+	imports = [
+		../../../../customPackages
+	];
+	home = {
+		packages = with pkgs; [
+			# for rpmbuild
+			swift
+			rpm
+			cpkg.appimagetool
+			appstream
+		];
+	};
 }
