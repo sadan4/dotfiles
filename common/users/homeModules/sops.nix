@@ -5,7 +5,7 @@
 	...
 }: {
 	imports = [
-		inputs.sops-nix.homeManagerModules.sops
+		inputs.sops-nix.homeModules.sops
 	];
 	sops = {
 		age.keyFile = "/home/${config.home.username}/.config/sops/age/keys.txt";

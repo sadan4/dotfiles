@@ -1,4 +1,4 @@
-{...}: {
+{
 	services = {
 		foldingathome = {
 			enable = true;

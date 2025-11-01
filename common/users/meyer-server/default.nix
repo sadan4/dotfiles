@@ -8,8 +8,7 @@
 	NAME = "meyer";
 in {
 	imports =
-		[]
-		++ [
+		[
 			(import ../../systemModules/sops.nix {inherit NAME;})
 			(import ../../systemModules/networkManager.nix {inherit NAME;})
 			(import ../../systemModules/docker.nix {inherit NAME;})
@@ -48,16 +47,14 @@ in {
 			inherit inputs stable unstable;
 		};
 		users = {
-			"${NAME}" = (
-				{...}: {
+			"${NAME}" = {...}: {
 					imports = [
 						../docker/vw
 						../docker/obsidian
 						../docker/qbit
 						./home.nix
 					];
-				}
-			);
+				};
 		};
 	};
 }
