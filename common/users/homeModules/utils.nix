@@ -29,6 +29,7 @@
 			# see kde.nix for filelight
 			# NCurses Disk Usage
 			ncdu
+			lsof
 		];
 		sessionVariables = {
 			BAT_THEME = "Dracula";
