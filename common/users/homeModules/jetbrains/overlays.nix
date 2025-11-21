@@ -93,7 +93,7 @@
 						'';
 				in
 					pkgs.symlinkJoin {
-						name = package.name;
+						inherit (package) name;
 						paths = [
 							package
 							wrapperExe

@@ -4,7 +4,7 @@
 	...
 }: {
 	imports = [
-		inputs.plasma-manager.homeManagerModules.plasma-manager
+		inputs.plasma-manager.homeModules.plasma-manager
 		# TODO: import dynamically based on hostname
 		./displays/nix-desktop-evo4b5.nix
 	];
