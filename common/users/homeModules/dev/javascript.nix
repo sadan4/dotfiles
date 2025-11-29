@@ -5,6 +5,7 @@ in {
 		../prisma.nix
 		../../../../customPackages
 		../unstable.nix
+		./ide/jb/webstorm.nix
 	];
 	programs = {
 		zsh = {
