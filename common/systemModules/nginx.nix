@@ -25,8 +25,8 @@
     firewall = {
       enable = true;
       allowPing = true;
-      allowedTCPPorts = [ 22 53 80 443 ];
-      allowedUDPPorts = [53];
+      allowedTCPPorts = [ 25565 25575 22 53 80 443 ];
+      allowedUDPPorts = [ 25565 25575 53];
     };
   };
   sops = {
