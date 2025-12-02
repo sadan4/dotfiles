@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+	imports = [
+		../unstable.nix
+	];
 	home = {
 		packages = with pkgs; [
 			gnumake
@@ -12,6 +15,7 @@
 			man-pages
 			d-spy
 			hyperfine
+			unstable.github-copilot-cli
 		];
 		shellAliases = {
 			cloc = "${pkgs.tokei}/bin/tokei";
