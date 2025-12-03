@@ -5,6 +5,7 @@
 	];
 	home = {
 		packages = with pkgs; [
+			perf
 			aoc-cli
 			unstable.rustup
 			unstable.cargo-watch
