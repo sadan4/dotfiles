@@ -1,9 +1,11 @@
 {pkgs, ...}: {
 	imports = [
 		../unstable.nix
+		./ide/jb/rustRover.nix
 	];
 	home = {
 		packages = with pkgs; [
+			aoc-cli
 			unstable.rustup
 			unstable.cargo-watch
 			unstable.cargo-expand
