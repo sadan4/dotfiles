@@ -24,7 +24,8 @@
 			pinned.gdb
 			lldb_19
 			cpkg.ceserver
-			unstable.llvmPackages_19.clang-tools
+			# https://github.com/NixOS/nixpkgs/issues/463367
+			pinned.clang-tools
 			inputs.nix-cppman.packages.${pkgs.system}.default
 		];
 		file = {
