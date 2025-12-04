@@ -11,6 +11,7 @@
 			unstable.cargo-watch
 			unstable.cargo-expand
 			unstable.cargo-insta
+			unstable.cargo-flamegraph
 			openssl
 			# needed to use openssl
 			pkg-config
