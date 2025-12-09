@@ -17,6 +17,8 @@
 			ninja
 			# clang
 			libgcc
+			# provides a python module that i use in my gdbinit
+			libgcc.lib
 			glib
 			gdbgui
 			bear
@@ -34,8 +36,11 @@
 				target = "./.config/.eslintrc.json";
 			};
 			gdb_config = {
-				source = ../../../../dotfiles/gdb;
-				target = "./.config/gdb";
+				source = pkgs.replaceVars ../../../../dotfiles/gdb/gdbinit {
+					libgcc = pkgs.libgcc.lib;
+					libgccVersion = pkgs.libgcc.lib.version;
+				};
+				target = "./.config/gdb/gdbinit";
 				recursive = true;
 			};
 		};
