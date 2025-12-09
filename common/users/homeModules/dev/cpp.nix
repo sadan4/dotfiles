@@ -24,7 +24,8 @@
 			bear
 			glibc
 			pinned.gdb
-			lldb_19
+			lldb
+			lld
 			cpkg.ceserver
 			# https://github.com/NixOS/nixpkgs/issues/463367
 			pinned.clang-tools
