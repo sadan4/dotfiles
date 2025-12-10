@@ -6,7 +6,7 @@
 	lib,
 	stdenv,
 }: let
-	vencord = (import ./.. {inherit pkgs;}).vencord;
+	inherit ((import ./.. {inherit pkgs;})) vencord;
 	versions =
 		if stdenv.isLinux
 		then {
@@ -88,7 +88,7 @@
 
 	openasar = callPackage ./openasar.nix {};
 
-	packages = (
+	packages =
 		builtins.mapAttrs
 		(_: value:
 				callPackage package (value
@@ -126,7 +126,6 @@
 					else desktopName;
 				desktopName = "Discord Development";
 			};
-		}
-	);
+		};
 in
 	packages.${branch}

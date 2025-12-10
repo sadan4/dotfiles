@@ -48,16 +48,14 @@ in {
 			inherit inputs stable unstable;
 		};
 		users = {
-			"${NAME}" = (
-				{...}: {
-					imports = [
-						../docker/vw
-						../docker/obsidian
-						../docker/qbit
-						./home.nix
-					];
-				}
-			);
+			"${NAME}" = {...}: {
+				imports = [
+					../docker/vw
+					../docker/obsidian
+					../docker/qbit
+					./home.nix
+				];
+			};
 		};
 	};
 }

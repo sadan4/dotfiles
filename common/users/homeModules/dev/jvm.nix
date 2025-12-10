@@ -1,10 +1,9 @@
 {pkgs, ...}: let
 	graal = pkgs.graalvmPackages.graalvm-ce;
-	g = (
+	g =
 		pkgs.gradle.override {
 			javaToolchains = [graal];
-		}
-	);
+		};
 in {
 	imports = [
 		./ide/jb/idea.nix

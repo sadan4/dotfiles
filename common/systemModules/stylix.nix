@@ -3,20 +3,16 @@
 	pkgs,
 	...
 }: let
-	oldPkgs = (
+	oldPkgs =
 		import
-		(builtins.fetchGit {
-				# Descriptive name to make the store path easier to identify
-				name = "my-old-revision";
-				url = "https://github.com/NixOS/nixpkgs/";
-				ref = "refs/heads/nixpkgs-unstable";
-				rev = "d9d87c51960050e89c79e4025082ed965e770d68";
+		(builtins.fetchTarball {
+				url = "https://github.com/NixOS/nixpkgs/archive/d9d87c51960050e89c79e4025082ed965e770d68.tar.gz";
+				sha256 = "sha256:1na5ljrqhbq7x7zln7gi8588nwwnsgb8qlid2z9zckjpsyjipy3c";
 			})
 		{
 			inherit (pkgs) system;
-		}
-	);
-	nerdfonts = oldPkgs.nerdfonts;
+		};
+	inherit (oldPkgs) nerdfonts;
 in {
 	imports = [
 		inputs.stylix.nixosModules.stylix

@@ -29,7 +29,7 @@
 			cpkg.ceserver
 			# https://github.com/NixOS/nixpkgs/issues/463367
 			pinned.clang-tools
-			inputs.nix-cppman.packages.${pkgs.system}.default
+			inputs.nix-cppman.packages.${pkgs.stdenv.hostPlatform.system}.default
 			perf
 			# perf GUI
 			hotspot
@@ -40,10 +40,11 @@
 				target = "./.config/.eslintrc.json";
 			};
 			gdb_config = {
-				source = pkgs.replaceVars ../../../../dotfiles/gdb/gdbinit {
-					libgcc = pkgs.libgcc.lib;
-					libgccVersion = pkgs.libgcc.lib.version;
-				};
+				source =
+					pkgs.replaceVars ../../../../dotfiles/gdb/gdbinit {
+						libgcc = pkgs.libgcc.lib;
+						libgccVersion = pkgs.libgcc.lib.version;
+					};
 				target = "./.config/gdb/gdbinit";
 				recursive = true;
 			};

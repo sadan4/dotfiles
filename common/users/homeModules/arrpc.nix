@@ -1,4 +1,4 @@
-{...}: {
+{
 	services = {
 		arrpc = {
 			enable = true;

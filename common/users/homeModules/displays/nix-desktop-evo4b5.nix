@@ -1,10 +1,13 @@
-{...}: let
+let
 	makePanel = import ./_makePanel.nix;
 in {
 	programs = {
 		plasma = {
 			panels =
-				[] ++ (makePanel {screen = 0;}) ++ (makePanel {screen = 1;}) ++ (makePanel {screen = 2;});
+				[]
+				++ (makePanel {screen = 0;})
+				++ (makePanel {screen = 1;})
+				++ (makePanel {screen = 2;});
 			configFile = {
 				"plasmashellrc" = {
 					# Monitor display numbers

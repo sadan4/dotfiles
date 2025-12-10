@@ -3,3 +3,4 @@ error.log
 .box
 # sops
 **/*.tmp.*
+result

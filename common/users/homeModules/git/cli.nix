@@ -19,12 +19,14 @@
 	programs = {
 		git = {
 			enable = true;
-			userName = "sadan";
-			userEmail = "117494111+sadan4@users.noreply.github.com";
 			lfs = {
 				enable = true;
 			};
-			extraConfig = {
+			settings = {
+				user = {
+					name = "sadan";
+					email = "117494111+sadan4@users.noreply.github.com";
+				};
 				gpg = {
 					format = "ssh";
 				};

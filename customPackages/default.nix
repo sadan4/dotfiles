@@ -3,7 +3,7 @@
 	pkgs,
 	...
 }: let
-	system = pkgs.system;
+	inherit (pkgs) system;
 in {
 	nixpkgs = {
 		overlays = [
