@@ -36,19 +36,30 @@
 						# removed for having out of date electron
 						inherit
 							(
-								import
-								(builtins.fetchTarball {
+								import (builtins.fetchTarball {
 										url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
 										sha256 = "sha256:0v8vnmgw7cifsp5irib1wkc0bpxzqcarlv8mdybk6dck5m7p10lr";
 									})
 								{
-									inherit (pkgs) system;
+									inherit (pkgs.stdenv.hostPlatform) system;
 									config = {
 										permittedInsecurePackages = ["electron-19.1.9"];
 									};
 								}
 							)
 							etcher
+							;
+						inherit
+							(
+								import (builtins.fetchTarball {
+										url = "https://github.com/NixOS/nixpkgs/archive/e6f23dc08d3624daab7094b701aa3954923c6bbb.tar.gz";
+										sha256 = "sha256:0m0xmk8sjb5gv2pq7s8w7qxf7qggqsd3rxzv3xrqkhfimy2x7bnx";
+									})
+								{
+									inherit (pkgs.stdenv.hostPlatform) system;
+								}
+							)
+							clang-tools
 							;
 						# support non-updated plugins
 						inherit (thingy.jetbrains) idea-ultimate;

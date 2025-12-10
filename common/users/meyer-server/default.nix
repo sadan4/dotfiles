@@ -48,13 +48,13 @@ in {
 		};
 		users = {
 			"${NAME}" = {...}: {
-					imports = [
-						../docker/vw
-						../docker/obsidian
-						../docker/qbit
-						./home.nix
-					];
-				};
+				imports = [
+					../docker/vw
+					../docker/obsidian
+					../docker/qbit
+					./home.nix
+				];
+			};
 		};
 	};
 }

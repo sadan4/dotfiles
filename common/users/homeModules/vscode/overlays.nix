@@ -5,7 +5,8 @@
 }: {
 	nixpkgs.overlays = [
 		(final: prev: {
-				vscode-insider = (prev.vscode.override {
+				vscode-insider =
+					(prev.vscode.override {
 							isInsiders = true;
 						}).overrideAttrs
 					(

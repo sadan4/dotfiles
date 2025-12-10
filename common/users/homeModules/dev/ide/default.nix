@@ -2,7 +2,14 @@
 	imports = [
 		../../pinned.nix
 		../../unstable.nix
+		../python.nix
 	];
+	sadan = {
+		pythonPackages = with pkgs.python312Packages; [
+			# for previewing rst inside of vscode
+			docutils
+		];
+	};
 	home = {
 		packages = with pkgs; [
 			unstable.vscode

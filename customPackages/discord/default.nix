@@ -88,7 +88,8 @@
 
 	openasar = callPackage ./openasar.nix {};
 
-	packages = builtins.mapAttrs
+	packages =
+		builtins.mapAttrs
 		(_: value:
 				callPackage package (value
 					// {
