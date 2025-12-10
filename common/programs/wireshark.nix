@@ -1,4 +1,4 @@
-{NAME}: {
+{NAME}: {...}: {
 	programs = {
 		wireshark = {
 			enable = true;
