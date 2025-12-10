@@ -11,6 +11,8 @@ in {
 	home = {
 		packages = with pkgs; [
 			nvim
+			# formatter for this repo (and nix in general)
+			alejandra
 			# vim is useful for larger files where neovim just hangs
 			vim
 			nvimpager
