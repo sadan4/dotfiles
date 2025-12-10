@@ -1,6 +1,5 @@
 {
 	pkgs,
-	lib,
 	...
 }: {
 	home = {
@@ -23,6 +22,8 @@
 			jq
 			unzip
 			unrar
+			# for pcregrep
+			pcre.bin
 			# GUI version is in kde.nix
 			libqalculate
 			patchelf
