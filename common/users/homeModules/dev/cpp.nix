@@ -30,6 +30,9 @@
 			# https://github.com/NixOS/nixpkgs/issues/463367
 			pinned.clang-tools
 			inputs.nix-cppman.packages.${pkgs.system}.default
+			perf
+			# perf GUI
+			hotspot
 		];
 		file = {
 			eslint_d_config = {
