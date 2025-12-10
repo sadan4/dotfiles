@@ -28,7 +28,7 @@
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		plasma-manager = {
-			url = "github:AlexNabokikh/plasma-manager";
+			url = "github:nix-community/plasma-manager";
 			# inputs.nixpkgs.follows = "nixpkgs-unstable";
 			# inputs.home-manager.follows = "home-manager-unstable";
 			inputs = {

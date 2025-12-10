@@ -1,13 +1,17 @@
 {pkgs, ...}: {
 	imports = [
 		../unstable.nix
+		./ide/jb/rustRover.nix
 	];
 	home = {
 		packages = with pkgs; [
+			perf
+			aoc-cli
 			unstable.rustup
 			unstable.cargo-watch
 			unstable.cargo-expand
 			unstable.cargo-insta
+			unstable.cargo-flamegraph
 			openssl
 			# needed to use openssl
 			pkg-config

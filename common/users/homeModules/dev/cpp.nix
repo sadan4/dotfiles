@@ -17,15 +17,22 @@
 			ninja
 			# clang
 			libgcc
+			# provides a python module that i use in my gdbinit
+			libgcc.lib
 			glib
 			gdbgui
 			bear
 			glibc
 			pinned.gdb
-			lldb_19
+			lldb
+			lld
 			cpkg.ceserver
-			unstable.llvmPackages_19.clang-tools
+			# https://github.com/NixOS/nixpkgs/issues/463367
+			pinned.clang-tools
 			inputs.nix-cppman.packages.${pkgs.system}.default
+			perf
+			# perf GUI
+			hotspot
 		];
 		file = {
 			eslint_d_config = {
@@ -33,8 +40,11 @@
 				target = "./.config/.eslintrc.json";
 			};
 			gdb_config = {
-				source = ../../../../dotfiles/gdb;
-				target = "./.config/gdb";
+				source = pkgs.replaceVars ../../../../dotfiles/gdb/gdbinit {
+					libgcc = pkgs.libgcc.lib;
+					libgccVersion = pkgs.libgcc.lib.version;
+				};
+				target = "./.config/gdb/gdbinit";
 				recursive = true;
 			};
 		};

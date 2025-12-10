@@ -5,6 +5,7 @@ in {
 		../prisma.nix
 		../../../../customPackages
 		../unstable.nix
+		./ide/jb/webstorm.nix
 	];
 	programs = {
 		zsh = {
@@ -47,8 +48,6 @@ in {
 			++ (with pkgs.nodePackages; [
 					webpack-cli
 					nodemon
-					ts-node
-					live-server
 				]);
 	};
 }
