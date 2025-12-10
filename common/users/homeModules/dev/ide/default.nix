@@ -12,6 +12,8 @@
     pythonPackages = with pkgs.python312Packages; [
       # for previewing rst inside of vscode
       docutils
+      # codeblocks in rst
+      pygments
     ];
   };
   home = {
