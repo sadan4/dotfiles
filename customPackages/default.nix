@@ -17,6 +17,7 @@ in {
 						chrome-pak-customizer = inputs.chrome-pak.packages.${system}.default;
 						ceserver = inputs.ceserver.flakePackage pkgs;
 						scripts = (pkgs.callPackage ./scripts) {useLocal = true;};
+						dvm = pkgs.callPackage ./dvm {};
 					};
 				})
 		];
