@@ -11,6 +11,7 @@
 			xorg.xkill
 			xorg.xprop
 			xorg.xwininfo
+			xorg.xmodmap
 			xdotool
 			kdePackages.kcolorchooser
 			qalculate-qt
