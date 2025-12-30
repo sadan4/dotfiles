@@ -1,5 +1,6 @@
 {pkgs, ...}: let
-	node = pkgs.nodejs_24;
+	# use unstable nodejs because of nodejs/node#60580
+	node = pkgs.unstable.nodejs_24;
 in {
 	imports = [
 		../prisma.nix
