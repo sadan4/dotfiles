@@ -7,7 +7,7 @@
 		packages = with pkgs; [
 			parsec-bin
 			stable.protonvpn-gui
-			insomnia
+			yaak
 			teamviewer
 			filezilla
 		];
