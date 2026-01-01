@@ -19,6 +19,7 @@
 		../../common/systemModules/tailscaleServer.nix
 		../../common/systemModules/cloudflared.nix
 		../../common/systemModules/jellyfin.nix
+		../../common/systemModules/zipline.nix
 		# for compat with some home modules
 		../../common/systemModules/stylix.nix
 		# USERS
