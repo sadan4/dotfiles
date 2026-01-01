@@ -45,10 +45,6 @@
 		};
 		flake-parts.url = "github:hercules-ci/flake-parts";
 		nix-alien.url = "https://flakehub.com/f/thiagokokada/nix-alien/0.1.384.tar.gz";
-		nixcord = {
-			url = "github:kaylorben/nixcord";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 		nix-cppman = {
 			url = "github:sadan4/cppman";
 			inputs.nixpkgs.follows = "nixpkgs";
