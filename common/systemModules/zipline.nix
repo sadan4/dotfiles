@@ -46,6 +46,9 @@
 		nginx = {
 			virtualHosts = {
 				"host.sadan.zip" = {
+					extraConfig = /*nginx*/ ''
+						client_max_body_size 6000M;
+					'';
 					forceSSL = true;
 					useACMEHost = "sadan.zip";
 					locations = {
