@@ -15,6 +15,7 @@
 			openssl
 			# needed to use openssl
 			pkg-config
+			unstable.dioxus-cli
 		];
 	};
 	programs = {
