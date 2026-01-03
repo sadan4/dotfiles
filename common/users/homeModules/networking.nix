@@ -5,7 +5,7 @@
 	];
 	home = {
 		packages = with pkgs; [
-			parsec-bin
+			# parsec-bin
 			stable.protonvpn-gui
 			yaak
 			teamviewer
