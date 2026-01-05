@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+	rustup = pkgs.unstable.rustup;
+in {
 	imports = [
 		../unstable.nix
 		./ide/jb/rustRover.nix
@@ -7,7 +9,7 @@
 		packages = with pkgs; [
 			perf
 			aoc-cli
-			unstable.rustup
+			rustup
 			unstable.cargo-watch
 			unstable.cargo-expand
 			unstable.cargo-insta
@@ -25,7 +27,7 @@
 			# 2. patch cant read the source file from stdin, so tmpfiles have to be used
 			initContent = ''
 				TMP_RUSTUP_FILE=$(mktemp)
-				${pkgs.rustup}/bin/rustup completions zsh > "$TMP_RUSTUP_FILE"
+				${rustup}/bin/rustup completions zsh > "$TMP_RUSTUP_FILE"
 				eval "$(patch -s -o - -i ${./rustupCompPatch.diff} $TMP_RUSTUP_FILE)"
 				rm $TMP_RUSTUP_FILE
 				unset TMP_RUSTUP_FILE
