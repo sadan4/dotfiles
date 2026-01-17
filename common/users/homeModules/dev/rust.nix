@@ -10,6 +10,7 @@ in {
 			perf
 			aoc-cli
 			rustup
+			slint-lsp
 			unstable.cargo-watch
 			unstable.cargo-expand
 			unstable.cargo-insta
