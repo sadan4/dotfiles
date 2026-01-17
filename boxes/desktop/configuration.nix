@@ -80,13 +80,12 @@
 		alsa-lib
 		expat
 		mesa
-		libxkbcommon
 		freetype
 		fontconfig
 		glib
-		xorg.libxcb
-		libappindicator
 		libz
+		libappindicator
+		xorg.libxcb
 		xorg.libXi
 		xorg.libXrandr
 		xorg.libXfixes
@@ -96,6 +95,8 @@
 		xorg.libXrender
 		xorg.libXtst
 		xorg.libX11
+		xorg.libXcursor
+		xorg.libXxf86vm
 		libxkbcommon
 		systemdLibs
 		cairo
