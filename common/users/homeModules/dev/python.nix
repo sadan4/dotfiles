@@ -16,6 +16,7 @@
 		};
 		sadan = {
 			pythonPackages = with pkgs.python312Packages; [
+				requests
 				# pytesseract
 				# pillow
 				# pyzbar
