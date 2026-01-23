@@ -25,6 +25,7 @@ in {
 					"audio"
 					"sound"
 					"video"
+					"render"
 					"input"
 					"tty"
 					"plugdev"
