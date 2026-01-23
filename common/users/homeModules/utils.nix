@@ -28,6 +28,9 @@
 			# NCurses Disk Usage
 			ncdu
 			lsof
+			nix-du
+			nix-tree
+			yazi
 		];
 		sessionVariables = {
 			BAT_THEME = "Dracula";
