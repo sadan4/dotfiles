@@ -13,7 +13,7 @@ in {
 			initContent = ''
 				eval "$(${node}/bin/node --completion-bash)"
 				eval "$(${node}/bin/npm completion)"
-				eval "$(${pkgs.pnpm}/bin/pnpm completion zsh)"
+				eval "$(${pkgs.unstable.pnpm}/bin/pnpm completion zsh)"
 			'';
 		};
 	};
