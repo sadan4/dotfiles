@@ -4,7 +4,7 @@
 	];
 	home = {
 		packages = let
-			ij = pkgs.unstable.jetbrains.idea-ultimate;
+			ij = pkgs.unstable.jetbrains.idea;
 		in
 			with pkgs; [
 				# (buildFHSEnv {

@@ -40,8 +40,8 @@ stdenv.mkDerivation (finalAttrs: {
 		pnpmDeps =
 			pnpm.fetchDeps {
 				inherit (finalAttrs) pname src;
-				fetcherVersion = 1;
-				hash = "sha256-RGXPFYM0zuA5KmAfWTsMN2U4MqqMNvEIeGJW4bbqTfU=";
+				fetcherVersion = 3;
+				hash = "sha256-+T8rfjEGDEUQXLV2paiTQHz1qzazuWv0ETOs+dnZ3rs=";
 			};
 		meta = {
 			description = "personal scripts for the various things";
