@@ -16,7 +16,7 @@
 		packages = with pkgs; [
 			unstable.vscode
 			# codium
-			zed-editor
+			unstable.zed-editor
 		];
 		shellAliases = {
 			codetemp = "code -n $(mktemp -d)";
