@@ -23,7 +23,6 @@ in {
 	};
 	home = {
 		shellAliases = {
-			pd = "/home/meyer/dev/ts/pnpm/pnpm/dev/pd.js";
 			webpack = "webpack-cli";
 			eslintd = "eslint_d";
 		};
@@ -35,6 +34,9 @@ in {
 		};
 		packages = with pkgs;
 			[
+				(writeShellScriptBin "pd" ''
+					exec /home/${config.home.username}/dev/ts/pnpm/pnpm/dev/pd.js "$@"
+				'')
 				cpkg.chrome-pak-customizer
 				lemminx
 				deno
