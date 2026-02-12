@@ -14,7 +14,14 @@
 	};
 	home = {
 		packages = with pkgs; [
-			unstable.vscode
+			(unstable.vscode.overrideAttrs (final: _: {
+				version = "1.109.2";
+				src = pkgs.fetchurl {
+					name = "VSCode_1.109.2_linux-x64.tar.gz";
+					url = "https://update.code.visualstudio.com/1.109.2/linux-x64/stable";
+					hash = "sha256-ST5i8gvNtAaBbmcpcg9GJipr8e5d0A0qbdG1P9QViek=";
+				};
+			}))
 			# codium
 			unstable.zed-editor
 		];
