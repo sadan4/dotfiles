@@ -13,7 +13,7 @@
 		file = {
 			p10k = {
 				recursive = true;
-				source = ../../../dotfiles/.p10k.zsh;
+				source = ../../../dotfiles/p10k.zsh;
 				target = ".p10k.zsh";
 			};
 		};
