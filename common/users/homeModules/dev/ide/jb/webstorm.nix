@@ -9,15 +9,7 @@ in {
 	];
 	home = {
 		packages = with pkgs.unstable.jetbrains; [
-			(webstorm.overrideAttrs (
-					_: _: {
-						inherit version;
-						src =
-							pkgs.fetchurl {
-								inherit url sha256;
-							};
-					}
-				))
+			webstorm
 		];
 	};
 }
