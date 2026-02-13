@@ -18,7 +18,11 @@ in {
 	programs = {
 		zsh = {
 			initContent = ''
-				eval "$(${dvm}/bin/dvm completions zsh)"
+				source ${
+					pkgs.runCommand "dvm-compgen" {} ''
+						${dvm}/bin/dvm completions zsh > $out
+					''
+				}
 			'';
 		};
 	};

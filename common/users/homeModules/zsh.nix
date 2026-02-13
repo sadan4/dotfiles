@@ -40,7 +40,11 @@
 					[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 					source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 					setopt globstarshort
-					eval "$(${pkgs.docker}/bin/docker completion zsh)"
+					source ${
+						pkgs.runCommand "docker-compgen" {} ''
+							${pkgs.docker}/bin/docker completion zsh > $out
+						''
+					}
 					# *c*d into *n*ew *d*irectory
 					cnd() {
 					    mkdir $1 && cd $1;

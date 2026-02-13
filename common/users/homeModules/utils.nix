@@ -46,7 +46,11 @@
 		};
 		zsh = {
 			initContent = ''
-				eval $(fzf --zsh)
+				source ${
+					pkgs.runCommand "fzf-compgen" {} ''
+						${pkgs.fzf}/bin/fzf --zsh > $out
+					''
+				}
 			'';
 		};
 	};

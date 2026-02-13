@@ -1,6 +1,11 @@
-{pkgs, config, ...}: let
+{
+	pkgs,
+	config,
+	...
+}: let
 	# use unstable nodejs because of nodejs/node#60580
 	node = pkgs.unstable.nodejs_25;
+	pnpm = pkgs.unstable.pnpm;
 	PNPM_HOME = "/home/${config.home.username}/.local/pnpm-home";
 in {
 	imports = [
@@ -10,13 +15,18 @@ in {
 		./ide/jb/webstorm.nix
 	];
 	programs = {
-		zsh = {
+		zsh = let
+			compgen = name: cmd:
+				pkgs.runCommand "${name}-compgen" {} ''
+					${cmd} > $out
+				'';
+		in {
 			initContent =
 				# sh
 				''
-					eval "$(${node}/bin/node --completion-bash)"
-					eval "$(${node}/bin/npm completion)"
-					eval "$(${pkgs.unstable.pnpm}/bin/pnpm completion zsh)"
+					source ${compgen "node" "${node}/bin/node --completion-bash"}
+					source ${compgen "npm" "${node}/bin/npm completion"}
+					source ${compgen "pnpm" "${pnpm}/bin/pnpm completion zsh"}
 					[[ -d ${PNPM_HOME} ]] || mkdir -p ${PNPM_HOME}
 				'';
 		};
