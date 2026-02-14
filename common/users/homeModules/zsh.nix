@@ -1,4 +1,50 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+	# https://github.com/romkatv/powerlevel10k#how-do-i-configure-instant-prompt
+	instantPrompt =
+		pkgs.lib.mkOrder 500
+		# sh
+		''
+			# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+			# Initialization code that may require console input (password prompts, [y/n]
+			# confirmations, etc.) must go above this block; everything else may go below.
+			if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+			  source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+			fi
+		'';
+	zshMainInit =
+		# sh
+		''
+			source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+			[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+			source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+			setopt globstarshort
+			source ${
+				pkgs.runCommand "docker-compgen" {} ''
+					${pkgs.docker}/bin/docker completion zsh > $out
+				''
+			}
+			# *c*d into *n*ew *d*irectory
+			cnd() {
+			    mkdir $1 && cd $1;
+			}
+			# MUST COME AFTER p10k
+			# make  clear the scrollback buffer as well as the screen
+			# copy clear-screen into _orig_clear_Screen
+			zle -A clear-screen _orig_clear_screen
+			# define zsh widget func
+			_CLEAR() {
+			    # clears the scrollback buffer
+			    printf '\033[3J'
+			    # call the orig clear-screen to do some housekeeping
+			    zle _orig_clear_screen
+			}
+			# define our new widget
+			zle -N _CLEAR _CLEAR
+			# bind it to
+			bindkey  _CLEAR
+		'';
+	initContent = pkgs.lib.mkMerge [instantPrompt zshMainInit];
+in {
 	home = {
 		packages = with pkgs; [
 			powershell
@@ -33,38 +79,7 @@
 		zsh = {
 			enable = true;
 			oh-my-zsh.enable = true;
-			initContent =
-				# sh
-				''
-					source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-					[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-					source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-					setopt globstarshort
-					source ${
-						pkgs.runCommand "docker-compgen" {} ''
-							${pkgs.docker}/bin/docker completion zsh > $out
-						''
-					}
-					# *c*d into *n*ew *d*irectory
-					cnd() {
-					    mkdir $1 && cd $1;
-					}
-					# MUST COME AFTER p10k
-					# make  clear the scrollback buffer as well as the screen
-					# copy clear-screen into _orig_clear_Screen
-					zle -A clear-screen _orig_clear_screen
-					# define zsh widget func
-					_CLEAR() {
-					    # clears the scrollback buffer
-					    printf '\033[3J'
-					    # call the orig clear-screen to do some housekeeping
-					    zle _orig_clear_screen
-					}
-					# define our new widget
-					zle -N _CLEAR _CLEAR
-					# bind it to
-					bindkey  _CLEAR
-				'';
+			inherit initContent;
 			enableCompletion = true;
 			plugins = [
 				{
