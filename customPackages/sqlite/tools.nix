@@ -25,7 +25,7 @@ let
       src =
         assert version == sqlite.version;
         fetchurl {
-          url = "https://sqlite.org/2025/sqlite-src-${archiveVersion version}.zip";
+          url = "https://sqlite.org/2026/sqlite-src-${archiveVersion version}.zip";
           hash = "sha256-D452WsjqfDbPjqm//dXBA1ZPSopjXyFfn3g7M4oT2XE=";
         };
 
