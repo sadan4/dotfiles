@@ -9,6 +9,7 @@
 			obs-studio
 			peek
 			screenkey
+			jellyfin-desktop
 		];
 	};
 }
