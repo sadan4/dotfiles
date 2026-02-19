@@ -23,6 +23,7 @@ in {
 			jadx
 			g
 			kotlin
+			bazel_8
 		];
 	};
 	programs = {
