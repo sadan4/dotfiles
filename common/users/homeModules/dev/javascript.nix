@@ -67,6 +67,9 @@ in {
 				# read electron crash dumps
 				breakpad
 				emscripten
+				# wasm
+				wasm-pack
+				binaryen
 			]
 			++ (with pkgs.nodePackages; [
 					webpack-cli
