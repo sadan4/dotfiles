@@ -45,8 +45,8 @@ in {
 		packages = with pkgs;
 			[
 				(writeShellScriptBin "pd" ''
-					exec /home/${config.home.username}/dev/ts/pnpm/pnpm/dev/pd.js "$@"
-				'')
+						exec /home/${config.home.username}/dev/ts/pnpm/pnpm/dev/pd.js "$@"
+					'')
 				cpkg.chrome-pak-customizer
 				lemminx
 				deno
@@ -68,7 +68,21 @@ in {
 				breakpad
 				emscripten
 				# wasm
-				wasm-pack
+				(wasm-pack.overrideAttrs (final: _: rec {
+							version = "0.14.0";
+							src =
+								pkgs.fetchFromGitHub {
+									owner = "rustwasm";
+									repo = "wasm-pack";
+									tag = "v${version}";
+									hash = "sha256-ik6AJUKuT3GCDTZbHWcplcB7cS0CIcZwFNa6SvGzsIQ=";
+								};
+							cargoDeps =
+								pkgs.rustPlatform.fetchCargoVendor {
+									inherit src;
+									hash = "sha256-n9xuwlj8+3fDTHMS2XobqWFc6mNHQcmmvebRDc82oSo=";
+								};
+						}))
 				binaryen
 			]
 			++ (with pkgs.nodePackages; [
