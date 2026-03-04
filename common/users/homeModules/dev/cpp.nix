@@ -27,8 +27,9 @@
 			lldb
 			lld
 			cpkg.ceserver
-			# https://github.com/NixOS/nixpkgs/issues/463367
-			pinned.clang-tools
+			clang-tools
+			# for llvm-symbolizer
+			llvmPackages.libllvm
 			inputs.nix-cppman.packages.${pkgs.stdenv.hostPlatform.system}.default
 			perf
 			# perf GUI

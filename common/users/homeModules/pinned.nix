@@ -38,11 +38,6 @@
 										permittedInsecurePackages = ["electron-19.1.9"];
 									};
 								}).etcher;
-						clang-tools =
-							(fetch {
-									url = "https://github.com/NixOS/nixpkgs/archive/e6f23dc08d3624daab7094b701aa3954923c6bbb.tar.gz";
-									sha256 = "sha256:0m0xmk8sjb5gv2pq7s8w7qxf7qggqsd3rxzv3xrqkhfimy2x7bnx";
-								}).llvmPackages_20.clang-tools;
 						gdb =
 							(fetch {
 									url = "https://github.com/NixOS/nixpkgs/archive/05bbf675397d5366259409139039af8077d695ce.tar.gz";
