@@ -3,7 +3,7 @@
 		packages = with pkgs; [
 			onefetch
 			hyfetch
-			neofetch
+			fastfetch
 		];
 	};
 }
