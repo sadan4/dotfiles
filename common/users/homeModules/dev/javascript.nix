@@ -12,6 +12,7 @@ in {
 		../prisma.nix
 		../../../../customPackages
 		../unstable.nix
+		../stable.nix
 		./ide/jb/webstorm.nix
 	];
 	programs = {
@@ -57,7 +58,9 @@ in {
 				electron-fiddle
 				typescript
 				unstable.eslint
-				unstable.corepack
+				# random failing yarn test on unstable
+				# blocked from updating further to fix it by https://github.com/NixOS/nixpkgs/pull/500223
+				stable.corepack
 				node
 				vsce
 				esbuild

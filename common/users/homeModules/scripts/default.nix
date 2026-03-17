@@ -80,10 +80,6 @@ in {
 					];
 				})
 			(mkScript {
-					name = "hashi18n";
-					file = ./hashi18n.sh;
-				})
-			(mkScript {
 					name = "flakeify";
 					file = ./flakeify.sh;
 					env = with pkgs; [
@@ -100,12 +96,6 @@ in {
 				})
 			# impl for the cloneRepo command
 		];
-		file = {
-			scripts = {
-				source = "${pkgs.cpkg.scripts}";
-				target = ".scripts";
-			};
-		};
 		shellAliases = {
 			# needed because of coreutils paste
 			paste = "${paste}/bin/paste";
