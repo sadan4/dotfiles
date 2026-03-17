@@ -70,6 +70,7 @@ in {
 				# read electron crash dumps
 				breakpad
 				emscripten
+				msgpack-tools
 				# wasm
 				(wasm-pack.overrideAttrs (final: _: rec {
 							version = "0.14.0";
