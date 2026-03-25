@@ -9,7 +9,7 @@
 	PNPM_HOME = "/home/${config.home.username}/.local/pnpm-home";
 in {
 	imports = [
-		../prisma.nix
+		# ../prisma.nix
 		../../../../customPackages
 		../unstable.nix
 		../stable.nix
