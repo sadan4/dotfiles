@@ -4,17 +4,17 @@ in {
 	imports = [
 		../unstable.nix
 		./ide/jb/rustRover.nix
+		../perf.nix
 	];
 	home = {
 		packages = with pkgs; [
-			perf
 			aoc-cli
 			rustup
 			slint-lsp
 			unstable.cargo-watch
 			unstable.cargo-expand
 			unstable.cargo-insta
-			unstable.cargo-flamegraph
+			(unstable.cargo-flamegraph.override {inherit perf;})
 			openssl
 			# needed to use openssl
 			pkg-config

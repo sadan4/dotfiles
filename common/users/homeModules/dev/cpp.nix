@@ -7,6 +7,7 @@
 		../unstable.nix
 		./ide/jb/clion.nix
 		../pinned.nix
+		../perf.nix
 	];
 	home = {
 		packages = with pkgs; [
@@ -31,7 +32,6 @@
 			# for llvm-symbolizer
 			llvmPackages.libllvm
 			inputs.nix-cppman.packages.${pkgs.stdenv.hostPlatform.system}.default
-			perf
 			# perf GUI
 			hotspot
 		];
