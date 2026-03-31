@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+	tig = pkgs.tig;
+in {
 	imports = [
 		./unstable.nix
 	];
@@ -6,6 +8,9 @@
 		shellAliases = {
 			lg = "lazygit";
 		};
+		packages = [
+			tig
+		];
 	};
 	stylix = {
 		targets = {
@@ -66,6 +71,29 @@
 						];
 					};
 				};
+				customCommands = [
+					{
+						key = "b";
+						command = "${tig}/bin/tig blame -- {{.SelectedFile.Name}}";
+						context = "files";
+						description = "blame file at tree";
+						output = "terminal";
+					}
+					{
+						key = "b";
+						command = "${tig}/bin/tig blame {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}";
+						context = "commitFiles";
+						description = "blame file at revision";
+						output = "terminal";
+					}
+					{
+						key = "B";
+						command = "${tig}/bin/tig blame -- {{.SelectedCommitFile.Name}}";
+						context = "commitFiles";
+						description = "blame file at tree";
+						output = "terminal";
+					}
+				];
 			};
 		};
 	};
