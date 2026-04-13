@@ -510,6 +510,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -573,7 +589,26 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager",
         "sops-nix": "sops-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "tf2-rpc": "tf2-rpc"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1774926780,
+        "narHash": "sha256-JMdDYn0F+swYBILlpCeHDbCSyzqkeSGNxZ/Q5J584jM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "962a0934d0e32f42d1b5e49186f9595f9b178d2d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "sops-nix": {
@@ -671,6 +706,27 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "tf2-rpc": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1775107412,
+        "narHash": "sha256-Cmu4m64GPYakwRtrbJ0Neb9f83z7TqnPc6Pg+yrE+OM=",
+        "ref": "refs/heads/master",
+        "rev": "c6f49e0cde2746d58e73079d2acc78d33e298f3a",
+        "revCount": 12,
+        "type": "git",
+        "url": "https://codeberg.org/paige/tf2-rpc"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/paige/tf2-rpc"
       }
     },
     "tinted-foot": {

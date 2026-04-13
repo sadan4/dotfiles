@@ -2,6 +2,10 @@
 	description = "Nixos config flake";
 
 	inputs = {
+		tf2-rpc = {
+			url = "git+https://codeberg.org/paige/tf2-rpc";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 		sops-nix = {
