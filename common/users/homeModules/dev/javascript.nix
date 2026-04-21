@@ -58,6 +58,7 @@ in {
 				electron-fiddle
 				typescript
 				unstable.eslint
+				unstable.oxfmt
 				# random failing yarn test on unstable
 				# blocked from updating further to fix it by https://github.com/NixOS/nixpkgs/pull/500223
 				stable.corepack
