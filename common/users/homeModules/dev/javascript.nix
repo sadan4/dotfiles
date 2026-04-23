@@ -43,56 +43,54 @@ in {
 		sessionSearchVariables = {
 			PATH = [PNPM_HOME];
 		};
-		packages = with pkgs;
-			[
-				(writeShellScriptBin "pd" ''
-						exec /home/${config.home.username}/dev/ts/pnpm/pnpm/dev/pd.js "$@"
-					'')
-				cpkg.chrome-pak-customizer
-				lemminx
-				deno
-				bun
-				eslint_d
-				vscode-langservers-extracted
-				nodePackages_latest.typescript-language-server
-				electron-fiddle
-				typescript
-				unstable.eslint
-				unstable.oxfmt
-				# random failing yarn test on unstable
-				# blocked from updating further to fix it by https://github.com/NixOS/nixpkgs/pull/500223
-				stable.corepack
-				node
-				vsce
-				esbuild
-				swc
-				terser
-				asar
-				# read electron crash dumps
-				breakpad
-				emscripten
-				msgpack-tools
-				# wasm
-				(wasm-pack.overrideAttrs (final: _: rec {
-							version = "0.14.0";
-							src =
-								pkgs.fetchFromGitHub {
-									owner = "rustwasm";
-									repo = "wasm-pack";
-									tag = "v${version}";
-									hash = "sha256-ik6AJUKuT3GCDTZbHWcplcB7cS0CIcZwFNa6SvGzsIQ=";
-								};
-							cargoDeps =
-								pkgs.rustPlatform.fetchCargoVendor {
-									inherit src;
-									hash = "sha256-n9xuwlj8+3fDTHMS2XobqWFc6mNHQcmmvebRDc82oSo=";
-								};
-						}))
-				binaryen
-			]
-			++ (with pkgs.nodePackages; [
-					webpack-cli
-					nodemon
-				]);
+		packages = with pkgs; [
+			(writeShellScriptBin "pd" ''
+					exec /home/${config.home.username}/dev/ts/pnpm/pnpm/dev/pd.js "$@"
+				'')
+			cpkg.chrome-pak-customizer
+			lemminx
+			deno
+			bun
+			eslint_d
+			vscode-langservers-extracted
+			typescript-language-server
+			electron-fiddle
+			typescript
+			unstable.eslint
+			unstable.oxfmt
+			prettier
+			# random failing yarn test on unstable
+			# blocked from updating further to fix it by https://github.com/NixOS/nixpkgs/pull/500223
+			stable.corepack
+			node
+			vsce
+			esbuild
+			swc
+			terser
+			asar
+			# read electron crash dumps
+			breakpad
+			emscripten
+			msgpack-tools
+			# wasm
+			(wasm-pack.overrideAttrs (final: _: rec {
+						version = "0.14.0";
+						src =
+							pkgs.fetchFromGitHub {
+								owner = "rustwasm";
+								repo = "wasm-pack";
+								tag = "v${version}";
+								hash = "sha256-ik6AJUKuT3GCDTZbHWcplcB7cS0CIcZwFNa6SvGzsIQ=";
+							};
+						cargoDeps =
+							pkgs.rustPlatform.fetchCargoVendor {
+								inherit src;
+								hash = "sha256-n9xuwlj8+3fDTHMS2XobqWFc6mNHQcmmvebRDc82oSo=";
+							};
+					}))
+			nodemon
+			webpack-cli
+			binaryen
+		];
 	};
 }
