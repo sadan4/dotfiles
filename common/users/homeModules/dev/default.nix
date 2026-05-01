@@ -16,6 +16,7 @@
 			d-spy
 			hyperfine
 			unstable.github-copilot-cli
+			unstable.gemini-cli
 		];
 		shellAliases = {
 			cloc = "${pkgs.tokei}/bin/tokei";
