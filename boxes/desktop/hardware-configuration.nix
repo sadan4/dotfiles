@@ -29,7 +29,7 @@
 	};
 	boot.initrd.luks.devices."nvme1n1p2_crypt".device = "/dev/disk/by-uuid/f6af1dbf-87be-4a96-a477-bf5f94466b68";
 	fileSystems."/boot" = {
-		device = "/dev/disk/by-uuid/10B5-1AA2";
+		device = "/dev/disk/by-uuid/9EDD-9FA1";
 		fsType = "vfat";
 		options = [
 			"fmask=0077"
