@@ -7,16 +7,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 		pname = "dvm";
-		version = "1.2.0";
+		version = "1.3.0";
 		src =
 			fetchFromGitHub {
 				owner = "diced";
 				repo = "dvm";
-				tag = finalAttrs.version;
-				hash = "sha256-6KXo/ek7wJZk8pOKorg4RGDzLJUeH3VyArP/ykl0UDQ=";
+				tag = "v${finalAttrs.version}";
+				hash = "sha256-KMEtXpbyr6nmEWIo/NFbwvNe8DY5sDcJS5ymapAP3sw=";
 			};
 
-		cargoHash = "sha256-AaEo34Fqw58qN/KbAWuzVhEanJZVWm+zKmR2CKwi7+Y=";
+		cargoHash = "sha256-DSnRRy/dMDyBDmhjMoAvRDzNOs7NeIMb1MTaza1Ei7g=";
 
 		nativeBuildInputs = [
 			pkg-config
