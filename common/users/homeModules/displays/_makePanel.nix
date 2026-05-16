@@ -13,7 +13,7 @@
 		opacity = "opaque";
 	};
 in
-	builtins.map (section: baseConfig // section) [
+	map (section: baseConfig // section) [
 		{
 			alignment = "left";
 			widgets = [
@@ -40,7 +40,7 @@ in
 						# 4. copy filename
 						# 5. profit
 						launchers =
-							builtins.map (filename: "applications:${filename}.desktop") [
+							map (filename: "applications:${filename}.desktop") [
 								"brave-browser"
 								"spotify"
 								"kitty"

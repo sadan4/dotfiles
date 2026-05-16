@@ -5,7 +5,6 @@
 			# something something license cant be packaged
 			# fuck ida
 			# ida-free
-			cutter
 			binaryninja-free
 		];
 	};
