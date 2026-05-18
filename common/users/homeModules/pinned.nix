@@ -16,11 +16,6 @@
 					# TODO: consider using defaultOpts // {...} when extending
 				in {
 					pinned = {
-						vscode_neovim =
-							(fetch {
-									url = "https://github.com/NixOS/nixpkgs/archive/0c19708cf035f50d28eb4b2b8e7a79d4dc52f6bb.tar.gz";
-									sha256 = "sha256:0ngw2shvl24swam5pzhcs9hvbwrgzsbcdlhpvzqc7nfk8lc28sp3";
-								}).neovim;
 						neovim =
 							(fetch {
 									url = "https://github.com/NixOS/nixpkgs/archive/14182c19701221692b84e7428e5b7281b099967a.tar.gz";
@@ -38,11 +33,6 @@
 										permittedInsecurePackages = ["electron-19.1.9"];
 									};
 								}).etcher;
-						gdb =
-							(fetch {
-									url = "https://github.com/NixOS/nixpkgs/archive/05bbf675397d5366259409139039af8077d695ce.tar.gz";
-									sha256 = "sha256:1r26vjqmzgphfnby5lkfihz6i3y70hq84bpkwd43qjjvgxkcyki0";
-								}).gdb;
 					};
 				}
 			)

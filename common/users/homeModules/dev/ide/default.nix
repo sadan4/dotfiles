@@ -24,7 +24,7 @@
 		};
 		file = {
 			vscode_neovim = {
-				source = "${pkgs.pinned.vscode_neovim}/bin/nvim";
+				source = "${pkgs.pinned.neovim}/bin/nvim";
 				target = ".bin/vscode-neovim";
 			};
 		};

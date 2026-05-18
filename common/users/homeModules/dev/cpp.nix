@@ -24,7 +24,7 @@
 			gdbgui
 			bear
 			glibc
-			pinned.gdb
+			gdb
 			lldb
 			lld
 			cpkg.ceserver
