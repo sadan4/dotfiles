@@ -10,9 +10,7 @@
 		packages = with pkgs; [
 			firefox
 			vlc
-			(unstable.brave.override {
-				vulkanSupport = true;
-			})
+			unstable.brave
 			unstable.ungoogled-chromium
 			unstable.microsoft-edge
 			unstable.ladybird
