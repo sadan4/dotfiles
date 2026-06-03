@@ -15,6 +15,7 @@ in {
 			unstable.cargo-expand
 			unstable.cargo-insta
 			unstable.cargo-nextest
+			unstable.cargo-shear
 			(unstable.cargo-flamegraph.override {inherit perf;})
 			openssl
 			# needed to use openssl
