@@ -17,6 +17,7 @@
 			hyperfine
 			unstable.github-copilot-cli
 			unstable.gemini-cli
+			unstable.claude-code
 		];
 		shellAliases = {
 			cloc = "${pkgs.tokei}/bin/tokei";
