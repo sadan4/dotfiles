@@ -3,11 +3,8 @@
 	config,
 	...
 }: let
-	nvim = pkgs.pinned.neovim;
+	nvim = pkgs.neovim;
 in {
-	imports = [
-		./pinned.nix
-	];
 	home = {
 		packages = with pkgs; [
 			nvim

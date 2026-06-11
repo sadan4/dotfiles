@@ -1,6 +1,5 @@
 {pkgs, ...}: {
 	imports = [
-		../../pinned.nix
 		../../unstable.nix
 		../python.nix
 	];
@@ -24,7 +23,7 @@
 		};
 		file = {
 			vscode_neovim = {
-				source = "${pkgs.pinned.neovim}/bin/nvim";
+				source = "${pkgs.neovim}/bin/nvim";
 				target = ".bin/vscode-neovim";
 			};
 		};
