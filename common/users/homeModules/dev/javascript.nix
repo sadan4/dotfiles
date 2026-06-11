@@ -4,7 +4,7 @@
 	...
 }: let
 	# use unstable nodejs because of nodejs/node#60580
-	node = pkgs.unstable.nodejs_25;
+	node = pkgs.unstable.nodejs_26;
 	pnpm = pkgs.unstable.pnpm;
 	PNPM_HOME = "/home/${config.home.username}/.local/pnpm-home";
 in {
