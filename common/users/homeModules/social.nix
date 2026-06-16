@@ -12,6 +12,7 @@ in {
 			element-desktop
 			signal-desktop
 			unstable.vesktop
+			unstable.equibop
 			dvm
 		];
 	};
