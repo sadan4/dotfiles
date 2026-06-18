@@ -13,7 +13,6 @@
 	};
 	home = {
 		packages = with pkgs; [
-			unstable.antigravity
 			unstable.vscode
 			# codium
 			unstable.zed-editor

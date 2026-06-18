@@ -16,7 +16,7 @@
 			d-spy
 			hyperfine
 			unstable.github-copilot-cli
-			unstable.gemini-cli
+			unstable.antigravity-cli
 			unstable.claude-code
 		];
 		shellAliases = {
