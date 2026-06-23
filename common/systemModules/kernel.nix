@@ -14,4 +14,7 @@
 			enableNotifications = true;
 		};
 	};
+	hardware.enableAllFirmware = true;
+	hardware.enableRedistributableFirmware = true;
+	hardware.cpu.intel.updateMicrocode = true;
 }
