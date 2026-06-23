@@ -14,6 +14,7 @@
 		packages = with pkgs; [
 			perf
 			speedscope
+			inferno
 		];
 	};
 }
