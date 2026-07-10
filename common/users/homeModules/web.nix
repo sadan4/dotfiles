@@ -1,8 +1,4 @@
-{
-	pkgs,
-	stable,
-	...
-}: {
+{pkgs, ...}: {
 	imports = [
 		./unstable.nix
 	];
@@ -10,7 +6,9 @@
 		packages = with pkgs; [
 			firefox
 			vlc
-			unstable.brave
+			(unstable.brave.override {
+					commandLineArgs = "--ignore-gpu-blocklist";
+				})
 			unstable.ungoogled-chromium
 			unstable.microsoft-edge
 			unstable.ladybird
