@@ -71,6 +71,20 @@ in {
 			nix-direnv = {
 				enable = true;
 			};
+			# https://github.com/isabelroses/dotfiles/blob/27a3defc65a789f9c01e663f73e93de247454fc8/home/isabel/discord.nix
+			# store direnv in cache and not per project
+			# <https://github.com/direnv/direnv/wiki/Customizing-cache-location#hashed-directories>
+			stdlib = ''
+				: ''${XDG_CACHE_HOME:=$HOME/.cache}
+				declare -A direnv_layout_dirs
+
+				direnv_layout_dir() {
+				  echo "''${direnv_layout_dirs[$PWD]:=$(
+				    echo -n "$XDG_CACHE_HOME"/direnv/layouts/
+				    echo -n "$PWD" | sha1sum | cut -d ' ' -f 1
+				  )}"
+				}
+			'';
 		};
 		zoxide = {
 			enable = true;
