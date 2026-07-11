@@ -24,6 +24,7 @@
 			gdbgui
 			bear
 			glibc
+			conan
 			gdb
 			lldb
 			lld
