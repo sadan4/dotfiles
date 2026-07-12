@@ -18,6 +18,7 @@
 			unstable.github-copilot-cli
 			unstable.antigravity-cli
 			unstable.claude-code
+			unstable.opencode
 		];
 		shellAliases = {
 			cloc = "${pkgs.tokei}/bin/tokei";
