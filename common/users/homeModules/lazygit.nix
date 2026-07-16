@@ -28,6 +28,8 @@ in {
 				promptToReturnFromSubprocess = false;
 				git = {
 					localBranchSortOrder = "recency";
+					# we are using ssh, not gpg
+					overrideGpg = true;
 				};
 				gui = {
 					showRootItemInFileTree = false;
