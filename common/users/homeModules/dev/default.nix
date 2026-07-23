@@ -19,6 +19,7 @@
 			unstable.antigravity-cli
 			unstable.claude-code
 			unstable.opencode
+			unstable.opencode-desktop
 		];
 		shellAliases = {
 			cloc = "${pkgs.tokei}/bin/tokei";
