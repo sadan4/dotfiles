@@ -65,7 +65,9 @@ in {
 			node
 			vsce
 			esbuild
-			swc
+			# broken build
+			# https://github.com/bytecodealliance/rustix/issues/1620
+			# swc
 			terser
 			asar
 			# read electron crash dumps
