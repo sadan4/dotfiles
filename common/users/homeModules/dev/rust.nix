@@ -22,6 +22,7 @@ in {
 			openssl
 			# needed to use openssl
 			pkg-config
+			taplo
 		];
 	};
 	programs = {
