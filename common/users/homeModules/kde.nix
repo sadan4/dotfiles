@@ -16,7 +16,6 @@
 			kdePackages.kcolorchooser
 			qalculate-qt
 			gnome-disk-utility
-			kdePackages.plasma-browser-integration
 			xmacro
 			bitwarden-desktop
 		];
