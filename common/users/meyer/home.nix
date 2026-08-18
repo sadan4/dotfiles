@@ -11,7 +11,6 @@
 		../homeModules/dev/javascript.nix
 		../homeModules/dev/nix.nix
 		../homeModules/dev/cpp.nix
-		../homeModules/dev/go.nix
 		../homeModules/dev/jvm.nix
 		../homeModules/dev/python.nix
 		../homeModules/dev/vim.nix
