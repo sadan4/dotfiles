@@ -25,7 +25,6 @@
 		../homeModules/gaming.nix
 		../homeModules/git
 		../homeModules/kde.nix
-		../homeModules/hyprland.nix
 		../homeModules/networking.nix
 		../homeModules/nvim.nix
 		../homeModules/obsidian.nix
