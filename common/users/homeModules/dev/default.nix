@@ -15,7 +15,6 @@
 			man-pages
 			d-spy
 			hyperfine
-			unstable.antigravity-cli
 			unstable.claude-code
 			unstable.opencode
 			unstable.opencode-desktop
