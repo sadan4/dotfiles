@@ -12,7 +12,6 @@
 		# Include the results of the hardware scan.
 		./hardware-configuration.nix
 		../../common/systemModules/boot.nix
-		../../common/systemModules/folding.nix
 		../../common/systemModules/kernel.nix
 		../../common/systemModules/audio.nix
 		../../common/systemModules/kde.nix
