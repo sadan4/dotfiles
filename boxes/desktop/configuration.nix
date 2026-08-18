@@ -47,8 +47,9 @@
 	nixpkgs.config.allowUnfree = true;
 
 	services = {
-		teamviewer.enable = true;
-		usbmuxd.enable = true;
+		usbmuxd = {
+			enable = true;
+		};
 	};
 
 	programs.zsh.enable = true;

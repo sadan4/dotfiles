@@ -8,7 +8,6 @@
 			# parsec-bin
 			stable.protonvpn-gui
 			yaak
-			teamviewer
 			filezilla
 		];
 	};
