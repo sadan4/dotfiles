@@ -34,6 +34,15 @@ in {
 				gui = {
 					showRootItemInFileTree = false;
 					switchTabsWithPanelJumpKeys = true;
+					spinner = {
+						frames = [
+							"|"
+							"/"
+							"-"
+							"\\"
+						];
+						rate = 50;
+					};
 					theme = {
 						lightTheme = false;
 						activeBorderColor = [
