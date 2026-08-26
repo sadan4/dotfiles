@@ -61,7 +61,7 @@ in {
 			prettier
 			# random failing yarn test on unstable
 			# blocked from updating further to fix it by https://github.com/NixOS/nixpkgs/pull/500223
-			stable.corepack
+			unstable.corepack
 			node
 			vsce
 			esbuild
