@@ -23,11 +23,7 @@
 	home.username = "meyer";
 	home.homeDirectory = "/home/meyer";
 
-	home = {
-		packages = with pkgs; [
-			wslu
-		];
-	};
+	# FIXME: re-add wslu for clipboard utils. easy enough to re-iplement
 	programs = {
 		zsh = {
 			# fix windows dirs beinng flashbangs

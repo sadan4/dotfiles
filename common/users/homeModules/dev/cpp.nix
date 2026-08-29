@@ -28,7 +28,8 @@
 			gdb
 			lldb
 			lld
-			cpkg.ceserver
+			# FIXME: disabled because it doesn't build on aarch64-linux
+			# cpkg.ceserver
 			clang-tools
 			# for llvm-symbolizer
 			llvmPackages.libllvm
