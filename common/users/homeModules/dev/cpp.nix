@@ -1,5 +1,6 @@
 {
 	pkgs,
+	lib,
 	inputs,
 	...
 }: {
@@ -36,6 +37,8 @@
 			inputs.nix-cppman.packages.${pkgs.stdenv.hostPlatform.system}.default
 			# perf GUI
 			hotspot
+			# conflict with binutils, lower prio
+			(lib.setPrio 15 gcc)
 		];
 		file = {
 			eslint_d_config = {
