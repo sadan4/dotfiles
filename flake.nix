@@ -209,7 +209,7 @@
 								)
 								./boxes/wsl/configuration.nix
 								inputs.home-manager.nixosModules.default
-								nixos-wsl.nixosModules.wsl
+								nixos-wsl.nixosModules.default
 							];
 						};
 					wsl-desktop-evo4b5 =
