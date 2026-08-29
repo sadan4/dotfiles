@@ -189,7 +189,7 @@
 									inputs
 									// {
 										inherit nixpkgs;
-										home-manager = inputs.home-manager-stable;
+										home-manager-unstable = inputs.home-manager-unstable;
 									};
 								unstable =
 									import nixpkgs-unstable {
@@ -208,7 +208,7 @@
 									}
 								)
 								./boxes/wsl/configuration.nix
-								inputs.home-manager-stable.nixosModules.default
+								inputs.home-manager.nixosModules.default
 								nixos-wsl.nixosModules.wsl
 							];
 						};
