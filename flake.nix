@@ -20,8 +20,12 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		stylix = {
-			url = "github:danth/stylix";
+			url = "github:danth/stylix/release-26.05";
 			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		stylix-unstable = {
+			url = "github:danth/stylix";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		home-manager = {
 			url = "github:nix-community/home-manager/release-26.05";
@@ -122,6 +126,7 @@
 								)
 								./boxes/serverpc/configuration.nix
 								inputs.home-manager-unstable.nixosModules.default
+								inputs.stylix-unstable.nixosModules.stylix
 							];
 						};
 					desktopIso =
@@ -176,6 +181,7 @@
 								)
 								./boxes/desktop/configuration.nix
 								inputs.home-manager-unstable.nixosModules.default
+								inputs.stylix-unstable.nixosModules.stylix
 								inputs.nix-index-database.nixosModules.nix-index
 								{programs.nix-index-database.comma.enable = true;}
 							];
@@ -209,6 +215,7 @@
 								)
 								./boxes/wsl/configuration.nix
 								inputs.home-manager.nixosModules.default
+								inputs.stylix.nixosModules.stylix
 								nixos-wsl.nixosModules.default
 							];
 						};

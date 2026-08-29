@@ -1,8 +1,4 @@
-{
-	inputs,
-	pkgs,
-	...
-}: let
+{pkgs, ...}: let
 	oldPkgs =
 		import
 		(builtins.fetchTarball {
@@ -14,9 +10,6 @@
 		};
 	inherit (oldPkgs) nerdfonts;
 in {
-	imports = [
-		inputs.stylix.nixosModules.stylix
-	];
 	environment = {
 		systemPackages = [
 			nerdfonts
