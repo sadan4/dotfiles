@@ -184,7 +184,7 @@
 						nixpkgs.lib.nixosSystem rec {
 							system = "aarch64-linux";
 							specialArgs = {
-								isWsl = false;
+								isWsl = true;
 								inputs =
 									inputs
 									// {
