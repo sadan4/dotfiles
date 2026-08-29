@@ -10,15 +10,7 @@ in {
 	];
 	home = {
 		packages = with pkgs.unstable.jetbrains; [
-			(clion.overrideAttrs (
-					_: _: {
-						inherit version;
-						src =
-							pkgs.fetchurl {
-								inherit url sha256;
-							};
-					}
-				))
+			clion
 		];
 	};
 }
