@@ -1,9 +1,12 @@
 {pkgs, ...}: {
+	imports = [
+		../stable.nix
+	];
 	home = {
 		packages = with pkgs; [
 			shotcut
 			pinta
-			krita
+			stable.krita
 			gimp
 			inkscape
 			obs-studio
