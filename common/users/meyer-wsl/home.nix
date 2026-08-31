@@ -10,6 +10,7 @@
 		../homeModules/utils.nix
 		../homeModules/dev
 		../homeModules/dev/cpp.nix
+		../homeModules/dev/rust.nix
 		../homeModules/dev/javascript.nix
 		../homeModules/dev/nix.nix
 		../homeModules/dev/python.nix
