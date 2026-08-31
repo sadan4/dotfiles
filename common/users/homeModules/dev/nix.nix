@@ -4,6 +4,7 @@
 			# formatter
 			alejandra
 			nixd
+			nix-output-monitor
 		];
 	};
 }
