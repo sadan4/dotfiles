@@ -1,8 +1,10 @@
 {
 	pkgs,
+	inputs,
 	config,
 	...
 }: let
+	inherit (pkgs) system;
 	# use unstable nodejs because of nodejs/node#60580
 	node = pkgs.unstable.nodejs_26;
 	pnpm = pkgs.unstable.pnpm;
@@ -93,6 +95,8 @@ in {
 			nodemon
 			webpack-cli
 			binaryen
+			# javascript **pretty printer** i wrote
+			inputs.saladware.packages.${system}.pretty-printer
 		];
 	};
 }

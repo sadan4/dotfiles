@@ -751,6 +751,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager",
+        "saladware": "saladware",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "stylix-unstable": "stylix-unstable",
@@ -772,6 +773,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "saladware": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788151953,
+        "narHash": "sha256-kyoMGlTd+m2vokDOVC9Hg1+6GJpxjl2IGE/V4BAusG8=",
+        "owner": "sadan4",
+        "repo": "sadan.zip",
+        "rev": "ae94724de4021a8563e689768797713a0de3a512",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sadan4",
+        "repo": "sadan.zip",
         "type": "github"
       }
     },

@@ -2,6 +2,10 @@
 	description = "Nixos config flake";
 
 	inputs = {
+		saladware = {
+			url = "github:sadan4/sadan.zip";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		tf2-rpc = {
 			url = "git+https://codeberg.org/paige/tf2-rpc";
 			inputs.nixpkgs.follows = "nixpkgs";
