@@ -52,9 +52,14 @@ in {
 			zsh-syntax-highlighting
 			asciinema
 			asciinema-agg
+			fd
+			eza
 		];
 		sessionVariables = {
 			POWERSHELL_PATH = "${pkgs.powershell}/bin/pwsh";
+		};
+		shellAliases = {
+			"ls" = "eza";
 		};
 		file = {
 			p10k = {
