@@ -4,7 +4,7 @@
 	inputs = {
 		saladware = {
 			url = "github:sadan4/sadan.zip";
-			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		tf2-rpc = {
 			url = "git+https://codeberg.org/paige/tf2-rpc";
