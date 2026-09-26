@@ -7,7 +7,7 @@
 			(bottles.override {
 					removeWarningPopup = true;
 				})
-			virt-manager
+			stable.virt-manager
 			stable.qemu_full
 		];
 	};
