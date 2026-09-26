@@ -8,7 +8,7 @@
 			pinta
 			stable.krita
 			gimp
-			inkscape
+			stable.inkscape
 			obs-studio
 			peek
 			screenkey
