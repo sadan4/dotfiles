@@ -34,7 +34,12 @@
 					signingkey = "~/.ssh/id_ed25519";
 				};
 				commit = {
+					# yes, commit is `gpgsign` and tag is `gpgSign`
 					gpgsign = true;
+				};
+				tag = {
+					# yes, commit is `gpgsign` and tag is `gpgSign`
+					gpgSign = true;
 				};
 				core = {
 					autocrlf = "input";
