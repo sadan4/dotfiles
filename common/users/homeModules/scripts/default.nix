@@ -28,15 +28,16 @@
 			destination = "/bin/${name}";
 			inherit text;
 		};
-	paste =
-		mkScript {
-			name = "paste";
-			file = ./paste.sh;
-			env = with pkgs; [
-				coreutils
-				xsel
-			];
-		};
+	mkPaste = name: mkScript {
+		inherit name;
+		file = ./paste.sh;
+		env = with pkgs; [
+			coreutils
+			xsel
+		];
+	};
+	paste = mkPaste "paste";
+	paste2 = mkPaste "paste2";
 	copy =
 		mkScript {
 			name = "copy";
@@ -52,6 +53,8 @@ in {
 	home = {
 		packages = [
 			paste
+			# for use in places where `paste` is shadowed by coreutils paste
+			paste2
 			copy
 			# env for clipboard command will be required by their respective environemnts
 			(mkScript {
