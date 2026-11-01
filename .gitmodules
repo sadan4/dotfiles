@@ -7,3 +7,6 @@
 [submodule "dotfiles/direnvTemplate"]
 	path = dotfiles/direnvTemplate
 	url = git@github.com:sadan4/direnvTemplate
+[submodule "split-monitor-workspaces"]
+	path = dotfiles/hypr2/plugins/split-monitor-workspaces
+	url = git@github.com:zjeffer/split-monitor-workspaces.git

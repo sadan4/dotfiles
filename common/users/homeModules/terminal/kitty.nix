@@ -23,16 +23,16 @@
 				compdef _kitty kitten
 			'';
 		};
-		plasma = {
-			hotkeys = {
-				commands = {
-					"kitty" = {
-						name = "kitty";
-						key = "Alt+Shift+Return";
-						command = "kitty";
-					};
-				};
-			};
-		};
+#   	plasma = {
+#   		hotkeys = {
+#   			commands = {
+#   				"kitty" = {
+#   					name = "kitty";
+#   					key = "Alt+Shift+Return";
+#   					command = "kitty";
+#   				};
+#   			};
+#   		};
+#   	};
 	};
 }

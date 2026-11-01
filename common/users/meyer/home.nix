@@ -19,11 +19,11 @@
 		../homeModules/scripts
 		../homeModules/audio.nix
 		../homeModules/etcher.nix
-		../homeModules/flameshot.nix
+		# ../homeModules/flameshot.nix
 		../homeModules/frog.nix
 		../homeModules/gaming.nix
 		../homeModules/git
-		../homeModules/kde.nix
+		../homeModules/hyprland.nix
 		../homeModules/networking.nix
 		../homeModules/nvim.nix
 		../homeModules/obsidian.nix

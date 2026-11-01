@@ -55,6 +55,10 @@
 			url = "github:sadan4/ceserver";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		caelestia-shell = {
+			url = "github:sadan4/shell";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
+		};
 		flake-parts.url = "github:hercules-ci/flake-parts";
 		nix-cppman = {
 			url = "github:sadan4/cppman";

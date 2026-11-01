@@ -12,16 +12,16 @@
 		];
 	};
 	programs = {
-		plasma = {
-			hotkeys = {
-				commands = {
-					"ocr" = {
-						name = "OCR";
-						key = "Meta+Shift+T";
-						command = "frog -e";
-					};
-				};
-			};
-		};
+#   	plasma = {
+#   		hotkeys = {
+#   			commands = {
+#   				"ocr" = {
+#   					name = "OCR";
+#   					key = "Meta+Shift+T";
+#   					command = "frog -e";
+#   				};
+#   			};
+#   		};
+#   	};
 	};
 }

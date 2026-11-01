@@ -12,16 +12,16 @@
 		};
 	};
 	programs = {
-		plasma = {
-			hotkeys = {
-				commands = {
-					"rofi" = {
-						name = "rofi";
-						key = "Alt+P";
-						command = "rofi -show drun";
-					};
-				};
-			};
-		};
+#   	plasma = {
+#   		hotkeys = {
+#   			commands = {
+#   				"rofi" = {
+#   					name = "rofi";
+#   					key = "Alt+P";
+#   					command = "rofi -show drun";
+#   				};
+#   			};
+#   		};
+#   	};
 	};
 }

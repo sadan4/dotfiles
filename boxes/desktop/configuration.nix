@@ -14,7 +14,7 @@
 		../../common/systemModules/boot.nix
 		../../common/systemModules/kernel.nix
 		../../common/systemModules/audio.nix
-		../../common/systemModules/kde.nix
+		../../common/systemModules/hyprland.nix
 		../../common/systemModules/tailscale.nix
 		../../common/systemModules/gaming.nix
 		../../common/systemModules/crypt.nix
