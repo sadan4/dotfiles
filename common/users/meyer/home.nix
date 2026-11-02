@@ -20,7 +20,7 @@
 		../homeModules/audio.nix
 		../homeModules/etcher.nix
 		# ../homeModules/flameshot.nix
-		../homeModules/frog.nix
+		# ../homeModules/frog.nix
 		../homeModules/gaming.nix
 		../homeModules/git
 		../homeModules/hyprland.nix

@@ -16,7 +16,8 @@ in {
 			unstable.cargo-insta
 			unstable.cargo-nextest
 			unstable.cargo-shear
-			unstable.cargo-llvm-cov
+			# causing build errors
+			# unstable.cargo-llvm-cov
 			unstable.cargo-llvm-lines
 			(unstable.cargo-flamegraph.override {inherit perf;})
 			openssl

@@ -20,7 +20,7 @@
 			unzip
 			unrar
 			# for pcregrep
-			pcre.bin
+			pcre2.bin
 			# GUI version is in kde.nix
 			libqalculate
 			patchelf
