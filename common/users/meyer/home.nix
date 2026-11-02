@@ -6,7 +6,7 @@
 		../homeModules/utils.nix
 		../homeModules/dev
 		../homeModules/dev/ide
-		../homeModules/dev/ide/reverseEng.nix
+		# ../homeModules/dev/ide/reverseEng.nix
 		../homeModules/dev/ide/jb/idea.nix
 		../homeModules/dev/javascript.nix
 		../homeModules/dev/nix.nix

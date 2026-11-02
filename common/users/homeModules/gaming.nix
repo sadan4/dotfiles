@@ -34,9 +34,8 @@ in {
 			(prismlauncher.override {
 					jdks = [
 						jdk8
-						jdk17
 						jdk25
-						jdk
+						jdk21
 					];
 				})
 			# needed for prism launcher dialogs

@@ -15,7 +15,7 @@ in {
 		../../../../customPackages
 		../unstable.nix
 		../stable.nix
-		./ide/jb/webstorm.nix
+		# ./ide/jb/webstorm.nix
 	];
 	programs = {
 		zsh = let
@@ -36,7 +36,6 @@ in {
 	};
 	home = {
 		shellAliases = {
-			webpack = "webpack-cli";
 			eslintd = "eslint_d";
 		};
 		sessionVariables = {
@@ -93,7 +92,6 @@ in {
 							};
 					}))
 			nodemon
-			webpack-cli
 			binaryen
 			# javascript **pretty printer** i wrote
 			inputs.saladware.packages.${system}.pretty-printer

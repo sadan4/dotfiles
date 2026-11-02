@@ -8,8 +8,6 @@ in {
 	];
 	home = {
 		packages = with pkgs; [
-			legcord
-			element-desktop
 			signal-desktop
 			unstable.vesktop
 			unstable.equibop

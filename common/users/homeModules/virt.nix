@@ -8,7 +8,8 @@
 					removeWarningPopup = true;
 				})
 			stable.virt-manager
-			stable.qemu_full
+			# qemu is pulled in from virt.nix
+			# stable.qemu_full
 		];
 	};
 }

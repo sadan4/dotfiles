@@ -10,7 +10,7 @@
 					commandLineArgs = "--ignore-gpu-blocklist";
 				})
 			unstable.ungoogled-chromium
-			unstable.microsoft-edge
+			# unstable.microsoft-edge
 		];
 	};
 }

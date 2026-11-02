@@ -8,7 +8,7 @@ in {
 	];
 	home = {
 		packages = with pkgs; [
-			aoc-cli
+			# aoc-cli
 			rustup
 			slint-lsp
 			unstable.cargo-watch
